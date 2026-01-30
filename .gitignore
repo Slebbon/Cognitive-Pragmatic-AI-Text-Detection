@@ -209,8 +209,12 @@ __marimo__/
 #mocks
 create_mock*.py
 mock_*
+output*
 
 #models
 MATRES*
 StructTemp*
 temporal_models*
+
+#lexicons
+jsons*
