@@ -1,7 +1,7 @@
 # Cognitively-Grounded AI Text Detection
 
 This repository accompanies a master’s thesis on **AI-generated text detection**, proposing a cognitively and pragmatically grounded approach to intrinsic detection.  
-The work operationalises linguistic, cognitive, and discourse-level theories into computational features and evaluates their contribution beyond traditional stylometric baselines.
+The work operationalises linguistic, cognitive, and discourse-level theories into computational features.
 
 The project focuses on **interpretability** and **feature-level analysis** rather than end-to-end black-box detection alone.
 
@@ -12,7 +12,7 @@ The project focuses on **interpretability** and **feature-level analysis** rathe
 The main goals of this project are:
 
 - To design a feature extraction pipeline grounded in linguistic, cognitive, and pragmatic theory
-- To evaluate the discriminative power of these features for AI-text detection
+- To evaluate the eventual discriminative power of these features for AI-text detection
 - To analyse feature complementarity via ablation and incremental integration
 - To preserve interpretability by using decomposable, feature-based models
 
