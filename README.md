@@ -15,7 +15,7 @@ The main goals of this project are:
 - To evaluate the discriminative power of these features for AI-text detection
 - To analyse feature complementarity via ablation and incremental integration
 - To preserve interpretability by using decomposable, feature-based models
--
+
 
 ---
 
