@@ -226,3 +226,6 @@ data*
 runner.py
 results*
 example_*
+
+#checkpoints
+checkpoints*
