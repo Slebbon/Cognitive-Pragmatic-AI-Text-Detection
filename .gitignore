@@ -218,3 +218,11 @@ temporal_models*
 
 #lexicons
 jsons*
+
+#data
+data*
+
+#logs
+runner.py
+results*
+example_*
