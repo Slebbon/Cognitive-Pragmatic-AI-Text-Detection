@@ -217,7 +217,7 @@ StructTemp*
 temporal_models*
 
 #lexicons
-jsons*
+#jsons*
 
 #data
 data*

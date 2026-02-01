@@ -1,0 +1,1537 @@
+{
+  "_metadata": {
+    "name": "Hedge Markers Lexicon (Enriched)",
+    "version": "2.0",
+    "original_items": 152,
+    "enriched_items": 215,
+    "sources": [
+      "Farkas et al. (2010) - BioScope Corpus, CoNLL-2010 Shared Task",
+      "Hyland (1998) - Hedging in Scientific Research Articles",
+      "Kilicoglu & Bergler (2008, 2010) - Speculative Language Recognition",
+      "Wilson et al. (2005) - MPQA Subjectivity Lexicon",
+      "Vincze et al. (2008) - BioScope Gold Standard IAA scores",
+      "Szarvas et al. (2012) - Cross-domain Uncertainty Categorization"
+    ],
+    "description": "Validated hedge markers with scope patterns, syntactic constraints, and uncertainty typology",
+    "certainty_scale": "0.0-1.0. Hedges typically 0.2-0.7",
+    "iaa_notes": "BioScope hedge keyword detection: 84.01% (clinical), 79.12% (abstracts), 77.60% (full papers)",
+    "new_annotations": [
+      "uncertainty_type: epistemic vs hypothetical (Szarvas et al.)",
+      "kilicoglu_weight: speculative strength from weighted classification",
+      "scope_pattern: syntactic scope detection patterns",
+      "subjectivity_strength: strongsubj vs weaksubj (MPQA)",
+      "biosocpe_frequency: % of sentences containing hedge in biomedical texts (13-22%)"
+    ]
+  },
+  "modal_verbs": {
+    "may": {
+      "certainty": 0.3,
+      "pos": [
+        "VERB",
+        "AUX"
+      ],
+      "category": "modal",
+      "uncertainty_type": "epistemic",
+      "kilicoglu_weight": 0.75,
+      "subjectivity": "weaksubj",
+      "scope_pattern": "modal + VP",
+      "context_dependency": "high",
+      "biosope_validated": true,
+      "note": "Context-dependent: epistemic vs deontic. Most common hedge in biomedical writing",
+      "source": "BioScope+Kilicoglu"
+    },
+    "might": {
+      "certainty": 0.25,
+      "pos": [
+        "VERB",
+        "AUX"
+      ],
+      "category": "modal",
+      "uncertainty_type": "epistemic",
+      "kilicoglu_weight": 0.7,
+      "subjectivity": "weaksubj",
+      "scope_pattern": "modal + VP",
+      "context_dependency": "medium",
+      "biosope_validated": true,
+      "source": "BioScope+Kilicoglu"
+    },
+    "could": {
+      "certainty": 0.3,
+      "pos": [
+        "VERB",
+        "AUX"
+      ],
+      "category": "modal",
+      "uncertainty_type": "epistemic",
+      "kilicoglu_weight": 0.75,
+      "subjectivity": "weaksubj",
+      "scope_pattern": "modal + VP",
+      "context_dependency": "high",
+      "biosope_validated": true,
+      "note": "Context-dependent: epistemic vs dynamic ability vs deontic",
+      "source": "BioScope+Kilicoglu"
+    },
+    "would": {
+      "certainty": 0.35,
+      "pos": [
+        "VERB",
+        "AUX"
+      ],
+      "category": "modal",
+      "uncertainty_type": "hypothetical",
+      "kilicoglu_weight": 0.65,
+      "subjectivity": "weaksubj",
+      "scope_pattern": "modal + VP (often in conditional)",
+      "context_dependency": "high",
+      "biosope_validated": true,
+      "note": "Often conditional or hypothetical rather than epistemic",
+      "source": "BioScope+Szarvas"
+    },
+    "should": {
+      "certainty": 0.6,
+      "pos": [
+        "VERB",
+        "AUX"
+      ],
+      "category": "modal",
+      "uncertainty_type": "epistemic",
+      "kilicoglu_weight": 0.55,
+      "subjectivity": "weaksubj",
+      "scope_pattern": "modal + VP",
+      "context_dependency": "high",
+      "biosope_validated": true,
+      "note": "Medium certainty, expectation. Often deontic (obligation) rather than epistemic",
+      "source": "BioScope+Hyland"
+    },
+    "can": {
+      "certainty": 0.4,
+      "pos": [
+        "VERB",
+        "AUX"
+      ],
+      "category": "modal",
+      "uncertainty_type": "epistemic",
+      "kilicoglu_weight": 0.6,
+      "subjectivity": "weaksubj",
+      "scope_pattern": "modal + VP",
+      "context_dependency": "high",
+      "biosope_validated": true,
+      "note": "Primarily dynamic ability, but epistemic in some contexts",
+      "source": "BioScope+Kilicoglu"
+    }
+  },
+  "epistemic_adverbs": {
+    "possibly": {
+      "certainty": 0.25,
+      "pos": [
+        "ADV"
+      ],
+      "category": "epistemic_adverb",
+      "uncertainty_type": "epistemic",
+      "kilicoglu_weight": 0.7,
+      "subjectivity": "weaksubj",
+      "scope_pattern": "sentence-level or VP modifier",
+      "context_dependency": "low",
+      "biosope_validated": true,
+      "source": "BioScope+Kilicoglu"
+    },
+    "perhaps": {
+      "certainty": 0.25,
+      "pos": [
+        "ADV"
+      ],
+      "category": "epistemic_adverb",
+      "uncertainty_type": "epistemic",
+      "kilicoglu_weight": 0.7,
+      "subjectivity": "weaksubj",
+      "scope_pattern": "sentence-level or VP modifier",
+      "context_dependency": "low",
+      "biosope_validated": true,
+      "source": "BioScope+Kilicoglu"
+    },
+    "probably": {
+      "certainty": 0.6,
+      "pos": [
+        "ADV"
+      ],
+      "category": "epistemic_adverb",
+      "uncertainty_type": "epistemic",
+      "kilicoglu_weight": 0.5,
+      "subjectivity": "weaksubj",
+      "scope_pattern": "sentence-level or VP modifier",
+      "context_dependency": "low",
+      "biosope_validated": true,
+      "source": "BioScope+Kilicoglu"
+    },
+    "likely": {
+      "certainty": 0.65,
+      "pos": [
+        "ADJ",
+        "ADV"
+      ],
+      "category": "epistemic_adverb",
+      "uncertainty_type": "epistemic",
+      "kilicoglu_weight": 0.45,
+      "subjectivity": "weaksubj",
+      "scope_pattern": "sentence-level or copular complement",
+      "context_dependency": "low",
+      "biosope_validated": true,
+      "source": "BioScope+Kilicoglu"
+    },
+    "presumably": {
+      "certainty": 0.55,
+      "pos": [
+        "ADV"
+      ],
+      "category": "epistemic_adverb",
+      "uncertainty_type": "epistemic",
+      "kilicoglu_weight": 0.55,
+      "subjectivity": "weaksubj",
+      "scope_pattern": "sentence-level modifier",
+      "context_dependency": "low",
+      "biosope_validated": true,
+      "source": "BioScope+Kilicoglu"
+    },
+    "apparently": {
+      "certainty": 0.5,
+      "pos": [
+        "ADV"
+      ],
+      "category": "epistemic_adverb",
+      "uncertainty_type": "epistemic",
+      "kilicoglu_weight": 0.6,
+      "subjectivity": "weaksubj",
+      "scope_pattern": "sentence-level modifier",
+      "context_dependency": "medium",
+      "biosope_validated": true,
+      "note": "Evidential - based on appearance/evidence",
+      "source": "BioScope+Kilicoglu"
+    },
+    "seemingly": {
+      "certainty": 0.45,
+      "pos": [
+        "ADV"
+      ],
+      "category": "epistemic_adverb",
+      "uncertainty_type": "epistemic",
+      "kilicoglu_weight": 0.65,
+      "subjectivity": "weaksubj",
+      "scope_pattern": "sentence-level modifier",
+      "context_dependency": "medium",
+      "biosope_validated": false,
+      "note": "Evidential - based on appearance",
+      "source": "Hyland+MPQA"
+    },
+    "conceivably": {
+      "certainty": 0.2,
+      "pos": [
+        "ADV"
+      ],
+      "category": "epistemic_adverb",
+      "uncertainty_type": "epistemic",
+      "kilicoglu_weight": 0.8,
+      "subjectivity": "weaksubj",
+      "scope_pattern": "sentence-level modifier",
+      "context_dependency": "low",
+      "biosope_validated": false,
+      "source": "Kilicoglu"
+    }
+  },
+  "approximators": {
+    "generally": {
+      "certainty": 0.55,
+      "pos": [
+        "ADV"
+      ],
+      "category": "generalization",
+      "uncertainty_type": "epistemic",
+      "subjectivity": "weaksubj",
+      "scope_pattern": "sentence-level modifier",
+      "context_dependency": "low",
+      "biosope_validated": true,
+      "note": "Indicates exceptions exist",
+      "source": "BioScope+Hyland"
+    },
+    "usually": {
+      "certainty": 0.6,
+      "pos": [
+        "ADV"
+      ],
+      "category": "generalization",
+      "uncertainty_type": "epistemic",
+      "subjectivity": "weaksubj",
+      "scope_pattern": "sentence-level modifier",
+      "context_dependency": "low",
+      "biosope_validated": true,
+      "source": "BioScope+Hyland"
+    },
+    "often": {
+      "certainty": 0.55,
+      "pos": [
+        "ADV"
+      ],
+      "category": "generalization",
+      "uncertainty_type": "epistemic",
+      "subjectivity": "weaksubj",
+      "scope_pattern": "VP modifier",
+      "context_dependency": "low",
+      "biosope_validated": true,
+      "source": "BioScope+Hyland"
+    },
+    "sometimes": {
+      "certainty": 0.4,
+      "pos": [
+        "ADV"
+      ],
+      "category": "generalization",
+      "uncertainty_type": "epistemic",
+      "subjectivity": "weaksubj",
+      "scope_pattern": "VP modifier",
+      "context_dependency": "low",
+      "biosope_validated": true,
+      "source": "BioScope+Hyland"
+    },
+    "occasionally": {
+      "certainty": 0.35,
+      "pos": [
+        "ADV"
+      ],
+      "category": "generalization",
+      "uncertainty_type": "epistemic",
+      "subjectivity": "weaksubj",
+      "scope_pattern": "VP modifier",
+      "context_dependency": "low",
+      "biosope_validated": false,
+      "source": "Hyland+MPQA"
+    },
+    "typically": {
+      "certainty": 0.6,
+      "pos": [
+        "ADV"
+      ],
+      "category": "generalization",
+      "uncertainty_type": "epistemic",
+      "subjectivity": "weaksubj",
+      "scope_pattern": "sentence-level modifier",
+      "context_dependency": "low",
+      "biosope_validated": false,
+      "source": "Hyland"
+    },
+    "roughly": {
+      "certainty": 0.5,
+      "pos": [
+        "ADV"
+      ],
+      "category": "approximator",
+      "uncertainty_type": "epistemic",
+      "subjectivity": "weaksubj",
+      "scope_pattern": "NP modifier (numerical)",
+      "context_dependency": "low",
+      "biosope_validated": true,
+      "source": "BioScope+Hyland"
+    },
+    "approximately": {
+      "certainty": 0.55,
+      "pos": [
+        "ADV"
+      ],
+      "category": "approximator",
+      "uncertainty_type": "epistemic",
+      "subjectivity": "weaksubj",
+      "scope_pattern": "NP modifier (numerical)",
+      "context_dependency": "low",
+      "biosope_validated": true,
+      "source": "BioScope+Hyland"
+    },
+    "about": {
+      "certainty": 0.5,
+      "pos": [
+        "ADV",
+        "ADP"
+      ],
+      "category": "approximator",
+      "uncertainty_type": "epistemic",
+      "subjectivity": "weaksubj",
+      "scope_pattern": "NP modifier (numerical)",
+      "context_dependency": "high",
+      "biosope_validated": true,
+      "note": "Only when used as approximator, not preposition",
+      "source": "BioScope+Hyland"
+    },
+    "around": {
+      "certainty": 0.5,
+      "pos": [
+        "ADV",
+        "ADP"
+      ],
+      "category": "approximator",
+      "uncertainty_type": "epistemic",
+      "subjectivity": "weaksubj",
+      "scope_pattern": "NP modifier (numerical)",
+      "context_dependency": "high",
+      "biosope_validated": true,
+      "note": "Numerical approximation context",
+      "source": "BioScope+Hyland"
+    },
+    "nearly": {
+      "certainty": 0.7,
+      "pos": [
+        "ADV"
+      ],
+      "category": "approximator",
+      "uncertainty_type": "epistemic",
+      "subjectivity": "weaksubj",
+      "scope_pattern": "NP/VP modifier",
+      "context_dependency": "low",
+      "biosope_validated": false,
+      "source": "Hyland+MPQA"
+    },
+    "almost": {
+      "certainty": 0.75,
+      "pos": [
+        "ADV"
+      ],
+      "category": "approximator",
+      "uncertainty_type": "epistemic",
+      "subjectivity": "weaksubj",
+      "scope_pattern": "NP/VP modifier",
+      "context_dependency": "low",
+      "biosope_validated": false,
+      "source": "Hyland+MPQA"
+    },
+    "quite": {
+      "certainty": 0.55,
+      "pos": [
+        "ADV"
+      ],
+      "category": "downtoner",
+      "uncertainty_type": "epistemic",
+      "subjectivity": "weaksubj",
+      "scope_pattern": "quite [ADJ/ADV]",
+      "context_dependency": "medium",
+      "biosope_validated": false,
+      "note": "Can function as intensifier or hedge depending on context",
+      "source": "Hyland1998"
+    },
+    "fairly": {
+      "certainty": 0.55,
+      "pos": [
+        "ADV"
+      ],
+      "category": "downtoner",
+      "uncertainty_type": "epistemic",
+      "subjectivity": "weaksubj",
+      "scope_pattern": "fairly [ADJ/ADV]",
+      "context_dependency": "low",
+      "biosope_validated": false,
+      "note": "Moderates degree of property",
+      "source": "Hyland1998"
+    },
+    "rather": {
+      "certainty": 0.55,
+      "pos": [
+        "ADV"
+      ],
+      "category": "downtoner",
+      "uncertainty_type": "epistemic",
+      "subjectivity": "weaksubj",
+      "scope_pattern": "rather [ADJ/ADV]",
+      "context_dependency": "medium",
+      "biosope_validated": false,
+      "note": "Context-dependent: can be downtoner or intensifier",
+      "source": "Hyland1998"
+    },
+    "somewhat": {
+      "certainty": 0.5,
+      "pos": [
+        "ADV"
+      ],
+      "category": "downtoner",
+      "uncertainty_type": "epistemic",
+      "subjectivity": "weaksubj",
+      "scope_pattern": "somewhat [ADJ/ADV]",
+      "context_dependency": "low",
+      "biosope_validated": false,
+      "source": "Hyland1998"
+    }
+  },
+  "epistemic_adjectives": {
+    "possible": {
+      "certainty": 0.3,
+      "pos": [
+        "ADJ"
+      ],
+      "category": "epistemic_adjective",
+      "uncertainty_type": "epistemic",
+      "kilicoglu_weight": 0.75,
+      "subjectivity": "weaksubj",
+      "scope_pattern": "copular complement or attributive",
+      "context_dependency": "medium",
+      "biosope_validated": true,
+      "source": "BioScope+Kilicoglu"
+    },
+    "probable": {
+      "certainty": 0.6,
+      "pos": [
+        "ADJ"
+      ],
+      "category": "epistemic_adjective",
+      "uncertainty_type": "epistemic",
+      "kilicoglu_weight": 0.5,
+      "subjectivity": "weaksubj",
+      "scope_pattern": "copular complement",
+      "context_dependency": "low",
+      "biosope_validated": true,
+      "source": "BioScope+Kilicoglu"
+    },
+    "likely": {
+      "certainty": 0.65,
+      "pos": [
+        "ADJ"
+      ],
+      "category": "epistemic_adjective",
+      "uncertainty_type": "epistemic",
+      "kilicoglu_weight": 0.45,
+      "subjectivity": "weaksubj",
+      "scope_pattern": "copular complement",
+      "context_dependency": "low",
+      "biosope_validated": true,
+      "source": "BioScope+Kilicoglu"
+    },
+    "unlikely": {
+      "certainty": 0.25,
+      "pos": [
+        "ADJ"
+      ],
+      "category": "epistemic_adjective",
+      "uncertainty_type": "epistemic",
+      "kilicoglu_weight": 0.7,
+      "subjectivity": "weaksubj",
+      "scope_pattern": "copular complement",
+      "context_dependency": "low",
+      "biosope_validated": true,
+      "source": "BioScope+Kilicoglu"
+    },
+    "potential": {
+      "certainty": 0.35,
+      "pos": [
+        "ADJ"
+      ],
+      "category": "epistemic_adjective",
+      "uncertainty_type": "epistemic",
+      "kilicoglu_weight": 0.7,
+      "subjectivity": "weaksubj",
+      "scope_pattern": "attributive (modifies NP)",
+      "context_dependency": "medium",
+      "biosope_validated": true,
+      "source": "BioScope+Kilicoglu"
+    },
+    "uncertain": {
+      "certainty": 0.3,
+      "pos": [
+        "ADJ"
+      ],
+      "category": "epistemic_adjective",
+      "uncertainty_type": "epistemic",
+      "kilicoglu_weight": 0.75,
+      "subjectivity": "strongsubj",
+      "scope_pattern": "copular complement or attributive",
+      "context_dependency": "low",
+      "biosope_validated": true,
+      "source": "BioScope+Kilicoglu"
+    },
+    "unclear": {
+      "certainty": 0.3,
+      "pos": [
+        "ADJ"
+      ],
+      "category": "epistemic_adjective",
+      "uncertainty_type": "epistemic",
+      "kilicoglu_weight": 0.75,
+      "subjectivity": "strongsubj",
+      "scope_pattern": "copular complement",
+      "context_dependency": "low",
+      "biosope_validated": false,
+      "source": "Hyland+MPQA"
+    },
+    "apparent": {
+      "certainty": 0.5,
+      "pos": [
+        "ADJ"
+      ],
+      "category": "epistemic_adjective",
+      "uncertainty_type": "epistemic",
+      "kilicoglu_weight": 0.6,
+      "subjectivity": "weaksubj",
+      "scope_pattern": "copular complement or attributive",
+      "context_dependency": "medium",
+      "biosope_validated": true,
+      "note": "Evidential marker",
+      "source": "BioScope+Kilicoglu"
+    },
+    "putative": {
+      "certainty": 0.35,
+      "pos": [
+        "ADJ"
+      ],
+      "category": "epistemic_adjective",
+      "uncertainty_type": "epistemic",
+      "kilicoglu_weight": 0.7,
+      "subjectivity": "weaksubj",
+      "scope_pattern": "attributive (modifies NP)",
+      "context_dependency": "low",
+      "biosope_validated": true,
+      "note": "Common in biomedical writing for unconfirmed entities",
+      "source": "BioScope+Kilicoglu"
+    },
+    "presumed": {
+      "certainty": 0.5,
+      "pos": [
+        "ADJ"
+      ],
+      "category": "epistemic_adjective",
+      "uncertainty_type": "epistemic",
+      "kilicoglu_weight": 0.55,
+      "subjectivity": "weaksubj",
+      "scope_pattern": "attributive (modifies NP)",
+      "context_dependency": "low",
+      "biosope_validated": true,
+      "source": "BioScope+Kilicoglu"
+    },
+    "alleged": {
+      "certainty": 0.4,
+      "pos": [
+        "ADJ"
+      ],
+      "category": "epistemic_adjective",
+      "uncertainty_type": "epistemic",
+      "subjectivity": "weaksubj",
+      "scope_pattern": "attributive (modifies NP)",
+      "context_dependency": "low",
+      "biosope_validated": false,
+      "note": "Hearsay evidential",
+      "source": "MPQA"
+    },
+    "supposed": {
+      "certainty": 0.45,
+      "pos": [
+        "ADJ"
+      ],
+      "category": "epistemic_adjective",
+      "uncertainty_type": "epistemic",
+      "subjectivity": "weaksubj",
+      "scope_pattern": "attributive (modifies NP)",
+      "context_dependency": "low",
+      "biosope_validated": false,
+      "source": "MPQA"
+    },
+    "questionable": {
+      "certainty": 0.3,
+      "pos": [
+        "ADJ"
+      ],
+      "category": "epistemic_adjective",
+      "uncertainty_type": "epistemic",
+      "subjectivity": "strongsubj",
+      "scope_pattern": "copular complement or attributive",
+      "context_dependency": "low",
+      "biosope_validated": false,
+      "source": "MPQA"
+    }
+  },
+  "epistemic_nouns": {
+    "possibility": {
+      "certainty": 0.3,
+      "pos": [
+        "NOUN"
+      ],
+      "category": "epistemic_noun",
+      "uncertainty_type": "epistemic",
+      "kilicoglu_weight": 0.75,
+      "subjectivity": "weaksubj",
+      "scope_pattern": "nominal head with complement clause",
+      "context_dependency": "medium",
+      "biosope_validated": true,
+      "source": "BioScope+Kilicoglu"
+    },
+    "probability": {
+      "certainty": 0.6,
+      "pos": [
+        "NOUN"
+      ],
+      "category": "epistemic_noun",
+      "uncertainty_type": "epistemic",
+      "kilicoglu_weight": 0.5,
+      "subjectivity": "weaksubj",
+      "scope_pattern": "nominal head with complement",
+      "context_dependency": "medium",
+      "biosope_validated": true,
+      "source": "BioScope+Kilicoglu"
+    },
+    "assumption": {
+      "certainty": 0.45,
+      "pos": [
+        "NOUN"
+      ],
+      "category": "epistemic_noun",
+      "uncertainty_type": "epistemic",
+      "kilicoglu_weight": 0.6,
+      "subjectivity": "weaksubj",
+      "scope_pattern": "nominal head with complement clause",
+      "context_dependency": "medium",
+      "biosope_validated": true,
+      "source": "BioScope+Kilicoglu"
+    },
+    "hypothesis": {
+      "certainty": 0.4,
+      "pos": [
+        "NOUN"
+      ],
+      "category": "epistemic_noun",
+      "uncertainty_type": "hypothetical",
+      "kilicoglu_weight": 0.65,
+      "subjectivity": "weaksubj",
+      "scope_pattern": "nominal head with complement clause",
+      "context_dependency": "low",
+      "biosope_validated": true,
+      "source": "BioScope+Kilicoglu+Szarvas"
+    },
+    "suggestion": {
+      "certainty": 0.4,
+      "pos": [
+        "NOUN"
+      ],
+      "category": "epistemic_noun",
+      "uncertainty_type": "epistemic",
+      "kilicoglu_weight": 0.65,
+      "subjectivity": "weaksubj",
+      "scope_pattern": "nominal head with complement clause",
+      "context_dependency": "medium",
+      "biosope_validated": true,
+      "source": "BioScope+Kilicoglu"
+    },
+    "indication": {
+      "certainty": 0.5,
+      "pos": [
+        "NOUN"
+      ],
+      "category": "epistemic_noun",
+      "uncertainty_type": "epistemic",
+      "kilicoglu_weight": 0.55,
+      "subjectivity": "weaksubj",
+      "scope_pattern": "nominal head with complement clause",
+      "context_dependency": "medium",
+      "biosope_validated": true,
+      "source": "BioScope+Kilicoglu"
+    },
+    "estimate": {
+      "certainty": 0.5,
+      "pos": [
+        "NOUN"
+      ],
+      "category": "epistemic_noun",
+      "uncertainty_type": "epistemic",
+      "kilicoglu_weight": 0.55,
+      "subjectivity": "weaksubj",
+      "scope_pattern": "nominal head",
+      "context_dependency": "low",
+      "biosope_validated": true,
+      "source": "BioScope+Kilicoglu"
+    },
+    "speculation": {
+      "certainty": 0.25,
+      "pos": [
+        "NOUN"
+      ],
+      "category": "epistemic_noun",
+      "uncertainty_type": "epistemic",
+      "kilicoglu_weight": 0.8,
+      "subjectivity": "weaksubj",
+      "scope_pattern": "nominal head with complement",
+      "context_dependency": "low",
+      "biosope_validated": false,
+      "source": "Hyland+Kilicoglu"
+    },
+    "doubt": {
+      "certainty": 0.25,
+      "pos": [
+        "NOUN"
+      ],
+      "category": "epistemic_noun",
+      "uncertainty_type": "epistemic",
+      "subjectivity": "strongsubj",
+      "scope_pattern": "nominal head with complement",
+      "context_dependency": "low",
+      "biosope_validated": false,
+      "source": "MPQA"
+    },
+    "uncertainty": {
+      "certainty": 0.3,
+      "pos": [
+        "NOUN"
+      ],
+      "category": "epistemic_noun",
+      "uncertainty_type": "epistemic",
+      "subjectivity": "strongsubj",
+      "scope_pattern": "nominal head",
+      "context_dependency": "low",
+      "biosope_validated": false,
+      "source": "MPQA"
+    }
+  },
+  "reporting_verbs": {
+    "suggest": {
+      "certainty": 0.5,
+      "pos": [
+        "VERB"
+      ],
+      "category": "reporting_verb",
+      "uncertainty_type": "epistemic",
+      "kilicoglu_weight": 0.6,
+      "subjectivity": "weaksubj",
+      "scope_pattern": "[subj] suggest that [clause]",
+      "context_dependency": "medium",
+      "biosope_validated": true,
+      "source": "BioScope+Kilicoglu"
+    },
+    "indicate": {
+      "certainty": 0.55,
+      "pos": [
+        "VERB"
+      ],
+      "category": "reporting_verb",
+      "uncertainty_type": "epistemic",
+      "kilicoglu_weight": 0.55,
+      "subjectivity": "weaksubj",
+      "scope_pattern": "[subj] indicate that [clause]",
+      "context_dependency": "medium",
+      "biosope_validated": true,
+      "source": "BioScope+Kilicoglu"
+    },
+    "appear": {
+      "certainty": 0.45,
+      "pos": [
+        "VERB"
+      ],
+      "category": "appearance_verb",
+      "uncertainty_type": "epistemic",
+      "kilicoglu_weight": 0.65,
+      "subjectivity": "weaksubj",
+      "scope_pattern": "it appears that [clause] OR [subj] appears to [VP]",
+      "context_dependency": "medium",
+      "biosope_validated": true,
+      "note": "Evidential marker based on appearance",
+      "source": "BioScope+Kilicoglu"
+    },
+    "seem": {
+      "certainty": 0.45,
+      "pos": [
+        "VERB"
+      ],
+      "category": "appearance_verb",
+      "uncertainty_type": "epistemic",
+      "kilicoglu_weight": 0.65,
+      "subjectivity": "weaksubj",
+      "scope_pattern": "it seems that [clause] OR [subj] seems to [VP]",
+      "context_dependency": "medium",
+      "biosope_validated": true,
+      "note": "Evidential marker based on appearance",
+      "source": "BioScope+Kilicoglu"
+    },
+    "believe": {
+      "certainty": 0.5,
+      "pos": [
+        "VERB"
+      ],
+      "category": "cognitive_verb",
+      "uncertainty_type": "epistemic",
+      "kilicoglu_weight": 0.6,
+      "subjectivity": "weaksubj",
+      "scope_pattern": "[subj] believe that [clause]",
+      "context_dependency": "medium",
+      "biosope_validated": true,
+      "source": "BioScope+Kilicoglu"
+    },
+    "assume": {
+      "certainty": 0.45,
+      "pos": [
+        "VERB"
+      ],
+      "category": "cognitive_verb",
+      "uncertainty_type": "epistemic",
+      "kilicoglu_weight": 0.65,
+      "subjectivity": "weaksubj",
+      "scope_pattern": "[subj] assume that [clause]",
+      "context_dependency": "medium",
+      "biosope_validated": true,
+      "source": "BioScope+Kilicoglu"
+    },
+    "suppose": {
+      "certainty": 0.4,
+      "pos": [
+        "VERB"
+      ],
+      "category": "cognitive_verb",
+      "uncertainty_type": "hypothetical",
+      "kilicoglu_weight": 0.7,
+      "subjectivity": "weaksubj",
+      "scope_pattern": "[subj] suppose that [clause]",
+      "context_dependency": "medium",
+      "biosope_validated": true,
+      "source": "BioScope+Kilicoglu"
+    },
+    "estimate": {
+      "certainty": 0.5,
+      "pos": [
+        "VERB"
+      ],
+      "category": "reporting_verb",
+      "uncertainty_type": "epistemic",
+      "kilicoglu_weight": 0.6,
+      "subjectivity": "weaksubj",
+      "scope_pattern": "[subj] estimate that [clause]",
+      "context_dependency": "medium",
+      "biosope_validated": true,
+      "source": "BioScope+Kilicoglu"
+    },
+    "speculate": {
+      "certainty": 0.25,
+      "pos": [
+        "VERB"
+      ],
+      "category": "cognitive_verb",
+      "uncertainty_type": "epistemic",
+      "kilicoglu_weight": 0.8,
+      "subjectivity": "weaksubj",
+      "scope_pattern": "[subj] speculate that [clause]",
+      "context_dependency": "low",
+      "biosope_validated": true,
+      "source": "BioScope+Kilicoglu"
+    },
+    "hypothesize": {
+      "certainty": 0.4,
+      "pos": [
+        "VERB"
+      ],
+      "category": "cognitive_verb",
+      "uncertainty_type": "hypothetical",
+      "kilicoglu_weight": 0.7,
+      "subjectivity": "weaksubj",
+      "scope_pattern": "[subj] hypothesize that [clause]",
+      "context_dependency": "low",
+      "biosope_validated": true,
+      "source": "BioScope+Kilicoglu"
+    },
+    "suspect": {
+      "certainty": 0.35,
+      "pos": [
+        "VERB"
+      ],
+      "category": "cognitive_verb",
+      "uncertainty_type": "epistemic",
+      "kilicoglu_weight": 0.7,
+      "subjectivity": "weaksubj",
+      "scope_pattern": "[subj] suspect that [clause]",
+      "context_dependency": "medium",
+      "biosope_validated": false,
+      "source": "Hyland+Kilicoglu"
+    },
+    "imply": {
+      "certainty": 0.5,
+      "pos": [
+        "VERB"
+      ],
+      "category": "reporting_verb",
+      "uncertainty_type": "epistemic",
+      "kilicoglu_weight": 0.6,
+      "subjectivity": "weaksubj",
+      "scope_pattern": "[subj] imply that [clause]",
+      "context_dependency": "medium",
+      "biosope_validated": true,
+      "source": "BioScope+Kilicoglu"
+    },
+    "propose": {
+      "certainty": 0.45,
+      "pos": [
+        "VERB"
+      ],
+      "category": "discourse_verb",
+      "uncertainty_type": "hypothetical",
+      "kilicoglu_weight": 0.65,
+      "subjectivity": "weaksubj",
+      "scope_pattern": "[subj] propose that [clause]",
+      "context_dependency": "medium",
+      "biosope_validated": false,
+      "source": "Hyland+Kilicoglu"
+    },
+    "argue": {
+      "certainty": 0.55,
+      "pos": [
+        "VERB"
+      ],
+      "category": "discourse_verb",
+      "uncertainty_type": "epistemic",
+      "kilicoglu_weight": 0.55,
+      "subjectivity": "weaksubj",
+      "scope_pattern": "[subj] argue that [clause]",
+      "context_dependency": "medium",
+      "biosope_validated": false,
+      "note": "Stronger when with first person",
+      "source": "Hyland+Kilicoglu"
+    },
+    "claim": {
+      "certainty": 0.6,
+      "pos": [
+        "VERB"
+      ],
+      "category": "discourse_verb",
+      "uncertainty_type": "epistemic",
+      "kilicoglu_weight": 0.5,
+      "subjectivity": "weaksubj",
+      "scope_pattern": "[subj] claim that [clause]",
+      "context_dependency": "medium",
+      "biosope_validated": false,
+      "note": "Can function as weasel (uncertain attribution)",
+      "source": "Hyland+Vincze"
+    },
+    "postulate": {
+      "certainty": 0.45,
+      "pos": [
+        "VERB"
+      ],
+      "category": "cognitive_verb",
+      "uncertainty_type": "hypothetical",
+      "kilicoglu_weight": 0.65,
+      "subjectivity": "weaksubj",
+      "scope_pattern": "[subj] postulate that [clause]",
+      "context_dependency": "low",
+      "biosope_validated": true,
+      "source": "BioScope+Kilicoglu"
+    },
+    "tend": {
+      "certainty": 0.55,
+      "pos": [
+        "VERB"
+      ],
+      "category": "tendency_verb",
+      "uncertainty_type": "epistemic",
+      "subjectivity": "weaksubj",
+      "scope_pattern": "[subj] tend to [VP]",
+      "context_dependency": "low",
+      "biosope_validated": true,
+      "note": "Expresses general tendency with exceptions",
+      "source": "BioScope+Hyland"
+    },
+    "feel": {
+      "certainty": 0.5,
+      "pos": [
+        "VERB"
+      ],
+      "category": "cognitive_verb",
+      "uncertainty_type": "epistemic",
+      "subjectivity": "weaksubj",
+      "scope_pattern": "[subj] feel that [clause]",
+      "context_dependency": "medium",
+      "biosope_validated": false,
+      "note": "Intuition-based epistemic verb",
+      "source": "Hyland1998"
+    },
+    "feels": {
+      "certainty": 0.5,
+      "pos": [
+        "VERB"
+      ],
+      "category": "cognitive_verb",
+      "uncertainty_type": "epistemic",
+      "subjectivity": "weaksubj",
+      "scope_pattern": "[subj] feels that [clause]",
+      "context_dependency": "medium",
+      "biosope_validated": false,
+      "source": "Hyland1998"
+    },
+    "felt": {
+      "certainty": 0.5,
+      "pos": [
+        "VERB"
+      ],
+      "category": "cognitive_verb",
+      "uncertainty_type": "epistemic",
+      "subjectivity": "weaksubj",
+      "scope_pattern": "[subj] felt that [clause]",
+      "context_dependency": "medium",
+      "biosope_validated": false,
+      "source": "Hyland1998"
+    }
+  },
+  "multi_word_shield_phrases": {
+    "it seems that": {
+      "certainty": 0.45,
+      "category": "shield_phrase",
+      "uncertainty_type": "epistemic",
+      "subjectivity": "weaksubj",
+      "scope_pattern": "it seems that [clause]",
+      "biosope_validated": true,
+      "source": "BioScope+Hyland"
+    },
+    "it appears that": {
+      "certainty": 0.45,
+      "category": "shield_phrase",
+      "uncertainty_type": "epistemic",
+      "subjectivity": "weaksubj",
+      "scope_pattern": "it appears that [clause]",
+      "biosope_validated": true,
+      "source": "BioScope+Hyland"
+    },
+    "we believe that": {
+      "certainty": 0.5,
+      "category": "shield_phrase",
+      "uncertainty_type": "epistemic",
+      "subjectivity": "weaksubj",
+      "scope_pattern": "we believe that [clause]",
+      "biosope_validated": true,
+      "source": "BioScope+Hyland"
+    },
+    "we assume that": {
+      "certainty": 0.45,
+      "category": "shield_phrase",
+      "uncertainty_type": "epistemic",
+      "subjectivity": "weaksubj",
+      "scope_pattern": "we assume that [clause]",
+      "biosope_validated": true,
+      "source": "BioScope+Hyland"
+    },
+    "we suggest that": {
+      "certainty": 0.5,
+      "category": "shield_phrase",
+      "uncertainty_type": "epistemic",
+      "subjectivity": "weaksubj",
+      "scope_pattern": "we suggest that [clause]",
+      "biosope_validated": true,
+      "source": "BioScope+Hyland"
+    },
+    "we speculate that": {
+      "certainty": 0.25,
+      "category": "shield_phrase",
+      "uncertainty_type": "epistemic",
+      "subjectivity": "weaksubj",
+      "scope_pattern": "we speculate that [clause]",
+      "biosope_validated": true,
+      "source": "BioScope+Hyland"
+    },
+    "we hypothesize that": {
+      "certainty": 0.4,
+      "category": "shield_phrase",
+      "uncertainty_type": "hypothetical",
+      "subjectivity": "weaksubj",
+      "scope_pattern": "we hypothesize that [clause]",
+      "biosope_validated": true,
+      "source": "BioScope+Hyland"
+    },
+    "it is possible that": {
+      "certainty": 0.3,
+      "category": "shield_phrase",
+      "uncertainty_type": "epistemic",
+      "subjectivity": "weaksubj",
+      "scope_pattern": "it is possible that [clause]",
+      "biosope_validated": true,
+      "source": "BioScope+Hyland"
+    },
+    "it is probable that": {
+      "certainty": 0.6,
+      "category": "shield_phrase",
+      "uncertainty_type": "epistemic",
+      "subjectivity": "weaksubj",
+      "scope_pattern": "it is probable that [clause]",
+      "biosope_validated": true,
+      "source": "BioScope+Hyland"
+    },
+    "it is likely that": {
+      "certainty": 0.65,
+      "category": "shield_phrase",
+      "uncertainty_type": "epistemic",
+      "subjectivity": "weaksubj",
+      "scope_pattern": "it is likely that [clause]",
+      "biosope_validated": true,
+      "source": "BioScope+Hyland"
+    },
+    "it may be that": {
+      "certainty": 0.35,
+      "category": "shield_phrase",
+      "uncertainty_type": "epistemic",
+      "subjectivity": "weaksubj",
+      "scope_pattern": "it may be that [clause]",
+      "biosope_validated": true,
+      "source": "BioScope+Hyland"
+    },
+    "it could be that": {
+      "certainty": 0.35,
+      "category": "shield_phrase",
+      "uncertainty_type": "epistemic",
+      "subjectivity": "weaksubj",
+      "scope_pattern": "it could be that [clause]",
+      "biosope_validated": true,
+      "source": "BioScope+Hyland"
+    },
+    "there is a possibility": {
+      "certainty": 0.3,
+      "category": "shield_phrase",
+      "uncertainty_type": "epistemic",
+      "subjectivity": "weaksubj",
+      "scope_pattern": "there is a possibility that [clause]",
+      "biosope_validated": true,
+      "source": "BioScope+Hyland"
+    },
+    "in our view": {
+      "certainty": 0.5,
+      "category": "author_shield",
+      "uncertainty_type": "epistemic",
+      "subjectivity": "weaksubj",
+      "scope_pattern": "prepositional phrase modifying sentence",
+      "biosope_validated": false,
+      "source": "Hyland"
+    },
+    "in our opinion": {
+      "certainty": 0.5,
+      "category": "author_shield",
+      "uncertainty_type": "epistemic",
+      "subjectivity": "weaksubj",
+      "scope_pattern": "prepositional phrase modifying sentence",
+      "biosope_validated": false,
+      "source": "Hyland"
+    },
+    "to our knowledge": {
+      "certainty": 0.55,
+      "category": "author_shield",
+      "uncertainty_type": "epistemic",
+      "subjectivity": "weaksubj",
+      "scope_pattern": "prepositional phrase modifying sentence",
+      "biosope_validated": false,
+      "note": "Knowledge limitation hedge",
+      "source": "Hyland"
+    },
+    "as far as we know": {
+      "certainty": 0.5,
+      "category": "author_shield",
+      "uncertainty_type": "epistemic",
+      "subjectivity": "weaksubj",
+      "scope_pattern": "prepositional phrase modifying sentence",
+      "biosope_validated": false,
+      "note": "Knowledge limitation hedge",
+      "source": "Hyland"
+    },
+    "to the best of our knowledge": {
+      "certainty": 0.55,
+      "category": "author_shield",
+      "uncertainty_type": "epistemic",
+      "subjectivity": "weaksubj",
+      "scope_pattern": "prepositional phrase modifying sentence",
+      "biosope_validated": false,
+      "note": "Knowledge limitation hedge",
+      "source": "Hyland"
+    },
+    "it seems reasonable to assume": {
+      "certainty": 0.45,
+      "category": "compound_hedge",
+      "uncertainty_type": "epistemic",
+      "subjectivity": "weaksubj",
+      "scope_pattern": "it seems reasonable to assume that [clause]",
+      "biosope_validated": false,
+      "note": "Double hedge: seems + assume",
+      "source": "Hyland"
+    },
+    "can be seen as": {
+      "certainty": 0.45,
+      "category": "interpretation_hedge",
+      "uncertainty_type": "epistemic",
+      "subjectivity": "weaksubj",
+      "scope_pattern": "[subj] can be seen as [NP/clause]",
+      "biosope_validated": false,
+      "source": "Hyland"
+    },
+    "may be considered": {
+      "certainty": 0.4,
+      "category": "interpretation_hedge",
+      "uncertainty_type": "epistemic",
+      "subjectivity": "weaksubj",
+      "scope_pattern": "[subj] may be considered [NP/adj]",
+      "biosope_validated": false,
+      "source": "Hyland"
+    },
+    "could be interpreted as": {
+      "certainty": 0.4,
+      "category": "interpretation_hedge",
+      "uncertainty_type": "epistemic",
+      "subjectivity": "weaksubj",
+      "scope_pattern": "[subj] could be interpreted as [NP/clause]",
+      "biosope_validated": false,
+      "source": "Hyland"
+    },
+    "might be explained by": {
+      "certainty": 0.35,
+      "category": "interpretation_hedge",
+      "uncertainty_type": "epistemic",
+      "subjectivity": "weaksubj",
+      "scope_pattern": "[subj] might be explained by [NP]",
+      "biosope_validated": false,
+      "source": "Hyland"
+    },
+    "certain amount": {
+      "certainty": 0.5,
+      "category": "limitation_phrase",
+      "uncertainty_type": "epistemic",
+      "subjectivity": "weaksubj",
+      "scope_pattern": "a certain amount of [NP]",
+      "context_dependency": "low",
+      "biosope_validated": false,
+      "note": "Vague quantification hedge",
+      "source": "Hyland1998"
+    },
+    "certain extent": {
+      "certainty": 0.5,
+      "category": "limitation_phrase",
+      "uncertainty_type": "epistemic",
+      "subjectivity": "weaksubj",
+      "scope_pattern": "to a certain extent",
+      "context_dependency": "low",
+      "biosope_validated": false,
+      "note": "Degree limitation hedge",
+      "source": "Hyland1998"
+    },
+    "certain level": {
+      "certainty": 0.5,
+      "category": "limitation_phrase",
+      "uncertainty_type": "epistemic",
+      "subjectivity": "weaksubj",
+      "scope_pattern": "at a certain level",
+      "context_dependency": "low",
+      "biosope_validated": false,
+      "note": "Vague quantification hedge",
+      "source": "Hyland1998"
+    },
+    "from my perspective": {
+      "certainty": 0.5,
+      "category": "author_shield",
+      "uncertainty_type": "epistemic",
+      "subjectivity": "weaksubj",
+      "scope_pattern": "prepositional phrase modifying sentence",
+      "context_dependency": "low",
+      "biosope_validated": false,
+      "note": "Personal viewpoint hedge",
+      "source": "Hyland1998"
+    },
+    "from this perspective": {
+      "certainty": 0.5,
+      "category": "author_shield",
+      "uncertainty_type": "epistemic",
+      "subjectivity": "weaksubj",
+      "scope_pattern": "prepositional phrase modifying sentence",
+      "context_dependency": "low",
+      "biosope_validated": false,
+      "note": "Viewpoint-dependent hedge",
+      "source": "Hyland1998"
+    },
+    "in most cases": {
+      "certainty": 0.6,
+      "category": "generalization",
+      "uncertainty_type": "epistemic",
+      "subjectivity": "weaksubj",
+      "scope_pattern": "prepositional phrase modifying sentence",
+      "context_dependency": "low",
+      "biosope_validated": false,
+      "note": "Majority generalization with exceptions",
+      "source": "Hyland1998"
+    },
+    "in most instances": {
+      "certainty": 0.6,
+      "category": "generalization",
+      "uncertainty_type": "epistemic",
+      "subjectivity": "weaksubj",
+      "scope_pattern": "prepositional phrase modifying sentence",
+      "context_dependency": "low",
+      "biosope_validated": false,
+      "note": "Majority generalization with exceptions",
+      "source": "Hyland1998"
+    },
+    "in my opinion": {
+      "certainty": 0.5,
+      "category": "author_shield",
+      "uncertainty_type": "epistemic",
+      "subjectivity": "weaksubj",
+      "scope_pattern": "prepositional phrase modifying sentence",
+      "context_dependency": "low",
+      "biosope_validated": false,
+      "note": "Personal opinion hedge",
+      "source": "Hyland1998"
+    },
+    "in my view": {
+      "certainty": 0.5,
+      "category": "author_shield",
+      "uncertainty_type": "epistemic",
+      "subjectivity": "weaksubj",
+      "scope_pattern": "prepositional phrase modifying sentence",
+      "context_dependency": "low",
+      "biosope_validated": false,
+      "source": "Hyland1998"
+    },
+    "in this view": {
+      "certainty": 0.5,
+      "category": "author_shield",
+      "uncertainty_type": "epistemic",
+      "subjectivity": "weaksubj",
+      "scope_pattern": "prepositional phrase modifying sentence",
+      "context_dependency": "low",
+      "biosope_validated": false,
+      "note": "Perspective-dependent hedge",
+      "source": "Hyland1998"
+    }
+  },
+  "weasel_markers": {
+    "some researchers": {
+      "certainty": 0.4,
+      "category": "weasel",
+      "uncertainty_type": "attribution_uncertainty",
+      "subjectivity": "weaksubj",
+      "scope_pattern": "vague plural subject",
+      "note": "Uncertain/vague source attribution (Vincze et al. 2013)",
+      "source": "Vincze"
+    },
+    "many people": {
+      "certainty": 0.4,
+      "category": "weasel",
+      "uncertainty_type": "attribution_uncertainty",
+      "subjectivity": "weaksubj",
+      "scope_pattern": "vague plural subject",
+      "note": "Uncertain/vague source attribution",
+      "source": "Vincze"
+    },
+    "some scholars": {
+      "certainty": 0.4,
+      "category": "weasel",
+      "uncertainty_type": "attribution_uncertainty",
+      "subjectivity": "weaksubj",
+      "scope_pattern": "vague plural subject",
+      "note": "Uncertain/vague source attribution",
+      "source": "Vincze"
+    },
+    "it has been argued": {
+      "certainty": 0.45,
+      "category": "weasel",
+      "uncertainty_type": "attribution_uncertainty",
+      "subjectivity": "weaksubj",
+      "scope_pattern": "passive voice with unspecified agent",
+      "note": "Agentless passive avoids attribution",
+      "source": "Vincze"
+    },
+    "it is said": {
+      "certainty": 0.4,
+      "category": "weasel",
+      "uncertainty_type": "attribution_uncertainty",
+      "subjectivity": "weaksubj",
+      "scope_pattern": "passive voice with unspecified agent",
+      "note": "Agentless passive, hearsay evidential",
+      "source": "Vincze"
+    },
+    "it is believed": {
+      "certainty": 0.45,
+      "category": "weasel",
+      "uncertainty_type": "attribution_uncertainty",
+      "subjectivity": "weaksubj",
+      "scope_pattern": "passive voice with unspecified agent",
+      "note": "Agentless passive avoids attribution",
+      "source": "Vincze"
+    }
+  },
+  "conditional_hypothetical_markers": {
+    "if": {
+      "certainty": 0.35,
+      "pos": [
+        "SCONJ"
+      ],
+      "category": "conditional",
+      "uncertainty_type": "hypothetical",
+      "subjectivity": "weaksubj",
+      "scope_pattern": "if [clause], then [clause]",
+      "context_dependency": "high",
+      "note": "Introduces hypothetical/conditional scenarios",
+      "source": "Szarvas"
+    },
+    "unless": {
+      "certainty": 0.4,
+      "pos": [
+        "SCONJ"
+      ],
+      "category": "conditional",
+      "uncertainty_type": "hypothetical",
+      "subjectivity": "weaksubj",
+      "scope_pattern": "unless [clause], [clause]",
+      "context_dependency": "high",
+      "note": "Negative conditional",
+      "source": "Szarvas"
+    },
+    "provided that": {
+      "certainty": 0.4,
+      "category": "conditional",
+      "uncertainty_type": "hypothetical",
+      "subjectivity": "weaksubj",
+      "scope_pattern": "provided that [clause], [clause]",
+      "context_dependency": "high",
+      "source": "Szarvas"
+    },
+    "assuming that": {
+      "certainty": 0.45,
+      "category": "conditional",
+      "uncertainty_type": "hypothetical",
+      "subjectivity": "weaksubj",
+      "scope_pattern": "assuming that [clause], [clause]",
+      "context_dependency": "medium",
+      "source": "Szarvas"
+    },
+    "supposing that": {
+      "certainty": 0.4,
+      "category": "conditional",
+      "uncertainty_type": "hypothetical",
+      "subjectivity": "weaksubj",
+      "scope_pattern": "supposing that [clause], [clause]",
+      "context_dependency": "medium",
+      "source": "Szarvas"
+    }
+  },
+  "reg_epistemic_modifiers": {
+    "so-called": {
+      "certainty": 0.4,
+      "pos": [
+        "ADJ"
+      ],
+      "category": "epistemic_referring_expression",
+      "uncertainty_type": "epistemic",
+      "subjectivity": "weaksubj",
+      "scope_pattern": "attributive modifier in NP",
+      "note": "Casts doubt on appropriateness of term/label",
+      "source": "REG_theory"
+    },
+    "alleged": {
+      "certainty": 0.4,
+      "pos": [
+        "ADJ"
+      ],
+      "category": "epistemic_referring_expression",
+      "uncertainty_type": "epistemic",
+      "subjectivity": "weaksubj",
+      "scope_pattern": "attributive modifier in NP",
+      "note": "Hearsay evidential in referring expression",
+      "source": "REG_theory"
+    },
+    "purported": {
+      "certainty": 0.35,
+      "pos": [
+        "ADJ"
+      ],
+      "category": "epistemic_referring_expression",
+      "uncertainty_type": "epistemic",
+      "subjectivity": "weaksubj",
+      "scope_pattern": "attributive modifier in NP",
+      "note": "Questions claim/identity in referring expression",
+      "source": "REG_theory"
+    }
+  }
+}

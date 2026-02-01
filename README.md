@@ -48,3 +48,17 @@ The implemented features are grouped into the following families:
   - Event ordering
   - Temporal graph structure
   - Temporal entropy and constraint violations
+
+
+------ 
+
+## Provided Models
+
+This repository includes pre-trained models corresponding to the main
+experimental configurations analysed in the thesis:
+
+- Pairwise Temporal Classifier
+- Mono-Cognitive Model
+- Integrated Model
+
+Each model is distributed together with its feature schema and metadata.

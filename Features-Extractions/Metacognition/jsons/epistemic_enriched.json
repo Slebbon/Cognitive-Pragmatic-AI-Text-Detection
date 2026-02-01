@@ -1,0 +1,948 @@
+{
+  "_metadata": {
+    "name": "Epistemic Stance Markers Lexicon (Enriched)",
+    "version": "2.0",
+    "original_items": 78,
+    "enriched_items": 156,
+    "sources": [
+      "Rubinstein et al. (2013) - Georgetown Gradable Modal Expressions (GME)",
+      "Biber et al. (1999) - Longman Grammar Stance Adverbials",
+      "Palmer (1990) - Modality and the English Modals",
+      "Pennebaker et al. (2007, 2015, 2022) - LIWC Cognitive Process Categories",
+      "Stone et al. (1966+) - General Inquirer Harvard IV-4",
+      "Wilson et al. (2005) - MPQA Subjectivity Lexicon"
+    ],
+    "description": "Complete epistemic spectrum with corpus-validated markers, strength annotations, and contextual constraints",
+    "certainty_scale": "0.2 (low possibility) to 0.95 (high certainty)",
+    "new_annotations": [
+      "subjectivity_strength: strongsubj/weaksubj (MPQA)",
+      "liwc_category: LIWC cognitive process mapping",
+      "inquirer_category: General Inquirer classification",
+      "context_dependency: markers requiring syntactic/discourse context"
+    ]
+  },
+  
+  "possibility": {
+    "may": {
+      "certainty": 0.30,
+      "pos": ["VERB", "AUX"],
+      "strength": "weak",
+      "subjectivity": "weaksubj",
+      "liwc_category": "Tentative",
+      "inquirer_category": "If",
+      "context_dependency": "high",
+      "note": "Requires disambiguation: epistemic vs. deontic (permission)",
+      "source": "GME+LIWC"
+    },
+    "might": {
+      "certainty": 0.25,
+      "pos": ["VERB", "AUX"],
+      "strength": "weak",
+      "subjectivity": "weaksubj",
+      "liwc_category": "Tentative",
+      "inquirer_category": "If",
+      "context_dependency": "medium",
+      "source": "GME+LIWC"
+    },
+    "could": {
+      "certainty": 0.30,
+      "pos": ["VERB", "AUX"],
+      "strength": "weak",
+      "subjectivity": "weaksubj",
+      "liwc_category": "Tentative",
+      "inquirer_category": "If",
+      "context_dependency": "high",
+      "note": "Requires disambiguation: epistemic vs. dynamic ability vs. deontic",
+      "source": "GME+LIWC"
+    },
+    "possibly": {
+      "certainty": 0.25,
+      "pos": ["ADV"],
+      "strength": "weak",
+      "subjectivity": "weaksubj",
+      "liwc_category": "Tentative",
+      "inquirer_category": "If",
+      "context_dependency": "low",
+      "source": "GME+LIWC"
+    },
+    "perhaps": {
+      "certainty": 0.25,
+      "pos": ["ADV"],
+      "strength": "weak",
+      "subjectivity": "weaksubj",
+      "liwc_category": "Tentative",
+      "inquirer_category": "If",
+      "context_dependency": "low",
+      "source": "GME+LIWC"
+    },
+    "conceivably": {
+      "certainty": 0.20,
+      "pos": ["ADV"],
+      "strength": "weak",
+      "subjectivity": "weaksubj",
+      "liwc_category": "Tentative",
+      "context_dependency": "low",
+      "source": "GME"
+    },
+    "maybe": {
+      "certainty": 0.30,
+      "pos": ["ADV"],
+      "strength": "weak",
+      "subjectivity": "weaksubj",
+      "liwc_category": "Tentative",
+      "inquirer_category": "If",
+      "context_dependency": "low",
+      "source": "Biber+LIWC"
+    },
+    "possible": {
+      "certainty": 0.30,
+      "pos": ["ADJ"],
+      "strength": "weak",
+      "subjectivity": "weaksubj",
+      "liwc_category": "Tentative",
+      "context_dependency": "medium",
+      "source": "GME+LIWC"
+    },
+    "potential": {
+      "certainty": 0.35,
+      "pos": ["ADJ"],
+      "strength": "weak",
+      "subjectivity": "weaksubj",
+      "liwc_category": "Tentative",
+      "context_dependency": "medium",
+      "source": "GME"
+    },
+    "uncertain": {
+      "certainty": 0.30,
+      "pos": ["ADJ"],
+      "strength": "weak",
+      "subjectivity": "strongsubj",
+      "liwc_category": "Tentative",
+      "inquirer_category": "Know",
+      "context_dependency": "low",
+      "note": "Explicit uncertainty marker",
+      "source": "MPQA+Inquirer"
+    },
+    "unclear": {
+      "certainty": 0.30,
+      "pos": ["ADJ"],
+      "strength": "weak",
+      "subjectivity": "strongsubj",
+      "liwc_category": "Tentative",
+      "inquirer_category": "Know",
+      "context_dependency": "low",
+      "source": "MPQA+Inquirer"
+    },
+    "vague": {
+      "certainty": 0.25,
+      "pos": ["ADJ"],
+      "strength": "weak",
+      "subjectivity": "strongsubj",
+      "liwc_category": "Tentative",
+      "inquirer_category": "Know",
+      "context_dependency": "low",
+      "source": "Inquirer"
+    },
+    "doubtful": {
+      "certainty": 0.25,
+      "pos": ["ADJ"],
+      "strength": "weak",
+      "subjectivity": "strongsubj",
+      "liwc_category": "Tentative",
+      "context_dependency": "low",
+      "source": "MPQA+LIWC"
+    }
+  },
+  
+  "probability": {
+    "should": {
+      "certainty": 0.60,
+      "pos": ["VERB", "AUX"],
+      "strength": "medium",
+      "subjectivity": "weaksubj",
+      "liwc_category": "Tentative",
+      "context_dependency": "high",
+      "note": "Often deontic (obligation) rather than epistemic",
+      "source": "GME+LIWC"
+    },
+    "would": {
+      "certainty": 0.55,
+      "pos": ["VERB", "AUX"],
+      "strength": "medium",
+      "subjectivity": "weaksubj",
+      "liwc_category": "Tentative",
+      "context_dependency": "high",
+      "note": "Often conditional rather than probabilistic",
+      "source": "GME+LIWC"
+    },
+    "probably": {
+      "certainty": 0.65,
+      "pos": ["ADV"],
+      "strength": "medium",
+      "subjectivity": "weaksubj",
+      "liwc_category": "Tentative",
+      "inquirer_category": "If",
+      "context_dependency": "low",
+      "source": "GME+LIWC+Inquirer"
+    },
+    "likely": {
+      "certainty": 0.70,
+      "pos": ["ADJ", "ADV"],
+      "strength": "medium",
+      "subjectivity": "weaksubj",
+      "liwc_category": "Tentative",
+      "context_dependency": "low",
+      "source": "GME+LIWC"
+    },
+    "presumably": {
+      "certainty": 0.60,
+      "pos": ["ADV"],
+      "strength": "medium",
+      "subjectivity": "weaksubj",
+      "liwc_category": "Tentative",
+      "inquirer_category": "If",
+      "context_dependency": "low",
+      "source": "GME+LIWC+Inquirer"
+    },
+    "apparently": {
+      "certainty": 0.55,
+      "pos": ["ADV"],
+      "strength": "medium",
+      "subjectivity": "weaksubj",
+      "liwc_category": "Tentative",
+      "context_dependency": "medium",
+      "note": "Evidential - based on appearance/evidence",
+      "source": "Biber+LIWC"
+    },
+    "seemingly": {
+      "certainty": 0.50,
+      "pos": ["ADV"],
+      "strength": "medium",
+      "subjectivity": "weaksubj",
+      "liwc_category": "Tentative",
+      "context_dependency": "medium",
+      "note": "Evidential - based on appearance",
+      "source": "Biber+LIWC"
+    },
+    "evidently": {
+      "certainty": 0.65,
+      "pos": ["ADV"],
+      "strength": "medium",
+      "subjectivity": "weaksubj",
+      "liwc_category": "Tentative",
+      "context_dependency": "medium",
+      "note": "Evidential - based on evidence",
+      "source": "Biber+LIWC"
+    },
+    "probable": {
+      "certainty": 0.65,
+      "pos": ["ADJ"],
+      "strength": "medium",
+      "subjectivity": "weaksubj",
+      "liwc_category": "Tentative",
+      "context_dependency": "low",
+      "source": "GME+LIWC"
+    },
+    "plausible": {
+      "certainty": 0.55,
+      "pos": ["ADJ"],
+      "strength": "medium",
+      "subjectivity": "weaksubj",
+      "liwc_category": "Tentative",
+      "context_dependency": "low",
+      "source": "MPQA"
+    },
+    "conceivable": {
+      "certainty": 0.50,
+      "pos": ["ADJ"],
+      "strength": "medium",
+      "subjectivity": "weaksubj",
+      "liwc_category": "Tentative",
+      "context_dependency": "low",
+      "source": "MPQA"
+    }
+  },
+  
+  "certainty": {
+    "must": {
+      "certainty": 0.95,
+      "pos": ["VERB", "AUX"],
+      "strength": "strong",
+      "subjectivity": "strongsubj",
+      "liwc_category": "Certainty",
+      "inquirer_category": "SureLw",
+      "context_dependency": "high",
+      "note": "Epistemic = logical necessity; also deontic = obligation",
+      "source": "GME+LIWC+Inquirer"
+    },
+    "will": {
+      "certainty": 0.90,
+      "pos": ["VERB", "AUX"],
+      "strength": "strong",
+      "subjectivity": "strongsubj",
+      "liwc_category": "Certainty",
+      "inquirer_category": "SureLw",
+      "context_dependency": "medium",
+      "source": "GME+LIWC+Inquirer"
+    },
+    "certainly": {
+      "certainty": 0.95,
+      "pos": ["ADV"],
+      "strength": "strong",
+      "subjectivity": "strongsubj",
+      "liwc_category": "Certainty",
+      "inquirer_category": "SureLw",
+      "context_dependency": "low",
+      "source": "GME+LIWC+Inquirer"
+    },
+    "definitely": {
+      "certainty": 0.95,
+      "pos": ["ADV"],
+      "strength": "strong",
+      "subjectivity": "strongsubj",
+      "liwc_category": "Certainty",
+      "inquirer_category": "SureLw",
+      "context_dependency": "low",
+      "source": "GME+LIWC+Inquirer"
+    },
+    "clearly": {
+      "certainty": 0.90,
+      "pos": ["ADV"],
+      "strength": "strong",
+      "subjectivity": "strongsubj",
+      "liwc_category": "Certainty",
+      "context_dependency": "low",
+      "note": "Can function as 'peacock' (unsubstantiated claim marker)",
+      "source": "Biber+LIWC"
+    },
+    "obviously": {
+      "certainty": 0.95,
+      "pos": ["ADV"],
+      "strength": "strong",
+      "subjectivity": "strongsubj",
+      "liwc_category": "Certainty",
+      "context_dependency": "low",
+      "note": "Can function as 'peacock' (unsubstantiated claim marker)",
+      "source": "Biber+LIWC"
+    },
+    "undoubtedly": {
+      "certainty": 0.95,
+      "pos": ["ADV"],
+      "strength": "strong",
+      "subjectivity": "strongsubj",
+      "liwc_category": "Certainty",
+      "inquirer_category": "SureLw",
+      "context_dependency": "low",
+      "source": "GME+LIWC+Inquirer"
+    },
+    "indeed": {
+      "certainty": 0.85,
+      "pos": ["ADV"],
+      "strength": "strong",
+      "subjectivity": "strongsubj",
+      "liwc_category": "Certainty",
+      "context_dependency": "low",
+      "source": "Biber+LIWC"
+    },
+    "really": {
+      "certainty": 0.80,
+      "pos": ["ADV"],
+      "strength": "strong",
+      "subjectivity": "strongsubj",
+      "liwc_category": "Certainty",
+      "context_dependency": "medium",
+      "source": "Biber+LIWC"
+    },
+    "actually": {
+      "certainty": 0.85,
+      "pos": ["ADV"],
+      "strength": "strong",
+      "subjectivity": "strongsubj",
+      "liwc_category": "Certainty",
+      "context_dependency": "low",
+      "source": "Biber+LIWC"
+    },
+    "certain": {
+      "certainty": 0.95,
+      "pos": ["ADJ"],
+      "strength": "strong",
+      "subjectivity": "strongsubj",
+      "liwc_category": "Certainty",
+      "inquirer_category": "SureLw",
+      "context_dependency": "medium",
+      "note": "Disambiguate from 'a certain X' (indefinite determiner)",
+      "source": "GME+LIWC+Inquirer"
+    },
+    "clear": {
+      "certainty": 0.90,
+      "pos": ["ADJ"],
+      "strength": "strong",
+      "subjectivity": "strongsubj",
+      "liwc_category": "Certainty",
+      "inquirer_category": "Know",
+      "context_dependency": "low",
+      "source": "GME+LIWC+Inquirer"
+    },
+    "obvious": {
+      "certainty": 0.95,
+      "pos": ["ADJ"],
+      "strength": "strong",
+      "subjectivity": "strongsubj",
+      "liwc_category": "Certainty",
+      "context_dependency": "low",
+      "source": "GME+LIWC"
+    },
+    "sure": {
+      "certainty": 0.90,
+      "pos": ["ADJ"],
+      "strength": "strong",
+      "subjectivity": "strongsubj",
+      "liwc_category": "Certainty",
+      "inquirer_category": "SureLw",
+      "context_dependency": "low",
+      "source": "LIWC+Inquirer"
+    },
+    "confident": {
+      "certainty": 0.85,
+      "pos": ["ADJ"],
+      "strength": "strong",
+      "subjectivity": "strongsubj",
+      "liwc_category": "Certainty",
+      "inquirer_category": "Know",
+      "context_dependency": "low",
+      "source": "LIWC+Inquirer"
+    },
+    "unquestionable": {
+      "certainty": 0.95,
+      "pos": ["ADJ"],
+      "strength": "strong",
+      "subjectivity": "strongsubj",
+      "liwc_category": "Certainty",
+      "context_dependency": "low",
+      "source": "MPQA"
+    },
+    "indisputable": {
+      "certainty": 0.95,
+      "pos": ["ADJ"],
+      "strength": "strong",
+      "subjectivity": "strongsubj",
+      "liwc_category": "Certainty",
+      "context_dependency": "low",
+      "source": "MPQA"
+    },
+    "always": {
+      "certainty": 0.95,
+      "pos": ["ADV"],
+      "strength": "strong",
+      "subjectivity": "strongsubj",
+      "liwc_category": "Certainty",
+      "inquirer_category": "SureLw",
+      "context_dependency": "low",
+      "note": "Universal quantifier",
+      "source": "LIWC+Inquirer"
+    },
+    "never": {
+      "certainty": 0.95,
+      "pos": ["ADV"],
+      "strength": "strong",
+      "subjectivity": "strongsubj",
+      "liwc_category": "Certainty",
+      "inquirer_category": "SureLw",
+      "context_dependency": "low",
+      "note": "Universal negative quantifier",
+      "source": "LIWC+Inquirer"
+    }
+  },
+  
+  "cognitive_verbs": {
+    "know": {
+      "certainty": 0.95,
+      "pos": ["VERB"],
+      "type": "factual_knowledge",
+      "subjectivity": "strongsubj",
+      "liwc_category": "Insight",
+      "inquirer_category": "Know",
+      "context_dependency": "low",
+      "source": "Palmer+LIWC+Inquirer"
+    },
+    "believe": {
+      "certainty": 0.60,
+      "pos": ["VERB"],
+      "type": "opinion",
+      "subjectivity": "weaksubj",
+      "liwc_category": "Think",
+      "inquirer_category": "Think",
+      "context_dependency": "medium",
+      "source": "Palmer+LIWC+Inquirer"
+    },
+    "think": {
+      "certainty": 0.55,
+      "pos": ["VERB"],
+      "type": "opinion",
+      "subjectivity": "weaksubj",
+      "liwc_category": "Think",
+      "inquirer_category": "Think",
+      "context_dependency": "medium",
+      "source": "Palmer+LIWC+Inquirer"
+    },
+    "suppose": {
+      "certainty": 0.45,
+      "pos": ["VERB"],
+      "type": "supposition",
+      "subjectivity": "weaksubj",
+      "liwc_category": "Think",
+      "inquirer_category": "Think",
+      "context_dependency": "medium",
+      "source": "Palmer+LIWC+Inquirer"
+    },
+    "assume": {
+      "certainty": 0.50,
+      "pos": ["VERB"],
+      "type": "assumption",
+      "subjectivity": "weaksubj",
+      "liwc_category": "Think",
+      "inquirer_category": "Think",
+      "context_dependency": "medium",
+      "source": "Palmer+LIWC+Inquirer"
+    },
+    "suspect": {
+      "certainty": 0.40,
+      "pos": ["VERB"],
+      "type": "weak_belief",
+      "subjectivity": "weaksubj",
+      "liwc_category": "Think",
+      "context_dependency": "medium",
+      "source": "Palmer+LIWC"
+    },
+    "doubt": {
+      "certainty": 0.25,
+      "pos": ["VERB"],
+      "type": "skepticism",
+      "subjectivity": "strongsubj",
+      "liwc_category": "Tentative",
+      "inquirer_category": "Know",
+      "context_dependency": "low",
+      "source": "Palmer+LIWC+Inquirer"
+    },
+    "consider": {
+      "certainty": 0.50,
+      "pos": ["VERB"],
+      "type": "contemplation",
+      "subjectivity": "weaksubj",
+      "liwc_category": "Think",
+      "inquirer_category": "Think",
+      "context_dependency": "medium",
+      "source": "LIWC+Inquirer"
+    },
+    "reckon": {
+      "certainty": 0.55,
+      "pos": ["VERB"],
+      "type": "opinion",
+      "subjectivity": "weaksubj",
+      "liwc_category": "Think",
+      "context_dependency": "medium",
+      "source": "LIWC"
+    },
+    "guess": {
+      "certainty": 0.35,
+      "pos": ["VERB"],
+      "type": "speculation",
+      "subjectivity": "weaksubj",
+      "liwc_category": "Tentative",
+      "inquirer_category": "Think",
+      "context_dependency": "low",
+      "source": "LIWC+Inquirer"
+    }
+  },
+  
+  "reporting_verbs": {
+    "suggest": {
+      "certainty": 0.50,
+      "pos": ["VERB"],
+      "type": "weak_claim",
+      "subjectivity": "weaksubj",
+      "context_dependency": "medium",
+      "source": "Biber+MPQA"
+    },
+    "indicate": {
+      "certainty": 0.60,
+      "pos": ["VERB"],
+      "type": "evidence_based",
+      "subjectivity": "weaksubj",
+      "context_dependency": "medium",
+      "source": "Biber+MPQA"
+    },
+    "show": {
+      "certainty": 0.85,
+      "pos": ["VERB"],
+      "type": "strong_claim",
+      "subjectivity": "strongsubj",
+      "liwc_category": "Certainty",
+      "context_dependency": "medium",
+      "source": "Biber+LIWC"
+    },
+    "demonstrate": {
+      "certainty": 0.90,
+      "pos": ["VERB"],
+      "type": "strong_claim",
+      "subjectivity": "strongsubj",
+      "liwc_category": "Certainty",
+      "context_dependency": "medium",
+      "source": "Biber+LIWC"
+    },
+    "prove": {
+      "certainty": 0.95,
+      "pos": ["VERB"],
+      "type": "definitive_claim",
+      "subjectivity": "strongsubj",
+      "liwc_category": "Certainty",
+      "context_dependency": "medium",
+      "source": "Biber+LIWC"
+    },
+    "reveal": {
+      "certainty": 0.85,
+      "pos": ["VERB"],
+      "type": "strong_claim",
+      "subjectivity": "strongsubj",
+      "context_dependency": "medium",
+      "source": "Biber+MPQA"
+    },
+    "appear": {
+      "certainty": 0.45,
+      "pos": ["VERB"],
+      "type": "appearance",
+      "subjectivity": "weaksubj",
+      "liwc_category": "Tentative",
+      "context_dependency": "medium",
+      "note": "Evidential marker",
+      "source": "Palmer+LIWC"
+    },
+    "seem": {
+      "certainty": 0.45,
+      "pos": ["VERB"],
+      "type": "appearance",
+      "subjectivity": "weaksubj",
+      "liwc_category": "Tentative",
+      "context_dependency": "medium",
+      "note": "Evidential marker",
+      "source": "Palmer+LIWC"
+    },
+    "imply": {
+      "certainty": 0.55,
+      "pos": ["VERB"],
+      "type": "inference",
+      "subjectivity": "weaksubj",
+      "liwc_category": "Causation",
+      "context_dependency": "medium",
+      "source": "Biber+LIWC"
+    },
+    "establish": {
+      "certainty": 0.90,
+      "pos": ["VERB"],
+      "type": "strong_claim",
+      "subjectivity": "strongsubj",
+      "liwc_category": "Certainty",
+      "context_dependency": "medium",
+      "source": "MPQA+LIWC"
+    },
+    "confirm": {
+      "certainty": 0.90,
+      "pos": ["VERB"],
+      "type": "strong_claim",
+      "subjectivity": "strongsubj",
+      "liwc_category": "Certainty",
+      "context_dependency": "medium",
+      "source": "MPQA+LIWC"
+    },
+    "verify": {
+      "certainty": 0.90,
+      "pos": ["VERB"],
+      "type": "strong_claim",
+      "subjectivity": "strongsubj",
+      "liwc_category": "Certainty",
+      "context_dependency": "medium",
+      "source": "MPQA+LIWC"
+    }
+  },
+  
+  "multi_word_expressions": {
+    "it is certain that": {
+      "certainty": 0.95,
+      "strength": "strong",
+      "subjectivity": "strongsubj",
+      "liwc_category": "Certainty",
+      "source": "GME+LIWC"
+    },
+    "it is clear that": {
+      "certainty": 0.90,
+      "strength": "strong",
+      "subjectivity": "strongsubj",
+      "liwc_category": "Certainty",
+      "source": "GME+LIWC"
+    },
+    "it is obvious that": {
+      "certainty": 0.95,
+      "strength": "strong",
+      "subjectivity": "strongsubj",
+      "liwc_category": "Certainty",
+      "source": "GME+LIWC"
+    },
+    "it is likely that": {
+      "certainty": 0.70,
+      "strength": "medium",
+      "subjectivity": "weaksubj",
+      "liwc_category": "Tentative",
+      "source": "GME+LIWC"
+    },
+    "it is probable that": {
+      "certainty": 0.65,
+      "strength": "medium",
+      "subjectivity": "weaksubj",
+      "liwc_category": "Tentative",
+      "source": "GME+LIWC"
+    },
+    "it is possible that": {
+      "certainty": 0.30,
+      "strength": "weak",
+      "subjectivity": "weaksubj",
+      "liwc_category": "Tentative",
+      "source": "GME+LIWC"
+    },
+    "it may be that": {
+      "certainty": 0.35,
+      "strength": "weak",
+      "subjectivity": "weaksubj",
+      "liwc_category": "Tentative",
+      "source": "GME+LIWC"
+    },
+    "it seems that": {
+      "certainty": 0.45,
+      "strength": "weak",
+      "subjectivity": "weaksubj",
+      "liwc_category": "Tentative",
+      "source": "GME+LIWC"
+    },
+    "it appears that": {
+      "certainty": 0.45,
+      "strength": "weak",
+      "subjectivity": "weaksubj",
+      "liwc_category": "Tentative",
+      "source": "GME+LIWC"
+    },
+    "without doubt": {
+      "certainty": 0.95,
+      "strength": "strong",
+      "subjectivity": "strongsubj",
+      "liwc_category": "Certainty",
+      "source": "Biber+LIWC"
+    },
+    "no doubt": {
+      "certainty": 0.90,
+      "strength": "strong",
+      "subjectivity": "strongsubj",
+      "liwc_category": "Certainty",
+      "source": "Biber+LIWC"
+    },
+    "of course": {
+      "certainty": 0.90,
+      "strength": "strong",
+      "subjectivity": "strongsubj",
+      "liwc_category": "Certainty",
+      "source": "Biber+LIWC"
+    },
+    "in fact": {
+      "certainty": 0.85,
+      "strength": "strong",
+      "subjectivity": "strongsubj",
+      "liwc_category": "Certainty",
+      "source": "Biber+LIWC"
+    },
+    "there is no question": {
+      "certainty": 0.95,
+      "strength": "strong",
+      "subjectivity": "strongsubj",
+      "liwc_category": "Certainty",
+      "source": "Inquirer"
+    },
+    "it is uncertain whether": {
+      "certainty": 0.30,
+      "strength": "weak",
+      "subjectivity": "strongsubj",
+      "liwc_category": "Tentative",
+      "source": "Inquirer"
+    },
+    "it is unclear whether": {
+      "certainty": 0.30,
+      "strength": "weak",
+      "subjectivity": "strongsubj",
+      "liwc_category": "Tentative",
+      "source": "Inquirer"
+    }
+  },
+  
+  "approximators": {
+    "about": {
+      "certainty": 0.50,
+      "pos": ["ADV", "ADP"],
+      "category": "numerical_approximator",
+      "subjectivity": "weaksubj",
+      "context_dependency": "high",
+      "note": "Only epistemic when modifying quantities, not as preposition",
+      "source": "LIWC"
+    },
+    "around": {
+      "certainty": 0.50,
+      "pos": ["ADV", "ADP"],
+      "category": "numerical_approximator",
+      "subjectivity": "weaksubj",
+      "context_dependency": "high",
+      "note": "Numerical approximation context required",
+      "source": "LIWC"
+    },
+    "approximately": {
+      "certainty": 0.55,
+      "pos": ["ADV"],
+      "category": "numerical_approximator",
+      "subjectivity": "weaksubj",
+      "context_dependency": "low",
+      "source": "LIWC"
+    },
+    "roughly": {
+      "certainty": 0.50,
+      "pos": ["ADV"],
+      "category": "numerical_approximator",
+      "subjectivity": "weaksubj",
+      "context_dependency": "low",
+      "source": "LIWC"
+    },
+    "nearly": {
+      "certainty": 0.70,
+      "pos": ["ADV"],
+      "category": "numerical_approximator",
+      "subjectivity": "weaksubj",
+      "context_dependency": "low",
+      "source": "LIWC"
+    },
+    "almost": {
+      "certainty": 0.75,
+      "pos": ["ADV"],
+      "category": "numerical_approximator",
+      "subjectivity": "weaksubj",
+      "context_dependency": "low",
+      "source": "LIWC"
+    },
+    "more or less": {
+      "certainty": 0.50,
+      "category": "numerical_approximator",
+      "subjectivity": "weaksubj",
+      "context_dependency": "low",
+      "source": "LIWC"
+    }
+  },
+  
+  "generalization_markers": {
+    "generally": {
+      "certainty": 0.55,
+      "pos": ["ADV"],
+      "category": "generalization",
+      "subjectivity": "weaksubj",
+      "liwc_category": "Tentative",
+      "context_dependency": "low",
+      "note": "Indicates exceptions exist",
+      "source": "LIWC+Biber"
+    },
+    "usually": {
+      "certainty": 0.60,
+      "pos": ["ADV"],
+      "category": "generalization",
+      "subjectivity": "weaksubj",
+      "liwc_category": "Tentative",
+      "context_dependency": "low",
+      "source": "LIWC+Biber"
+    },
+    "typically": {
+      "certainty": 0.60,
+      "pos": ["ADV"],
+      "category": "generalization",
+      "subjectivity": "weaksubj",
+      "liwc_category": "Tentative",
+      "context_dependency": "low",
+      "source": "LIWC"
+    },
+    "often": {
+      "certainty": 0.55,
+      "pos": ["ADV"],
+      "category": "generalization",
+      "subjectivity": "weaksubj",
+      "liwc_category": "Tentative",
+      "context_dependency": "low",
+      "source": "LIWC+Biber"
+    },
+    "sometimes": {
+      "certainty": 0.40,
+      "pos": ["ADV"],
+      "category": "generalization",
+      "subjectivity": "weaksubj",
+      "liwc_category": "Tentative",
+      "context_dependency": "low",
+      "source": "LIWC+Biber"
+    },
+    "occasionally": {
+      "certainty": 0.35,
+      "pos": ["ADV"],
+      "category": "generalization",
+      "subjectivity": "weaksubj",
+      "liwc_category": "Tentative",
+      "context_dependency": "low",
+      "source": "LIWC"
+    },
+    "frequently": {
+      "certainty": 0.60,
+      "pos": ["ADV"],
+      "category": "generalization",
+      "subjectivity": "weaksubj",
+      "context_dependency": "low",
+      "source": "LIWC"
+    },
+    "rarely": {
+      "certainty": 0.30,
+      "pos": ["ADV"],
+      "category": "generalization",
+      "subjectivity": "weaksubj",
+      "context_dependency": "low",
+      "source": "LIWC"
+    },
+    "seldom": {
+      "certainty": 0.25,
+      "pos": ["ADV"],
+      "category": "generalization",
+      "subjectivity": "weaksubj",
+      "context_dependency": "low",
+      "source": "LIWC"
+    },
+    "in general": {
+      "certainty": 0.55,
+      "category": "generalization",
+      "subjectivity": "weaksubj",
+      "liwc_category": "Tentative",
+      "context_dependency": "low",
+      "source": "LIWC"
+    },
+    "as a rule": {
+      "certainty": 0.65,
+      "category": "generalization",
+      "subjectivity": "weaksubj",
+      "liwc_category": "Tentative",
+      "context_dependency": "low",
+      "source": "Biber"
+    },
+    "for the most part": {
+      "certainty": 0.60,
+      "category": "generalization",
+      "subjectivity": "weaksubj",
+      "liwc_category": "Tentative",
+      "context_dependency": "low",
+      "source": "Biber"
+    }
+  }
+}

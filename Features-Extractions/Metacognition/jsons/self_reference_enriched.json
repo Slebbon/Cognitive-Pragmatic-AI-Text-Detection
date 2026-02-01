@@ -1,0 +1,805 @@
+{
+  "_metadata": {
+    "name": "Self-Reference and Self-Monitoring Lexicon (Enriched)",
+    "version": "2.0",
+    "original_items": 52,
+    "enriched_items": 97,
+    "sources": [
+      "Hyland (2005) - Self-mention in academic writing",
+      "Cuenca (2003) - Reformulation markers",
+      "Schiffrin (1987) - Discourse Markers",
+      "Hyland & Jiang (2016-2019) - Diachronic trends in self-mention",
+      "Li et al. (2024) - RAAMove Corpus"
+    ],
+    "description": "Personal epistemic expressions and self-monitoring/reformulation markers with rhetorical move annotations",
+    "total_items": 97,
+    "categories": {
+      "personal_epistemic": "First-person + epistemic verb combinations",
+      "reformulation": "Self-monitoring and clarification markers",
+      "author_evident": "Research reporting constructions",
+      "inclusive_exclusive": "We-types (author-only vs author+reader)"
+    },
+    "new_annotations": [
+      "we_type: exclusive (author+coauthors) vs inclusive (author+reader)",
+      "self_reference_type: overt (I/we) vs covert (the author, the researcher)",
+      "reformulation_function: clarification, correction, expansion, precision",
+      "rhetorical_move: RAAMove annotation",
+      "temporal_trend: Hyland & Jiang findings on increasing/decreasing use"
+    ]
+  },
+  
+  "personal_epistemic_patterns": {
+    "first_person_pronouns": {
+      "I": {
+        "pos": ["PRON"],
+        "number": "singular",
+        "self_reference_type": "overt",
+        "rhetorical_move": ["neutral"],
+        "discipline_preference": "soft_science",
+        "temporal_trend": "stable",
+        "source": "Hyland2005+Hyland&Jiang2016"
+      },
+      "we": {
+        "pos": ["PRON"],
+        "number": "plural",
+        "self_reference_type": "overt",
+        "we_type": "ambiguous",
+        "rhetorical_move": ["Purpose", "Methodology", "Results", "Conclusion"],
+        "discipline_preference": "hard_science",
+        "temporal_trend": "increasing",
+        "note": "50% increase 1965-2015 (Hyland & Jiang). Context determines exclusive vs inclusive",
+        "source": "Hyland2005+Hyland&Jiang2016"
+      },
+      "my": {
+        "pos": ["PRON"],
+        "number": "singular",
+        "type": "possessive",
+        "self_reference_type": "overt",
+        "rhetorical_move": ["neutral"],
+        "discipline_preference": "soft_science",
+        "temporal_trend": "stable",
+        "source": "Hyland2005"
+      },
+      "our": {
+        "pos": ["PRON"],
+        "number": "plural",
+        "type": "possessive",
+        "self_reference_type": "overt",
+        "we_type": "exclusive",
+        "rhetorical_move": ["Purpose", "Methodology", "Results"],
+        "discipline_preference": "hard_science",
+        "temporal_trend": "increasing",
+        "note": "Predominantly exclusive (author+coauthors) in research contexts",
+        "source": "Hyland2005+Hyland&Jiang2016"
+      },
+      "me": {
+        "pos": ["PRON"],
+        "number": "singular",
+        "case": "objective",
+        "self_reference_type": "overt",
+        "rhetorical_move": ["neutral"],
+        "discipline_preference": "soft_science",
+        "temporal_trend": "stable",
+        "source": "Hyland2005"
+      },
+      "us": {
+        "pos": ["PRON"],
+        "number": "plural",
+        "case": "objective",
+        "self_reference_type": "overt",
+        "we_type": "often_inclusive",
+        "rhetorical_move": ["neutral"],
+        "discipline_preference": "neutral",
+        "temporal_trend": "stable",
+        "note": "More likely inclusive in 'let us' constructions",
+        "source": "Hyland2005"
+      }
+    },
+    
+    "epistemic_verbs": {
+      "think": {
+        "certainty": 0.55,
+        "type": "opinion",
+        "pos": ["VERB"],
+        "rhetorical_move": ["Gap", "Implications"],
+        "discipline_preference": "soft_science",
+        "source": "Hyland2005"
+      },
+      "believe": {
+        "certainty": 0.60,
+        "type": "belief",
+        "pos": ["VERB"],
+        "rhetorical_move": ["Gap", "Implications"],
+        "discipline_preference": "soft_science",
+        "source": "Hyland2005"
+      },
+      "suggest": {
+        "certainty": 0.50,
+        "type": "proposal",
+        "pos": ["VERB"],
+        "rhetorical_move": ["Results", "Implications"],
+        "discipline_preference": "neutral",
+        "source": "Hyland2005"
+      },
+      "argue": {
+        "certainty": 0.65,
+        "type": "claim",
+        "pos": ["VERB"],
+        "rhetorical_move": ["Gap", "Implications"],
+        "discipline_preference": "soft_science",
+        "source": "Hyland2005"
+      },
+      "propose": {
+        "certainty": 0.55,
+        "type": "proposal",
+        "pos": ["VERB"],
+        "rhetorical_move": ["Purpose", "Implications"],
+        "discipline_preference": "neutral",
+        "source": "Hyland2005"
+      },
+      "assume": {
+        "certainty": 0.50,
+        "type": "assumption",
+        "pos": ["VERB"],
+        "rhetorical_move": ["Methodology", "Background"],
+        "discipline_preference": "neutral",
+        "source": "Hyland2005"
+      },
+      "consider": {
+        "certainty": 0.50,
+        "type": "contemplation",
+        "pos": ["VERB"],
+        "rhetorical_move": ["Background", "Implications"],
+        "discipline_preference": "neutral",
+        "source": "Hyland2005"
+      },
+      "hypothesize": {
+        "certainty": 0.45,
+        "type": "hypothesis",
+        "pos": ["VERB"],
+        "rhetorical_move": ["Purpose", "Methodology"],
+        "discipline_preference": "hard_science",
+        "source": "Hyland2005"
+      },
+      "speculate": {
+        "certainty": 0.35,
+        "type": "speculation",
+        "pos": ["VERB"],
+        "rhetorical_move": ["Implications"],
+        "discipline_preference": "neutral",
+        "source": "Hyland2005"
+      },
+      "suspect": {
+        "certainty": 0.40,
+        "type": "weak_belief",
+        "pos": ["VERB"],
+        "rhetorical_move": ["Gap", "Implications"],
+        "discipline_preference": "neutral",
+        "source": "Hyland2005"
+      },
+      "suppose": {
+        "certainty": 0.45,
+        "type": "supposition",
+        "pos": ["VERB"],
+        "rhetorical_move": ["Background", "Methodology"],
+        "discipline_preference": "neutral",
+        "source": "Hyland2005"
+      },
+      "contend": {
+        "certainty": 0.65,
+        "type": "strong_claim",
+        "pos": ["VERB"],
+        "rhetorical_move": ["Gap", "Implications"],
+        "discipline_preference": "soft_science",
+        "source": "Hyland2005"
+      },
+      "maintain": {
+        "certainty": 0.70,
+        "type": "assertion",
+        "pos": ["VERB"],
+        "rhetorical_move": ["Gap", "Conclusion"],
+        "discipline_preference": "neutral",
+        "source": "Hyland2005"
+      }
+    }
+  },
+  
+  "personal_epistemic_phrases": {
+    "I think": {
+      "certainty": 0.55,
+      "type": "opinion",
+      "we_type": "n/a",
+      "rhetorical_move": ["Gap", "Implications"],
+      "discipline_preference": "soft_science",
+      "source": "Hyland2005"
+    },
+    "I believe": {
+      "certainty": 0.60,
+      "type": "belief",
+      "we_type": "n/a",
+      "rhetorical_move": ["Gap", "Implications"],
+      "discipline_preference": "soft_science",
+      "source": "Hyland2005"
+    },
+    "I suggest": {
+      "certainty": 0.50,
+      "type": "proposal",
+      "we_type": "n/a",
+      "rhetorical_move": ["Implications"],
+      "discipline_preference": "soft_science",
+      "source": "Hyland2005"
+    },
+    "I argue": {
+      "certainty": 0.65,
+      "type": "claim",
+      "we_type": "n/a",
+      "rhetorical_move": ["Gap", "Implications"],
+      "discipline_preference": "soft_science",
+      "source": "Hyland2005"
+    },
+    "I propose": {
+      "certainty": 0.55,
+      "type": "proposal",
+      "we_type": "n/a",
+      "rhetorical_move": ["Purpose", "Implications"],
+      "discipline_preference": "soft_science",
+      "source": "Hyland2005"
+    },
+    "I assume": {
+      "certainty": 0.50,
+      "type": "assumption",
+      "we_type": "n/a",
+      "rhetorical_move": ["Methodology"],
+      "discipline_preference": "soft_science",
+      "source": "Hyland2005"
+    },
+    "we think": {
+      "certainty": 0.55,
+      "type": "opinion",
+      "we_type": "exclusive",
+      "rhetorical_move": ["Gap", "Implications"],
+      "discipline_preference": "hard_science",
+      "source": "Hyland2005"
+    },
+    "we believe": {
+      "certainty": 0.60,
+      "type": "belief",
+      "we_type": "exclusive",
+      "rhetorical_move": ["Gap", "Implications"],
+      "discipline_preference": "hard_science",
+      "source": "Hyland2005"
+    },
+    "we suggest": {
+      "certainty": 0.50,
+      "type": "proposal",
+      "we_type": "exclusive",
+      "rhetorical_move": ["Results", "Implications"],
+      "discipline_preference": "hard_science",
+      "source": "Hyland2005"
+    },
+    "we argue": {
+      "certainty": 0.65,
+      "type": "claim",
+      "we_type": "exclusive",
+      "rhetorical_move": ["Gap", "Implications"],
+      "discipline_preference": "hard_science",
+      "source": "Hyland2005"
+    },
+    "we propose": {
+      "certainty": 0.55,
+      "type": "proposal",
+      "we_type": "exclusive",
+      "rhetorical_move": ["Purpose", "Implications"],
+      "discipline_preference": "hard_science",
+      "source": "Hyland2005"
+    },
+    "we assume": {
+      "certainty": 0.50,
+      "type": "assumption",
+      "we_type": "exclusive",
+      "rhetorical_move": ["Methodology"],
+      "discipline_preference": "hard_science",
+      "source": "Hyland2005"
+    },
+    "we hypothesize": {
+      "certainty": 0.45,
+      "type": "hypothesis",
+      "we_type": "exclusive",
+      "rhetorical_move": ["Purpose", "Methodology"],
+      "discipline_preference": "hard_science",
+      "source": "Hyland2005"
+    },
+    "we speculate": {
+      "certainty": 0.35,
+      "type": "speculation",
+      "we_type": "exclusive",
+      "rhetorical_move": ["Implications"],
+      "discipline_preference": "hard_science",
+      "source": "Hyland2005"
+    },
+    "we contend": {
+      "certainty": 0.65,
+      "type": "strong_claim",
+      "we_type": "exclusive",
+      "rhetorical_move": ["Gap", "Implications"],
+      "discipline_preference": "hard_science",
+      "source": "Hyland2005"
+    },
+    "we maintain": {
+      "certainty": 0.70,
+      "type": "assertion",
+      "we_type": "exclusive",
+      "rhetorical_move": ["Conclusion"],
+      "discipline_preference": "hard_science",
+      "source": "Hyland2005"
+    }
+  },
+  
+  "author_evident_constructions": {
+    "our findings suggest": {
+      "certainty": 0.50,
+      "type": "research_reporting",
+      "we_type": "exclusive",
+      "rhetorical_move": ["Results"],
+      "discipline_preference": "hard_science",
+      "temporal_trend": "increasing",
+      "source": "Hyland2005+RAAMove"
+    },
+    "our analysis reveals": {
+      "certainty": 0.75,
+      "type": "research_reporting",
+      "we_type": "exclusive",
+      "rhetorical_move": ["Results"],
+      "discipline_preference": "hard_science",
+      "temporal_trend": "increasing",
+      "source": "Hyland2005+RAAMove"
+    },
+    "our data indicate": {
+      "certainty": 0.60,
+      "type": "research_reporting",
+      "we_type": "exclusive",
+      "rhetorical_move": ["Results"],
+      "discipline_preference": "hard_science",
+      "temporal_trend": "increasing",
+      "source": "Hyland2005+RAAMove"
+    },
+    "we observed": {
+      "certainty": 0.85,
+      "type": "research_reporting",
+      "we_type": "exclusive",
+      "rhetorical_move": ["Results"],
+      "discipline_preference": "hard_science",
+      "source": "Hyland2005+RAAMove"
+    },
+    "we found": {
+      "certainty": 0.85,
+      "type": "research_reporting",
+      "we_type": "exclusive",
+      "rhetorical_move": ["Results"],
+      "discipline_preference": "hard_science",
+      "temporal_trend": "stable_high",
+      "note": "Most common research reporting phrase",
+      "source": "Hyland2005+RAAMove"
+    },
+    "we discovered": {
+      "certainty": 0.85,
+      "type": "research_reporting",
+      "we_type": "exclusive",
+      "rhetorical_move": ["Results"],
+      "discipline_preference": "hard_science",
+      "source": "Hyland2005+RAAMove"
+    },
+    "we determined": {
+      "certainty": 0.90,
+      "type": "research_reporting",
+      "we_type": "exclusive",
+      "rhetorical_move": ["Results"],
+      "discipline_preference": "hard_science",
+      "source": "Hyland2005+RAAMove"
+    },
+    "in our study": {
+      "type": "research_context",
+      "we_type": "exclusive",
+      "rhetorical_move": ["Purpose", "Methodology", "Results"],
+      "discipline_preference": "hard_science",
+      "source": "Hyland2005+RAAMove"
+    },
+    "in our experiment": {
+      "type": "research_context",
+      "we_type": "exclusive",
+      "rhetorical_move": ["Methodology", "Results"],
+      "discipline_preference": "hard_science",
+      "source": "Hyland2005+RAAMove"
+    },
+    "in our investigation": {
+      "type": "research_context",
+      "we_type": "exclusive",
+      "rhetorical_move": ["Purpose", "Methodology"],
+      "discipline_preference": "neutral",
+      "source": "Hyland2005+RAAMove"
+    },
+    "in our analysis": {
+      "type": "research_context",
+      "we_type": "exclusive",
+      "rhetorical_move": ["Results"],
+      "discipline_preference": "hard_science",
+      "source": "Hyland2005+RAAMove"
+    },
+    "our results show": {
+      "certainty": 0.85,
+      "type": "research_reporting",
+      "we_type": "exclusive",
+      "rhetorical_move": ["Results"],
+      "discipline_preference": "hard_science",
+      "source": "Hyland2005+RAAMove"
+    },
+    "our results demonstrate": {
+      "certainty": 0.90,
+      "type": "research_reporting",
+      "we_type": "exclusive",
+      "rhetorical_move": ["Results"],
+      "discipline_preference": "hard_science",
+      "source": "Hyland2005+RAAMove"
+    },
+    "our data show": {
+      "certainty": 0.85,
+      "type": "research_reporting",
+      "we_type": "exclusive",
+      "rhetorical_move": ["Results"],
+      "discipline_preference": "hard_science",
+      "source": "Hyland2005+RAAMove"
+    },
+    "we conducted": {
+      "type": "research_action",
+      "we_type": "exclusive",
+      "rhetorical_move": ["Methodology"],
+      "discipline_preference": "hard_science",
+      "source": "Hyland2005+RAAMove"
+    },
+    "we analyzed": {
+      "type": "research_action",
+      "we_type": "exclusive",
+      "rhetorical_move": ["Methodology"],
+      "discipline_preference": "hard_science",
+      "source": "Hyland2005+RAAMove"
+    },
+    "we measured": {
+      "type": "research_action",
+      "we_type": "exclusive",
+      "rhetorical_move": ["Methodology"],
+      "discipline_preference": "hard_science",
+      "source": "Hyland2005+RAAMove"
+    },
+    "we examined": {
+      "type": "research_action",
+      "we_type": "exclusive",
+      "rhetorical_move": ["Methodology", "Purpose"],
+      "discipline_preference": "hard_science",
+      "source": "Hyland2005+RAAMove"
+    },
+    "we investigated": {
+      "type": "research_action",
+      "we_type": "exclusive",
+      "rhetorical_move": ["Purpose", "Methodology"],
+      "discipline_preference": "hard_science",
+      "source": "Hyland2005+RAAMove"
+    }
+  },
+  
+  "attribution_to_self": {
+    "as we demonstrated": {
+      "certainty": 0.90,
+      "type": "self_reference_back",
+      "we_type": "exclusive",
+      "rhetorical_move": ["Results", "Conclusion"],
+      "discipline_preference": "hard_science",
+      "source": "Hyland2005"
+    },
+    "as we showed earlier": {
+      "certainty": 0.85,
+      "type": "self_reference_back",
+      "we_type": "exclusive",
+      "rhetorical_move": ["Results"],
+      "discipline_preference": "hard_science",
+      "source": "Hyland2005"
+    },
+    "as we argued": {
+      "certainty": 0.65,
+      "type": "self_reference_back",
+      "we_type": "exclusive",
+      "rhetorical_move": ["Gap", "Implications"],
+      "discipline_preference": "soft_science",
+      "source": "Hyland2005"
+    },
+    "our previous work": {
+      "type": "prior_research_reference",
+      "we_type": "exclusive",
+      "rhetorical_move": ["Background"],
+      "discipline_preference": "neutral",
+      "source": "Hyland2005"
+    },
+    "our earlier research": {
+      "type": "prior_research_reference",
+      "we_type": "exclusive",
+      "rhetorical_move": ["Background"],
+      "discipline_preference": "neutral",
+      "source": "Hyland2005"
+    },
+    "our prior findings": {
+      "type": "prior_research_reference",
+      "we_type": "exclusive",
+      "rhetorical_move": ["Background"],
+      "discipline_preference": "hard_science",
+      "source": "Hyland2005"
+    },
+    "we previously showed": {
+      "certainty": 0.85,
+      "type": "self_reference_back",
+      "we_type": "exclusive",
+      "rhetorical_move": ["Background", "Results"],
+      "discipline_preference": "hard_science",
+      "source": "Hyland2005"
+    },
+    "we have shown": {
+      "certainty": 0.85,
+      "type": "self_reference_back",
+      "we_type": "exclusive",
+      "rhetorical_move": ["Results"],
+      "discipline_preference": "hard_science",
+      "source": "Hyland2005"
+    }
+  },
+  
+  "inclusive_we_constructions": {
+    "we can see": {
+      "type": "inclusive_observation",
+      "we_type": "inclusive",
+      "rhetorical_move": ["Results"],
+      "discipline_preference": "neutral",
+      "note": "Author + reader joint observation",
+      "source": "Hyland2005"
+    },
+    "we can observe": {
+      "type": "inclusive_observation",
+      "we_type": "inclusive",
+      "rhetorical_move": ["Results"],
+      "discipline_preference": "neutral",
+      "source": "Hyland2005"
+    },
+    "we might conclude": {
+      "certainty": 0.55,
+      "type": "inclusive_conclusion",
+      "we_type": "inclusive",
+      "rhetorical_move": ["Conclusion"],
+      "discipline_preference": "neutral",
+      "source": "Hyland2005"
+    },
+    "we can infer": {
+      "certainty": 0.65,
+      "type": "inclusive_conclusion",
+      "we_type": "inclusive",
+      "rhetorical_move": ["Results", "Conclusion"],
+      "discipline_preference": "neutral",
+      "source": "Hyland2005"
+    },
+    "we should note": {
+      "type": "inclusive_directive",
+      "we_type": "inclusive",
+      "rhetorical_move": ["neutral"],
+      "discipline_preference": "neutral",
+      "source": "Hyland2005"
+    },
+    "we must consider": {
+      "type": "inclusive_directive",
+      "we_type": "inclusive",
+      "rhetorical_move": ["Background", "Implications"],
+      "discipline_preference": "neutral",
+      "source": "Hyland2005"
+    },
+    "let us examine": {
+      "type": "inclusive_directive",
+      "we_type": "inclusive",
+      "rhetorical_move": ["Methodology", "Results"],
+      "discipline_preference": "neutral",
+      "source": "Hyland2005"
+    },
+    "let us consider": {
+      "type": "inclusive_directive",
+      "we_type": "inclusive",
+      "rhetorical_move": ["Background"],
+      "discipline_preference": "neutral",
+      "source": "Hyland2005"
+    }
+  },
+  
+  "reformulation_markers": {
+    "that is to say": {
+      "pos": ["phrase"],
+      "reformulation_function": "clarification",
+      "rhetorical_move": ["neutral"],
+      "discipline_preference": "neutral",
+      "source": "Cuenca2003"
+    },
+    "to be more precise": {
+      "pos": ["phrase"],
+      "reformulation_function": "precision",
+      "rhetorical_move": ["neutral"],
+      "discipline_preference": "hard_science",
+      "source": "Cuenca2003"
+    },
+    "more accurately": {
+      "pos": ["phrase"],
+      "reformulation_function": "correction",
+      "rhetorical_move": ["neutral"],
+      "discipline_preference": "hard_science",
+      "source": "Cuenca2003"
+    },
+    "or rather": {
+      "pos": ["phrase"],
+      "reformulation_function": "correction",
+      "rhetorical_move": ["neutral"],
+      "discipline_preference": "neutral",
+      "source": "Cuenca2003"
+    },
+    "to put it another way": {
+      "pos": ["phrase"],
+      "reformulation_function": "clarification",
+      "rhetorical_move": ["neutral"],
+      "discipline_preference": "neutral",
+      "source": "Cuenca2003"
+    },
+    "in other words": {
+      "pos": ["phrase"],
+      "reformulation_function": "clarification",
+      "rhetorical_move": ["neutral"],
+      "discipline_preference": "neutral",
+      "source": "Cuenca2003"
+    },
+    "let me clarify": {
+      "pos": ["phrase"],
+      "reformulation_function": "clarification",
+      "self_reference_type": "overt",
+      "rhetorical_move": ["neutral"],
+      "discipline_preference": "soft_science",
+      "note": "Self-monitoring marker",
+      "source": "Cuenca2003+Schiffrin1987"
+    },
+    "to be clear": {
+      "pos": ["phrase"],
+      "reformulation_function": "clarification",
+      "rhetorical_move": ["neutral"],
+      "discipline_preference": "neutral",
+      "note": "Self-monitoring marker",
+      "source": "Cuenca2003+Schiffrin1987"
+    },
+    "to put this differently": {
+      "pos": ["phrase"],
+      "reformulation_function": "clarification",
+      "rhetorical_move": ["neutral"],
+      "discipline_preference": "neutral",
+      "source": "Cuenca2003"
+    },
+    "what I mean is": {
+      "pos": ["phrase"],
+      "reformulation_function": "clarification",
+      "self_reference_type": "overt",
+      "rhetorical_move": ["neutral"],
+      "discipline_preference": "soft_science",
+      "note": "Strong self-monitoring marker",
+      "source": "Schiffrin1987"
+    },
+    "in simple terms": {
+      "pos": ["phrase"],
+      "reformulation_function": "simplification",
+      "rhetorical_move": ["neutral"],
+      "discipline_preference": "neutral",
+      "source": "Cuenca2003"
+    },
+    "to explain further": {
+      "pos": ["phrase"],
+      "reformulation_function": "expansion",
+      "rhetorical_move": ["neutral"],
+      "discipline_preference": "neutral",
+      "source": "Cuenca2003"
+    },
+    "more specifically": {
+      "pos": ["phrase"],
+      "reformulation_function": "precision",
+      "rhetorical_move": ["Methodology", "Results"],
+      "discipline_preference": "hard_science",
+      "source": "Cuenca2003"
+    },
+    "to elaborate": {
+      "pos": ["phrase"],
+      "reformulation_function": "expansion",
+      "rhetorical_move": ["neutral"],
+      "discipline_preference": "neutral",
+      "source": "Cuenca2003"
+    },
+    "to rephrase": {
+      "pos": ["phrase"],
+      "reformulation_function": "clarification",
+      "rhetorical_move": ["neutral"],
+      "discipline_preference": "neutral",
+      "source": "Cuenca2003"
+    }
+  },
+  
+  "covert_self_reference": {
+    "the author": {
+      "pos": ["phrase"],
+      "person": "third_person_self",
+      "self_reference_type": "covert",
+      "rhetorical_move": ["neutral"],
+      "discipline_preference": "formal",
+      "temporal_trend": "decreasing",
+      "note": "Third-person self-reference, increasingly rare",
+      "source": "Hyland2005+Hyland&Jiang2016"
+    },
+    "the researcher": {
+      "pos": ["phrase"],
+      "person": "third_person_self",
+      "self_reference_type": "covert",
+      "rhetorical_move": ["Methodology"],
+      "discipline_preference": "formal",
+      "temporal_trend": "decreasing",
+      "source": "Hyland2005"
+    },
+    "the writer": {
+      "pos": ["phrase"],
+      "person": "third_person_self",
+      "self_reference_type": "covert",
+      "rhetorical_move": ["neutral"],
+      "discipline_preference": "soft_science",
+      "temporal_trend": "stable_low",
+      "source": "Hyland2005"
+    },
+    "the present study": {
+      "pos": ["phrase"],
+      "person": "third_person_self",
+      "self_reference_type": "covert",
+      "rhetorical_move": ["Purpose", "Methodology", "Results"],
+      "discipline_preference": "hard_science",
+      "temporal_trend": "stable",
+      "note": "Study as agent - common alternative to overt self-mention",
+      "source": "Hyland2005"
+    },
+    "this study": {
+      "pos": ["phrase"],
+      "person": "third_person_self",
+      "self_reference_type": "covert",
+      "rhetorical_move": ["Purpose", "Methodology", "Conclusion"],
+      "discipline_preference": "hard_science",
+      "temporal_trend": "stable_high",
+      "note": "Most common covert self-reference",
+      "source": "Hyland2005"
+    },
+    "this research": {
+      "pos": ["phrase"],
+      "person": "third_person_self",
+      "self_reference_type": "covert",
+      "rhetorical_move": ["Purpose", "Conclusion"],
+      "discipline_preference": "neutral",
+      "temporal_trend": "stable",
+      "source": "Hyland2005"
+    },
+    "this paper": {
+      "pos": ["phrase"],
+      "person": "third_person_self",
+      "self_reference_type": "covert",
+      "rhetorical_move": ["Purpose"],
+      "discipline_preference": "neutral",
+      "temporal_trend": "stable",
+      "source": "Hyland2005"
+    },
+    "the present analysis": {
+      "pos": ["phrase"],
+      "person": "third_person_self",
+      "self_reference_type": "covert",
+      "rhetorical_move": ["Methodology", "Results"],
+      "discipline_preference": "hard_science",
+      "temporal_trend": "stable",
+      "source": "Hyland2005"
+    }
+  }
+}

@@ -1,0 +1,2551 @@
+{
+  "_metadata": {
+    "name": "Metadiscourse Markers Lexicon (Enriched)",
+    "version": "2.0",
+    "original_items": 112,
+    "enriched_items": 278,
+    "sources": [
+      "Hyland (2005) - Metadiscourse: Exploring Interaction in Writing",
+      "Hyland & Tse (2004) - Metadiscourse in Academic Writing: A Reappraisal",
+      "Crismore (1989) - Talking with Readers: Metadiscourse as Rhetorical Act",
+      "Li et al. (2024) - RAAMove Corpus (rhetorical move annotation)",
+      "Saurí & Pustejovsky (2009) - FactBank (source attribution)",
+      "Wang et al. (2024) - MAVEN-FACT (factuality detection)"
+    ],
+    "description": "Hyland's taxonomy enriched with rhetorical move annotations and factuality markers",
+    "total_items": 278,
+    "categories": {
+      "interactive": "Organizing discourse (transitions, frames, endophoric, evidentials, code glosses)",
+      "interactional": "Engaging reader (hedges, boosters, attitude markers, engagement markers, self-mention)"
+    },
+    "new_annotations": [
+      "rhetorical_move: Background, Gap, Purpose, Methodology, Results, Conclusion, Implications, Limitations (RAAMove)",
+      "factuality_level: CT+ (certain positive), PS+ (possible positive), etc. (MAVEN-FACT)",
+      "source_attribution: author vs other (FactBank)",
+      "discipline_preference: Hyland's corpus findings on disciplinary variation"
+    ]
+  },
+  "interactive": {
+    "transitions": {
+      "however": {
+        "pos": [
+          "ADV"
+        ],
+        "function": "contrast",
+        "rhetorical_move": [
+          "Gap",
+          "Limitations"
+        ],
+        "discipline_preference": "neutral",
+        "source": "Hyland2005+RAAMove"
+      },
+      "therefore": {
+        "pos": [
+          "ADV"
+        ],
+        "function": "result",
+        "rhetorical_move": [
+          "Results",
+          "Conclusion",
+          "Implications"
+        ],
+        "discipline_preference": "hard_science",
+        "source": "Hyland2005+RAAMove"
+      },
+      "thus": {
+        "pos": [
+          "ADV"
+        ],
+        "function": "result",
+        "rhetorical_move": [
+          "Results",
+          "Conclusion"
+        ],
+        "discipline_preference": "hard_science",
+        "source": "Hyland2005+RAAMove"
+      },
+      "consequently": {
+        "pos": [
+          "ADV"
+        ],
+        "function": "result",
+        "rhetorical_move": [
+          "Results",
+          "Implications"
+        ],
+        "discipline_preference": "neutral",
+        "source": "Hyland2005+RAAMove"
+      },
+      "hence": {
+        "pos": [
+          "ADV"
+        ],
+        "function": "result",
+        "rhetorical_move": [
+          "Results",
+          "Conclusion"
+        ],
+        "discipline_preference": "hard_science",
+        "source": "Hyland2005+RAAMove"
+      },
+      "accordingly": {
+        "pos": [
+          "ADV"
+        ],
+        "function": "result",
+        "rhetorical_move": [
+          "Results",
+          "Implications"
+        ],
+        "discipline_preference": "neutral",
+        "source": "Hyland2005+RAAMove"
+      },
+      "moreover": {
+        "pos": [
+          "ADV"
+        ],
+        "function": "addition",
+        "rhetorical_move": [
+          "Background",
+          "Results"
+        ],
+        "discipline_preference": "soft_science",
+        "source": "Hyland2005+RAAMove"
+      },
+      "furthermore": {
+        "pos": [
+          "ADV"
+        ],
+        "function": "addition",
+        "rhetorical_move": [
+          "Background",
+          "Results"
+        ],
+        "discipline_preference": "soft_science",
+        "source": "Hyland2005+RAAMove"
+      },
+      "additionally": {
+        "pos": [
+          "ADV"
+        ],
+        "function": "addition",
+        "rhetorical_move": [
+          "Background",
+          "Results"
+        ],
+        "discipline_preference": "neutral",
+        "source": "Hyland2005+RAAMove"
+      },
+      "besides": {
+        "pos": [
+          "ADV"
+        ],
+        "function": "addition",
+        "rhetorical_move": [
+          "Background"
+        ],
+        "discipline_preference": "neutral",
+        "source": "Hyland2005"
+      },
+      "also": {
+        "pos": [
+          "ADV"
+        ],
+        "function": "addition",
+        "rhetorical_move": [
+          "Background",
+          "Results"
+        ],
+        "discipline_preference": "neutral",
+        "source": "Hyland2005+RAAMove"
+      },
+      "similarly": {
+        "pos": [
+          "ADV"
+        ],
+        "function": "comparison",
+        "rhetorical_move": [
+          "Background",
+          "Results"
+        ],
+        "discipline_preference": "neutral",
+        "source": "Hyland2005+RAAMove"
+      },
+      "likewise": {
+        "pos": [
+          "ADV"
+        ],
+        "function": "comparison",
+        "rhetorical_move": [
+          "Background",
+          "Results"
+        ],
+        "discipline_preference": "neutral",
+        "source": "Hyland2005+RAAMove"
+      },
+      "nevertheless": {
+        "pos": [
+          "ADV"
+        ],
+        "function": "contrast",
+        "rhetorical_move": [
+          "Gap",
+          "Limitations"
+        ],
+        "discipline_preference": "neutral",
+        "source": "Hyland2005+RAAMove"
+      },
+      "nonetheless": {
+        "pos": [
+          "ADV"
+        ],
+        "function": "contrast",
+        "rhetorical_move": [
+          "Gap",
+          "Limitations"
+        ],
+        "discipline_preference": "neutral",
+        "source": "Hyland2005+RAAMove"
+      },
+      "yet": {
+        "pos": [
+          "ADV",
+          "CCONJ"
+        ],
+        "function": "contrast",
+        "rhetorical_move": [
+          "Gap",
+          "Limitations"
+        ],
+        "discipline_preference": "neutral",
+        "source": "Hyland2005+RAAMove"
+      },
+      "still": {
+        "pos": [
+          "ADV"
+        ],
+        "function": "contrast",
+        "rhetorical_move": [
+          "Gap",
+          "Limitations"
+        ],
+        "discipline_preference": "neutral",
+        "source": "Hyland2005+RAAMove"
+      },
+      "but": {
+        "pos": [
+          "CCONJ"
+        ],
+        "function": "contrast",
+        "rhetorical_move": [
+          "Gap",
+          "Limitations"
+        ],
+        "discipline_preference": "neutral",
+        "note": "Only sentence-initial for metadiscourse",
+        "source": "Hyland2005+RAAMove"
+      },
+      "and": {
+        "pos": [
+          "CCONJ"
+        ],
+        "function": "addition",
+        "rhetorical_move": [
+          "neutral"
+        ],
+        "discipline_preference": "neutral",
+        "note": "Only sentence-initial for metadiscourse",
+        "source": "Hyland2005"
+      },
+      "traditionally": {
+        "pos": [
+          "ADV"
+        ],
+        "function": "temporal_background",
+        "rhetorical_move": [
+          "Background"
+        ],
+        "discipline_preference": "soft_science",
+        "source": "RAAMove"
+      },
+      "historically": {
+        "pos": [
+          "ADV"
+        ],
+        "function": "temporal_background",
+        "rhetorical_move": [
+          "Background"
+        ],
+        "discipline_preference": "soft_science",
+        "source": "RAAMove"
+      },
+      "in recent years": {
+        "pos": [
+          "phrase"
+        ],
+        "function": "temporal_background",
+        "rhetorical_move": [
+          "Background",
+          "Gap"
+        ],
+        "discipline_preference": "neutral",
+        "source": "RAAMove"
+      },
+      "despite": {
+        "pos": [
+          "ADP",
+          "SCONJ"
+        ],
+        "function": "contrast",
+        "rhetorical_move": [
+          "Gap",
+          "Limitations"
+        ],
+        "discipline_preference": "neutral",
+        "source": "RAAMove"
+      },
+      "although": {
+        "pos": [
+          "SCONJ"
+        ],
+        "function": "contrast",
+        "rhetorical_move": [
+          "Gap",
+          "Limitations"
+        ],
+        "discipline_preference": "neutral",
+        "source": "RAAMove"
+      },
+      "notwithstanding": {
+        "pos": [
+          "ADP",
+          "ADV"
+        ],
+        "function": "contrast",
+        "rhetorical_move": [
+          "Limitations"
+        ],
+        "discipline_preference": "formal",
+        "source": "RAAMove"
+      },
+      "that said": {
+        "pos": [
+          "phrase"
+        ],
+        "function": "contrast",
+        "rhetorical_move": [
+          "Limitations"
+        ],
+        "discipline_preference": "neutral",
+        "source": "RAAMove"
+      }
+    },
+    "frame_markers": {
+      "first": {
+        "pos": [
+          "ADV",
+          "ADJ"
+        ],
+        "function": "sequencing",
+        "rhetorical_move": [
+          "Methodology",
+          "Results"
+        ],
+        "discipline_preference": "neutral",
+        "source": "Hyland2005+RAAMove"
+      },
+      "second": {
+        "pos": [
+          "ADV",
+          "ADJ"
+        ],
+        "function": "sequencing",
+        "rhetorical_move": [
+          "Methodology",
+          "Results"
+        ],
+        "discipline_preference": "neutral",
+        "source": "Hyland2005+RAAMove"
+      },
+      "third": {
+        "pos": [
+          "ADV",
+          "ADJ"
+        ],
+        "function": "sequencing",
+        "rhetorical_move": [
+          "Methodology",
+          "Results"
+        ],
+        "discipline_preference": "neutral",
+        "source": "Hyland2005+RAAMove"
+      },
+      "finally": {
+        "pos": [
+          "ADV"
+        ],
+        "function": "sequencing",
+        "rhetorical_move": [
+          "Results",
+          "Conclusion"
+        ],
+        "discipline_preference": "neutral",
+        "source": "Hyland2005+RAAMove"
+      },
+      "lastly": {
+        "pos": [
+          "ADV"
+        ],
+        "function": "sequencing",
+        "rhetorical_move": [
+          "Results",
+          "Conclusion"
+        ],
+        "discipline_preference": "neutral",
+        "source": "Hyland2005+RAAMove"
+      },
+      "overall": {
+        "pos": [
+          "ADJ",
+          "ADV"
+        ],
+        "function": "stage_label",
+        "rhetorical_move": [
+          "Conclusion"
+        ],
+        "discipline_preference": "neutral",
+        "source": "Hyland2005+RAAMove"
+      },
+      "in conclusion": {
+        "pos": [
+          "phrase"
+        ],
+        "function": "concluding",
+        "rhetorical_move": [
+          "Conclusion"
+        ],
+        "discipline_preference": "neutral",
+        "source": "Hyland2005+RAAMove"
+      },
+      "to conclude": {
+        "pos": [
+          "phrase"
+        ],
+        "function": "concluding",
+        "rhetorical_move": [
+          "Conclusion"
+        ],
+        "discipline_preference": "neutral",
+        "source": "Hyland2005+RAAMove"
+      },
+      "in summary": {
+        "pos": [
+          "phrase"
+        ],
+        "function": "summarizing",
+        "rhetorical_move": [
+          "Conclusion"
+        ],
+        "discipline_preference": "neutral",
+        "source": "Hyland2005+RAAMove"
+      },
+      "to sum up": {
+        "pos": [
+          "phrase"
+        ],
+        "function": "summarizing",
+        "rhetorical_move": [
+          "Conclusion"
+        ],
+        "discipline_preference": "informal",
+        "source": "Hyland2005+RAAMove"
+      },
+      "to summarize": {
+        "pos": [
+          "phrase"
+        ],
+        "function": "summarizing",
+        "rhetorical_move": [
+          "Conclusion"
+        ],
+        "discipline_preference": "neutral",
+        "source": "Hyland2005+RAAMove"
+      },
+      "in short": {
+        "pos": [
+          "phrase"
+        ],
+        "function": "summarizing",
+        "rhetorical_move": [
+          "Conclusion"
+        ],
+        "discipline_preference": "neutral",
+        "source": "Hyland2005+RAAMove"
+      },
+      "in brief": {
+        "pos": [
+          "phrase"
+        ],
+        "function": "summarizing",
+        "rhetorical_move": [
+          "Conclusion"
+        ],
+        "discipline_preference": "neutral",
+        "source": "Hyland2005+RAAMove"
+      },
+      "my purpose is": {
+        "pos": [
+          "phrase"
+        ],
+        "function": "goal_stating",
+        "rhetorical_move": [
+          "Purpose"
+        ],
+        "discipline_preference": "soft_science",
+        "source": "Hyland2005+RAAMove"
+      },
+      "our aim is": {
+        "pos": [
+          "phrase"
+        ],
+        "function": "goal_stating",
+        "rhetorical_move": [
+          "Purpose"
+        ],
+        "discipline_preference": "hard_science",
+        "source": "Hyland2005+RAAMove"
+      },
+      "this study aims to": {
+        "pos": [
+          "phrase"
+        ],
+        "function": "goal_stating",
+        "rhetorical_move": [
+          "Purpose"
+        ],
+        "discipline_preference": "neutral",
+        "source": "RAAMove"
+      },
+      "our objective is": {
+        "pos": [
+          "phrase"
+        ],
+        "function": "goal_stating",
+        "rhetorical_move": [
+          "Purpose"
+        ],
+        "discipline_preference": "hard_science",
+        "source": "RAAMove"
+      },
+      "we seek to": {
+        "pos": [
+          "phrase"
+        ],
+        "function": "goal_stating",
+        "rhetorical_move": [
+          "Purpose"
+        ],
+        "discipline_preference": "neutral",
+        "source": "RAAMove"
+      },
+      "the purpose of this study": {
+        "pos": [
+          "phrase"
+        ],
+        "function": "goal_stating",
+        "rhetorical_move": [
+          "Purpose"
+        ],
+        "discipline_preference": "neutral",
+        "source": "RAAMove"
+      },
+      "our findings reveal": {
+        "pos": [
+          "phrase"
+        ],
+        "function": "result_preview",
+        "rhetorical_move": [
+          "Results"
+        ],
+        "discipline_preference": "neutral",
+        "source": "RAAMove"
+      },
+      "the analysis demonstrates": {
+        "pos": [
+          "phrase"
+        ],
+        "function": "result_preview",
+        "rhetorical_move": [
+          "Results"
+        ],
+        "discipline_preference": "hard_science",
+        "source": "RAAMove"
+      },
+      "it should be noted that": {
+        "pos": [
+          "phrase"
+        ],
+        "function": "limitation_flag",
+        "rhetorical_move": [
+          "Limitations"
+        ],
+        "discipline_preference": "neutral",
+        "source": "RAAMove"
+      },
+      "a limitation of this study": {
+        "pos": [
+          "phrase"
+        ],
+        "function": "limitation_flag",
+        "rhetorical_move": [
+          "Limitations"
+        ],
+        "discipline_preference": "neutral",
+        "source": "RAAMove"
+      }
+    },
+    "endophoric_markers": {
+      "above": {
+        "pos": [
+          "ADV",
+          "ADP"
+        ],
+        "function": "text_reference",
+        "rhetorical_move": [
+          "neutral"
+        ],
+        "discipline_preference": "neutral",
+        "note": "When referring to text location",
+        "source": "Hyland2005"
+      },
+      "below": {
+        "pos": [
+          "ADV",
+          "ADP"
+        ],
+        "function": "text_reference",
+        "rhetorical_move": [
+          "neutral"
+        ],
+        "discipline_preference": "neutral",
+        "source": "Hyland2005"
+      },
+      "earlier": {
+        "pos": [
+          "ADV",
+          "ADJ"
+        ],
+        "function": "text_reference",
+        "rhetorical_move": [
+          "neutral"
+        ],
+        "discipline_preference": "neutral",
+        "source": "Hyland2005"
+      },
+      "previously": {
+        "pos": [
+          "ADV"
+        ],
+        "function": "text_reference",
+        "rhetorical_move": [
+          "neutral"
+        ],
+        "discipline_preference": "neutral",
+        "source": "Hyland2005"
+      },
+      "as noted above": {
+        "pos": [
+          "phrase"
+        ],
+        "function": "backward_reference",
+        "rhetorical_move": [
+          "neutral"
+        ],
+        "discipline_preference": "neutral",
+        "source": "Hyland2005"
+      },
+      "as mentioned earlier": {
+        "pos": [
+          "phrase"
+        ],
+        "function": "backward_reference",
+        "rhetorical_move": [
+          "neutral"
+        ],
+        "discipline_preference": "neutral",
+        "source": "Hyland2005"
+      },
+      "as discussed": {
+        "pos": [
+          "phrase"
+        ],
+        "function": "backward_reference",
+        "rhetorical_move": [
+          "neutral"
+        ],
+        "discipline_preference": "neutral",
+        "source": "Hyland2005"
+      },
+      "see Figure": {
+        "pos": [
+          "phrase"
+        ],
+        "function": "figure_reference",
+        "rhetorical_move": [
+          "Methodology",
+          "Results"
+        ],
+        "discipline_preference": "hard_science",
+        "source": "Hyland2005+RAAMove"
+      },
+      "in Section": {
+        "pos": [
+          "phrase"
+        ],
+        "function": "section_reference",
+        "rhetorical_move": [
+          "neutral"
+        ],
+        "discipline_preference": "neutral",
+        "source": "Hyland2005"
+      },
+      "see Table": {
+        "pos": [
+          "phrase"
+        ],
+        "function": "table_reference",
+        "rhetorical_move": [
+          "Results"
+        ],
+        "discipline_preference": "hard_science",
+        "source": "Hyland2005"
+      },
+      "as shown in": {
+        "pos": [
+          "phrase"
+        ],
+        "function": "figure_reference",
+        "rhetorical_move": [
+          "Results"
+        ],
+        "discipline_preference": "hard_science",
+        "source": "Hyland2005"
+      }
+    },
+    "evidentials": {
+      "according to": {
+        "pos": [
+          "phrase"
+        ],
+        "function": "attribution",
+        "source_attribution": "other",
+        "factuality_level": "varies",
+        "rhetorical_move": [
+          "Background"
+        ],
+        "discipline_preference": "neutral",
+        "source": "Hyland2005+FactBank"
+      },
+      "research shows": {
+        "pos": [
+          "phrase"
+        ],
+        "function": "attribution",
+        "source_attribution": "other",
+        "factuality_level": "CT+",
+        "rhetorical_move": [
+          "Background"
+        ],
+        "discipline_preference": "hard_science",
+        "source": "Hyland2005+FactBank"
+      },
+      "studies show": {
+        "pos": [
+          "phrase"
+        ],
+        "function": "attribution",
+        "source_attribution": "other",
+        "factuality_level": "CT+",
+        "rhetorical_move": [
+          "Background"
+        ],
+        "discipline_preference": "hard_science",
+        "source": "Hyland2005+FactBank"
+      },
+      "data suggest": {
+        "pos": [
+          "phrase"
+        ],
+        "function": "attribution",
+        "source_attribution": "other",
+        "factuality_level": "PS+",
+        "rhetorical_move": [
+          "Background",
+          "Results"
+        ],
+        "discipline_preference": "hard_science",
+        "source": "Hyland2005+FactBank"
+      },
+      "evidence indicates": {
+        "pos": [
+          "phrase"
+        ],
+        "function": "attribution",
+        "source_attribution": "other",
+        "factuality_level": "PS+",
+        "rhetorical_move": [
+          "Background"
+        ],
+        "discipline_preference": "hard_science",
+        "source": "Hyland2005+FactBank"
+      },
+      "previous research": {
+        "pos": [
+          "phrase"
+        ],
+        "function": "attribution",
+        "source_attribution": "other",
+        "factuality_level": "varies",
+        "rhetorical_move": [
+          "Background"
+        ],
+        "discipline_preference": "neutral",
+        "source": "Hyland2005+FactBank"
+      },
+      "earlier studies": {
+        "pos": [
+          "phrase"
+        ],
+        "function": "attribution",
+        "source_attribution": "other",
+        "factuality_level": "varies",
+        "rhetorical_move": [
+          "Background"
+        ],
+        "discipline_preference": "neutral",
+        "source": "Hyland2005+FactBank"
+      },
+      "X reports that": {
+        "pos": [
+          "phrase"
+        ],
+        "function": "source_introducing_predicate",
+        "source_attribution": "other",
+        "factuality_level": "CT+",
+        "rhetorical_move": [
+          "Background"
+        ],
+        "discipline_preference": "neutral",
+        "note": "Source-introducing predicate (FactBank terminology)",
+        "source": "FactBank"
+      },
+      "X claims that": {
+        "pos": [
+          "phrase"
+        ],
+        "function": "source_introducing_predicate",
+        "source_attribution": "other",
+        "factuality_level": "PS+",
+        "rhetorical_move": [
+          "Background"
+        ],
+        "discipline_preference": "neutral",
+        "note": "Weaker commitment than 'reports'",
+        "source": "FactBank"
+      },
+      "X confirms that": {
+        "pos": [
+          "phrase"
+        ],
+        "function": "source_introducing_predicate",
+        "source_attribution": "other",
+        "factuality_level": "CT+",
+        "rhetorical_move": [
+          "Background"
+        ],
+        "discipline_preference": "hard_science",
+        "note": "Strong factuality commitment",
+        "source": "FactBank"
+      },
+      "X suggests that": {
+        "pos": [
+          "phrase"
+        ],
+        "function": "source_introducing_predicate",
+        "source_attribution": "other",
+        "factuality_level": "PS+",
+        "rhetorical_move": [
+          "Background"
+        ],
+        "discipline_preference": "neutral",
+        "source": "FactBank"
+      },
+      "X demonstrates that": {
+        "pos": [
+          "phrase"
+        ],
+        "function": "source_introducing_predicate",
+        "source_attribution": "other",
+        "factuality_level": "CT+",
+        "rhetorical_move": [
+          "Background"
+        ],
+        "discipline_preference": "hard_science",
+        "source": "FactBank"
+      },
+      "as stated by": {
+        "pos": [
+          "phrase"
+        ],
+        "function": "attribution",
+        "source_attribution": "other",
+        "factuality_level": "CT+",
+        "rhetorical_move": [
+          "Background"
+        ],
+        "discipline_preference": "neutral",
+        "source": "FactBank"
+      },
+      "as shown by": {
+        "pos": [
+          "phrase"
+        ],
+        "function": "attribution",
+        "source_attribution": "other",
+        "factuality_level": "CT+",
+        "rhetorical_move": [
+          "Background"
+        ],
+        "discipline_preference": "hard_science",
+        "source": "FactBank"
+      }
+    },
+    "code_glosses": {
+      "that is": {
+        "pos": [
+          "phrase"
+        ],
+        "function": "reformulation",
+        "rhetorical_move": [
+          "neutral"
+        ],
+        "discipline_preference": "neutral",
+        "source": "Hyland2005"
+      },
+      "in other words": {
+        "pos": [
+          "phrase"
+        ],
+        "function": "reformulation",
+        "rhetorical_move": [
+          "neutral"
+        ],
+        "discipline_preference": "neutral",
+        "source": "Hyland2005"
+      },
+      "i.e.": {
+        "pos": [
+          "phrase"
+        ],
+        "function": "reformulation",
+        "rhetorical_move": [
+          "neutral"
+        ],
+        "discipline_preference": "formal",
+        "source": "Hyland2005"
+      },
+      "namely": {
+        "pos": [
+          "ADV"
+        ],
+        "function": "reformulation",
+        "rhetorical_move": [
+          "neutral"
+        ],
+        "discipline_preference": "formal",
+        "source": "Hyland2005"
+      },
+      "for example": {
+        "pos": [
+          "phrase"
+        ],
+        "function": "exemplification",
+        "rhetorical_move": [
+          "Background",
+          "Results"
+        ],
+        "discipline_preference": "neutral",
+        "source": "Hyland2005+RAAMove"
+      },
+      "for instance": {
+        "pos": [
+          "phrase"
+        ],
+        "function": "exemplification",
+        "rhetorical_move": [
+          "Background",
+          "Results"
+        ],
+        "discipline_preference": "neutral",
+        "source": "Hyland2005+RAAMove"
+      },
+      "e.g.": {
+        "pos": [
+          "phrase"
+        ],
+        "function": "exemplification",
+        "rhetorical_move": [
+          "neutral"
+        ],
+        "discipline_preference": "formal",
+        "source": "Hyland2005"
+      },
+      "such as": {
+        "pos": [
+          "phrase"
+        ],
+        "function": "exemplification",
+        "rhetorical_move": [
+          "Background",
+          "Results"
+        ],
+        "discipline_preference": "neutral",
+        "source": "Hyland2005+RAAMove"
+      },
+      "specifically": {
+        "pos": [
+          "ADV"
+        ],
+        "function": "specification",
+        "rhetorical_move": [
+          "Methodology",
+          "Results"
+        ],
+        "discipline_preference": "hard_science",
+        "source": "Hyland2005+RAAMove"
+      },
+      "in particular": {
+        "pos": [
+          "phrase"
+        ],
+        "function": "specification",
+        "rhetorical_move": [
+          "Results"
+        ],
+        "discipline_preference": "neutral",
+        "source": "Hyland2005+RAAMove"
+      },
+      "to put it another way": {
+        "pos": [
+          "phrase"
+        ],
+        "function": "reformulation",
+        "rhetorical_move": [
+          "neutral"
+        ],
+        "discipline_preference": "neutral",
+        "source": "Hyland2005"
+      },
+      "to be more precise": {
+        "pos": [
+          "phrase"
+        ],
+        "function": "reformulation",
+        "rhetorical_move": [
+          "neutral"
+        ],
+        "discipline_preference": "hard_science",
+        "source": "Hyland2005"
+      }
+    }
+  },
+  "interactional": {
+    "attitude_markers": {
+      "surprisingly": {
+        "pos": [
+          "ADV"
+        ],
+        "sentiment": "surprise",
+        "rhetorical_move": [
+          "Results"
+        ],
+        "discipline_preference": "neutral",
+        "source": "Hyland2005+RAAMove"
+      },
+      "interestingly": {
+        "pos": [
+          "ADV"
+        ],
+        "sentiment": "interest",
+        "rhetorical_move": [
+          "Results"
+        ],
+        "discipline_preference": "neutral",
+        "source": "Hyland2005+RAAMove"
+      },
+      "unfortunately": {
+        "pos": [
+          "ADV"
+        ],
+        "sentiment": "negative",
+        "rhetorical_move": [
+          "Limitations",
+          "Results"
+        ],
+        "discipline_preference": "neutral",
+        "source": "Hyland2005+RAAMove"
+      },
+      "fortunately": {
+        "pos": [
+          "ADV"
+        ],
+        "sentiment": "positive",
+        "rhetorical_move": [
+          "Results"
+        ],
+        "discipline_preference": "neutral",
+        "source": "Hyland2005+RAAMove"
+      },
+      "importantly": {
+        "pos": [
+          "ADV"
+        ],
+        "sentiment": "emphasis",
+        "rhetorical_move": [
+          "Results",
+          "Implications"
+        ],
+        "discipline_preference": "neutral",
+        "source": "Hyland2005+RAAMove"
+      },
+      "remarkably": {
+        "pos": [
+          "ADV"
+        ],
+        "sentiment": "surprise",
+        "rhetorical_move": [
+          "Results"
+        ],
+        "discipline_preference": "neutral",
+        "source": "Hyland2005+RAAMove"
+      },
+      "hopefully": {
+        "pos": [
+          "ADV"
+        ],
+        "sentiment": "desire",
+        "rhetorical_move": [
+          "Implications"
+        ],
+        "discipline_preference": "neutral",
+        "source": "Hyland2005+RAAMove"
+      },
+      "appropriately": {
+        "pos": [
+          "ADV"
+        ],
+        "sentiment": "approval",
+        "rhetorical_move": [
+          "Methodology"
+        ],
+        "discipline_preference": "neutral",
+        "source": "Hyland2005+RAAMove"
+      },
+      "unexpectedly": {
+        "pos": [
+          "ADV"
+        ],
+        "sentiment": "surprise",
+        "rhetorical_move": [
+          "Results"
+        ],
+        "discipline_preference": "neutral",
+        "source": "Hyland2005+RAAMove"
+      },
+      "significantly": {
+        "pos": [
+          "ADV"
+        ],
+        "sentiment": "emphasis",
+        "rhetorical_move": [
+          "Results"
+        ],
+        "discipline_preference": "hard_science",
+        "note": "Dual function: statistical + emphasis",
+        "source": "Hyland2005+RAAMove"
+      },
+      "encouragingly": {
+        "pos": [
+          "ADV"
+        ],
+        "sentiment": "positive",
+        "rhetorical_move": [
+          "Results",
+          "Implications"
+        ],
+        "discipline_preference": "neutral",
+        "source": "Hyland2005"
+      },
+      "promisingly": {
+        "pos": [
+          "ADV"
+        ],
+        "sentiment": "positive",
+        "rhetorical_move": [
+          "Results",
+          "Implications"
+        ],
+        "discipline_preference": "neutral",
+        "source": "Hyland2005"
+      },
+      "reassuringly": {
+        "pos": [
+          "ADV"
+        ],
+        "sentiment": "positive",
+        "rhetorical_move": [
+          "Results"
+        ],
+        "discipline_preference": "neutral",
+        "source": "Hyland2005"
+      },
+      "disturbingly": {
+        "pos": [
+          "ADV"
+        ],
+        "sentiment": "negative",
+        "rhetorical_move": [
+          "Results",
+          "Implications"
+        ],
+        "discipline_preference": "soft_science",
+        "source": "Hyland2005"
+      },
+      "troublingly": {
+        "pos": [
+          "ADV"
+        ],
+        "sentiment": "negative",
+        "rhetorical_move": [
+          "Results",
+          "Limitations"
+        ],
+        "discipline_preference": "soft_science",
+        "source": "Hyland2005"
+      },
+      "concerningly": {
+        "pos": [
+          "ADV"
+        ],
+        "sentiment": "negative",
+        "rhetorical_move": [
+          "Results",
+          "Implications"
+        ],
+        "discipline_preference": "neutral",
+        "source": "Hyland2005"
+      },
+      "crucially": {
+        "pos": [
+          "ADV"
+        ],
+        "sentiment": "emphasis",
+        "rhetorical_move": [
+          "Results",
+          "Implications"
+        ],
+        "discipline_preference": "neutral",
+        "source": "Hyland2005"
+      },
+      "vitally": {
+        "pos": [
+          "ADV"
+        ],
+        "sentiment": "emphasis",
+        "rhetorical_move": [
+          "Implications"
+        ],
+        "discipline_preference": "neutral",
+        "source": "Hyland2005"
+      },
+      "essentially": {
+        "pos": [
+          "ADV"
+        ],
+        "sentiment": "emphasis",
+        "rhetorical_move": [
+          "Conclusion"
+        ],
+        "discipline_preference": "neutral",
+        "source": "Hyland2005"
+      },
+      "fundamentally": {
+        "pos": [
+          "ADV"
+        ],
+        "sentiment": "emphasis",
+        "rhetorical_move": [
+          "Gap",
+          "Implications"
+        ],
+        "discipline_preference": "soft_science",
+        "source": "Hyland2005"
+      },
+      "amazed": {
+        "pos": [
+          "ADJ"
+        ],
+        "sentiment": "surprise",
+        "rhetorical_move": [
+          "Results"
+        ],
+        "discipline_preference": "soft_science",
+        "source": "Hyland2005"
+      },
+      "amazingly": {
+        "pos": [
+          "ADV"
+        ],
+        "sentiment": "surprise",
+        "rhetorical_move": [
+          "Results"
+        ],
+        "discipline_preference": "soft_science",
+        "source": "Hyland2005"
+      },
+      "astonished": {
+        "pos": [
+          "ADJ"
+        ],
+        "sentiment": "surprise",
+        "rhetorical_move": [
+          "Results"
+        ],
+        "discipline_preference": "soft_science",
+        "source": "Hyland2005"
+      },
+      "astonishingly": {
+        "pos": [
+          "ADV"
+        ],
+        "sentiment": "surprise",
+        "rhetorical_move": [
+          "Results"
+        ],
+        "discipline_preference": "soft_science",
+        "source": "Hyland2005"
+      },
+      "curious": {
+        "pos": [
+          "ADJ"
+        ],
+        "sentiment": "interest",
+        "rhetorical_move": [
+          "Results",
+          "Gap"
+        ],
+        "discipline_preference": "neutral",
+        "source": "Hyland2005"
+      },
+      "curiously": {
+        "pos": [
+          "ADV"
+        ],
+        "sentiment": "interest",
+        "rhetorical_move": [
+          "Results",
+          "Gap"
+        ],
+        "discipline_preference": "neutral",
+        "source": "Hyland2005"
+      },
+      "dramatic": {
+        "pos": [
+          "ADJ"
+        ],
+        "sentiment": "emphasis",
+        "rhetorical_move": [
+          "Results"
+        ],
+        "discipline_preference": "soft_science",
+        "source": "Hyland2005"
+      },
+      "dramatically": {
+        "pos": [
+          "ADV"
+        ],
+        "sentiment": "emphasis",
+        "rhetorical_move": [
+          "Results"
+        ],
+        "discipline_preference": "soft_science",
+        "source": "Hyland2005"
+      },
+      "shocked": {
+        "pos": [
+          "ADJ"
+        ],
+        "sentiment": "surprise",
+        "rhetorical_move": [
+          "Results"
+        ],
+        "discipline_preference": "soft_science",
+        "note": "Strong emotional marker, rare in academic writing",
+        "source": "Hyland2005"
+      },
+      "shocking": {
+        "pos": [
+          "ADJ"
+        ],
+        "sentiment": "surprise",
+        "rhetorical_move": [
+          "Results"
+        ],
+        "discipline_preference": "soft_science",
+        "note": "Strong emotional marker, rare in academic writing",
+        "source": "Hyland2005"
+      },
+      "shockingly": {
+        "pos": [
+          "ADV"
+        ],
+        "sentiment": "surprise",
+        "rhetorical_move": [
+          "Results"
+        ],
+        "discipline_preference": "soft_science",
+        "note": "Strong emotional marker, rare in academic writing",
+        "source": "Hyland2005"
+      },
+      "striking": {
+        "pos": [
+          "ADJ"
+        ],
+        "sentiment": "emphasis",
+        "rhetorical_move": [
+          "Results"
+        ],
+        "discipline_preference": "neutral",
+        "source": "Hyland2005"
+      },
+      "strikingly": {
+        "pos": [
+          "ADV"
+        ],
+        "sentiment": "emphasis",
+        "rhetorical_move": [
+          "Results"
+        ],
+        "discipline_preference": "neutral",
+        "source": "Hyland2005"
+      },
+      "unbelievable": {
+        "pos": [
+          "ADJ"
+        ],
+        "sentiment": "surprise",
+        "rhetorical_move": [
+          "Results"
+        ],
+        "discipline_preference": "soft_science",
+        "note": "Very strong marker, extremely rare in formal academic writing",
+        "source": "Hyland2005"
+      },
+      "unbelievably": {
+        "pos": [
+          "ADV"
+        ],
+        "sentiment": "surprise",
+        "rhetorical_move": [
+          "Results"
+        ],
+        "discipline_preference": "soft_science",
+        "note": "Very strong marker, extremely rare in formal academic writing",
+        "source": "Hyland2005"
+      },
+      "usual": {
+        "pos": [
+          "ADJ"
+        ],
+        "sentiment": "neutral",
+        "rhetorical_move": [
+          "Background"
+        ],
+        "discipline_preference": "neutral",
+        "note": "Baseline comparison marker",
+        "source": "Hyland2005"
+      },
+      "disappointed": {
+        "pos": [
+          "ADJ"
+        ],
+        "sentiment": "negative",
+        "rhetorical_move": [
+          "Results",
+          "Limitations"
+        ],
+        "discipline_preference": "soft_science",
+        "source": "Hyland2005"
+      },
+      "disappointing": {
+        "pos": [
+          "ADJ"
+        ],
+        "sentiment": "negative",
+        "rhetorical_move": [
+          "Results",
+          "Limitations"
+        ],
+        "discipline_preference": "soft_science",
+        "source": "Hyland2005"
+      },
+      "disappointingly": {
+        "pos": [
+          "ADV"
+        ],
+        "sentiment": "negative",
+        "rhetorical_move": [
+          "Results",
+          "Limitations"
+        ],
+        "discipline_preference": "soft_science",
+        "source": "Hyland2005"
+      },
+      "desirable": {
+        "pos": [
+          "ADJ"
+        ],
+        "sentiment": "positive",
+        "rhetorical_move": [
+          "Implications"
+        ],
+        "discipline_preference": "neutral",
+        "source": "Hyland2005"
+      },
+      "desirably": {
+        "pos": [
+          "ADV"
+        ],
+        "sentiment": "positive",
+        "rhetorical_move": [
+          "Implications"
+        ],
+        "discipline_preference": "neutral",
+        "source": "Hyland2005"
+      },
+      "appropriate": {
+        "pos": [
+          "ADJ"
+        ],
+        "sentiment": "approval",
+        "rhetorical_move": [
+          "Methodology"
+        ],
+        "discipline_preference": "neutral",
+        "source": "Hyland2005"
+      },
+      "inappropriate": {
+        "pos": [
+          "ADJ"
+        ],
+        "sentiment": "disapproval",
+        "rhetorical_move": [
+          "Gap",
+          "Limitations"
+        ],
+        "discipline_preference": "neutral",
+        "source": "Hyland2005"
+      },
+      "inappropriately": {
+        "pos": [
+          "ADV"
+        ],
+        "sentiment": "disapproval",
+        "rhetorical_move": [
+          "Gap",
+          "Limitations"
+        ],
+        "discipline_preference": "neutral",
+        "source": "Hyland2005"
+      },
+      "correctly": {
+        "pos": [
+          "ADV"
+        ],
+        "sentiment": "approval",
+        "rhetorical_move": [
+          "Methodology",
+          "Results"
+        ],
+        "discipline_preference": "hard_science",
+        "source": "Hyland2005"
+      },
+      "essential": {
+        "pos": [
+          "ADJ"
+        ],
+        "sentiment": "emphasis",
+        "rhetorical_move": [
+          "Implications",
+          "Methodology"
+        ],
+        "discipline_preference": "neutral",
+        "source": "Hyland2005"
+      },
+      "expected": {
+        "pos": [
+          "ADJ"
+        ],
+        "sentiment": "neutral",
+        "rhetorical_move": [
+          "Results"
+        ],
+        "discipline_preference": "neutral",
+        "note": "Often contrasts with unexpected findings",
+        "source": "Hyland2005"
+      },
+      "expectedly": {
+        "pos": [
+          "ADV"
+        ],
+        "sentiment": "neutral",
+        "rhetorical_move": [
+          "Results"
+        ],
+        "discipline_preference": "neutral",
+        "source": "Hyland2005"
+      },
+      "hopeful": {
+        "pos": [
+          "ADJ"
+        ],
+        "sentiment": "desire",
+        "rhetorical_move": [
+          "Implications"
+        ],
+        "discipline_preference": "neutral",
+        "source": "Hyland2005"
+      },
+      "prefer": {
+        "pos": [
+          "VERB"
+        ],
+        "sentiment": "preference",
+        "rhetorical_move": [
+          "Methodology",
+          "Implications"
+        ],
+        "discipline_preference": "neutral",
+        "source": "Hyland2005"
+      },
+      "preferable": {
+        "pos": [
+          "ADJ"
+        ],
+        "sentiment": "preference",
+        "rhetorical_move": [
+          "Methodology",
+          "Implications"
+        ],
+        "discipline_preference": "neutral",
+        "source": "Hyland2005"
+      },
+      "preferably": {
+        "pos": [
+          "ADV"
+        ],
+        "sentiment": "preference",
+        "rhetorical_move": [
+          "Methodology",
+          "Implications"
+        ],
+        "discipline_preference": "neutral",
+        "source": "Hyland2005"
+      },
+      "preferred": {
+        "pos": [
+          "ADJ"
+        ],
+        "sentiment": "preference",
+        "rhetorical_move": [
+          "Methodology"
+        ],
+        "discipline_preference": "neutral",
+        "source": "Hyland2005"
+      },
+      "understandable": {
+        "pos": [
+          "ADJ"
+        ],
+        "sentiment": "approval",
+        "rhetorical_move": [
+          "Results",
+          "Implications"
+        ],
+        "discipline_preference": "neutral",
+        "source": "Hyland2005"
+      },
+      "understandably": {
+        "pos": [
+          "ADV"
+        ],
+        "sentiment": "approval",
+        "rhetorical_move": [
+          "Results",
+          "Implications"
+        ],
+        "discipline_preference": "neutral",
+        "source": "Hyland2005"
+      },
+      "unusual": {
+        "pos": [
+          "ADJ"
+        ],
+        "sentiment": "surprise",
+        "rhetorical_move": [
+          "Results"
+        ],
+        "discipline_preference": "neutral",
+        "source": "Hyland2005"
+      },
+      "unusually": {
+        "pos": [
+          "ADV"
+        ],
+        "sentiment": "surprise",
+        "rhetorical_move": [
+          "Results"
+        ],
+        "discipline_preference": "neutral",
+        "source": "Hyland2005"
+      },
+      "agree": {
+        "pos": [
+          "VERB"
+        ],
+        "sentiment": "approval",
+        "rhetorical_move": [
+          "Background",
+          "Implications"
+        ],
+        "discipline_preference": "neutral",
+        "source": "Hyland2005"
+      },
+      "agrees": {
+        "pos": [
+          "VERB"
+        ],
+        "sentiment": "approval",
+        "rhetorical_move": [
+          "Background",
+          "Results"
+        ],
+        "discipline_preference": "neutral",
+        "source": "Hyland2005"
+      },
+      "agreed": {
+        "pos": [
+          "VERB"
+        ],
+        "sentiment": "approval",
+        "rhetorical_move": [
+          "Background"
+        ],
+        "discipline_preference": "neutral",
+        "source": "Hyland2005"
+      },
+      "disagree": {
+        "pos": [
+          "VERB"
+        ],
+        "sentiment": "disapproval",
+        "rhetorical_move": [
+          "Gap",
+          "Results"
+        ],
+        "discipline_preference": "neutral",
+        "source": "Hyland2005"
+      },
+      "disagreed": {
+        "pos": [
+          "VERB"
+        ],
+        "sentiment": "disapproval",
+        "rhetorical_move": [
+          "Gap",
+          "Results"
+        ],
+        "discipline_preference": "neutral",
+        "source": "Hyland2005"
+      },
+      "disagrees": {
+        "pos": [
+          "VERB"
+        ],
+        "sentiment": "disapproval",
+        "rhetorical_move": [
+          "Gap",
+          "Results"
+        ],
+        "discipline_preference": "neutral",
+        "source": "Hyland2005"
+      }
+    },
+    "engagement_markers": {
+      "note that": {
+        "pos": [
+          "phrase"
+        ],
+        "function": "reader_directive",
+        "rhetorical_move": [
+          "neutral"
+        ],
+        "discipline_preference": "neutral",
+        "source": "Hyland2005"
+      },
+      "consider": {
+        "pos": [
+          "VERB"
+        ],
+        "function": "reader_directive",
+        "rhetorical_move": [
+          "Background",
+          "Implications"
+        ],
+        "discipline_preference": "neutral",
+        "source": "Hyland2005+RAAMove"
+      },
+      "imagine": {
+        "pos": [
+          "VERB"
+        ],
+        "function": "reader_directive",
+        "rhetorical_move": [
+          "Background"
+        ],
+        "discipline_preference": "soft_science",
+        "source": "Hyland2005+RAAMove"
+      },
+      "see": {
+        "pos": [
+          "VERB"
+        ],
+        "function": "reader_directive",
+        "rhetorical_move": [
+          "Results"
+        ],
+        "discipline_preference": "neutral",
+        "note": "When directing to evidence",
+        "source": "Hyland2005+RAAMove"
+      },
+      "you can see": {
+        "pos": [
+          "phrase"
+        ],
+        "function": "reader_directive",
+        "rhetorical_move": [
+          "Results"
+        ],
+        "discipline_preference": "neutral",
+        "source": "Hyland2005+RAAMove"
+      },
+      "let us": {
+        "pos": [
+          "phrase"
+        ],
+        "function": "inclusive",
+        "rhetorical_move": [
+          "Methodology",
+          "Results"
+        ],
+        "discipline_preference": "neutral",
+        "source": "Hyland2005+RAAMove"
+      },
+      "we can observe": {
+        "pos": [
+          "phrase"
+        ],
+        "function": "inclusive",
+        "rhetorical_move": [
+          "Results"
+        ],
+        "discipline_preference": "neutral",
+        "source": "Hyland2005"
+      },
+      "it should be noted": {
+        "pos": [
+          "phrase"
+        ],
+        "function": "reader_directive",
+        "rhetorical_move": [
+          "Limitations"
+        ],
+        "discipline_preference": "neutral",
+        "source": "Hyland2005+RAAMove"
+      },
+      "one": {
+        "pos": [
+          "PRON"
+        ],
+        "function": "reader_reference",
+        "rhetorical_move": [
+          "neutral"
+        ],
+        "discipline_preference": "formal",
+        "note": "Generic reference to reader",
+        "source": "Hyland2005"
+      },
+      "you will recall": {
+        "pos": [
+          "phrase"
+        ],
+        "function": "direct_address",
+        "rhetorical_move": [
+          "neutral"
+        ],
+        "discipline_preference": "soft_science",
+        "source": "Hyland2005"
+      },
+      "as you can see": {
+        "pos": [
+          "phrase"
+        ],
+        "function": "direct_address",
+        "rhetorical_move": [
+          "Results"
+        ],
+        "discipline_preference": "neutral",
+        "source": "Hyland2005"
+      },
+      "note carefully": {
+        "pos": [
+          "phrase"
+        ],
+        "function": "reader_directive",
+        "rhetorical_move": [
+          "Results",
+          "Methodology"
+        ],
+        "discipline_preference": "neutral",
+        "source": "Hyland2005"
+      },
+      "let us examine": {
+        "pos": [
+          "phrase"
+        ],
+        "function": "inclusive",
+        "rhetorical_move": [
+          "Methodology",
+          "Results"
+        ],
+        "discipline_preference": "neutral",
+        "source": "Hyland2005"
+      },
+      "we now turn to": {
+        "pos": [
+          "phrase"
+        ],
+        "function": "inclusive",
+        "rhetorical_move": [
+          "transition"
+        ],
+        "discipline_preference": "neutral",
+        "source": "Hyland2005"
+      },
+      "how can we explain": {
+        "pos": [
+          "phrase"
+        ],
+        "function": "question",
+        "rhetorical_move": [
+          "Gap",
+          "Results"
+        ],
+        "discipline_preference": "neutral",
+        "source": "Hyland2005"
+      },
+      "what does this mean": {
+        "pos": [
+          "phrase"
+        ],
+        "function": "question",
+        "rhetorical_move": [
+          "Results",
+          "Implications"
+        ],
+        "discipline_preference": "neutral",
+        "source": "Hyland2005"
+      },
+      "why is this important": {
+        "pos": [
+          "phrase"
+        ],
+        "function": "question",
+        "rhetorical_move": [
+          "Implications"
+        ],
+        "discipline_preference": "neutral",
+        "source": "Hyland2005"
+      },
+      "arrange": {
+        "pos": [
+          "VERB"
+        ],
+        "function": "reader_directive",
+        "rhetorical_move": [
+          "Methodology"
+        ],
+        "discipline_preference": "hard_science",
+        "note": "Procedural instruction verb",
+        "source": "Hyland2005"
+      },
+      "assess": {
+        "pos": [
+          "VERB"
+        ],
+        "function": "reader_directive",
+        "rhetorical_move": [
+          "Methodology",
+          "Results"
+        ],
+        "discipline_preference": "neutral",
+        "source": "Hyland2005"
+      },
+      "calculate": {
+        "pos": [
+          "VERB"
+        ],
+        "function": "reader_directive",
+        "rhetorical_move": [
+          "Methodology"
+        ],
+        "discipline_preference": "hard_science",
+        "source": "Hyland2005"
+      },
+      "classify": {
+        "pos": [
+          "VERB"
+        ],
+        "function": "reader_directive",
+        "rhetorical_move": [
+          "Methodology"
+        ],
+        "discipline_preference": "neutral",
+        "source": "Hyland2005"
+      },
+      "connect": {
+        "pos": [
+          "VERB"
+        ],
+        "function": "reader_directive",
+        "rhetorical_move": [
+          "Background",
+          "Implications"
+        ],
+        "discipline_preference": "neutral",
+        "source": "Hyland2005"
+      },
+      "consult": {
+        "pos": [
+          "VERB"
+        ],
+        "function": "reader_directive",
+        "rhetorical_move": [
+          "Background"
+        ],
+        "discipline_preference": "neutral",
+        "source": "Hyland2005"
+      },
+      "determine": {
+        "pos": [
+          "VERB"
+        ],
+        "function": "reader_directive",
+        "rhetorical_move": [
+          "Methodology",
+          "Results"
+        ],
+        "discipline_preference": "hard_science",
+        "source": "Hyland2005"
+      },
+      "employ": {
+        "pos": [
+          "VERB"
+        ],
+        "function": "reader_directive",
+        "rhetorical_move": [
+          "Methodology"
+        ],
+        "discipline_preference": "neutral",
+        "source": "Hyland2005"
+      },
+      "ensure": {
+        "pos": [
+          "VERB"
+        ],
+        "function": "reader_directive",
+        "rhetorical_move": [
+          "Methodology"
+        ],
+        "discipline_preference": "neutral",
+        "source": "Hyland2005"
+      },
+      "estimate": {
+        "pos": [
+          "VERB"
+        ],
+        "function": "reader_directive",
+        "rhetorical_move": [
+          "Methodology",
+          "Results"
+        ],
+        "discipline_preference": "hard_science",
+        "source": "Hyland2005"
+      },
+      "evaluate": {
+        "pos": [
+          "VERB"
+        ],
+        "function": "reader_directive",
+        "rhetorical_move": [
+          "Methodology",
+          "Results"
+        ],
+        "discipline_preference": "neutral",
+        "source": "Hyland2005"
+      },
+      "increase": {
+        "pos": [
+          "VERB"
+        ],
+        "function": "reader_directive",
+        "rhetorical_move": [
+          "Methodology"
+        ],
+        "discipline_preference": "hard_science",
+        "note": "Used in procedural instructions",
+        "source": "Hyland2005"
+      },
+      "input": {
+        "pos": [
+          "VERB"
+        ],
+        "function": "reader_directive",
+        "rhetorical_move": [
+          "Methodology"
+        ],
+        "discipline_preference": "hard_science",
+        "note": "Computing/technical context",
+        "source": "Hyland2005"
+      },
+      "insert": {
+        "pos": [
+          "VERB"
+        ],
+        "function": "reader_directive",
+        "rhetorical_move": [
+          "Methodology"
+        ],
+        "discipline_preference": "hard_science",
+        "source": "Hyland2005"
+      },
+      "integrate": {
+        "pos": [
+          "VERB"
+        ],
+        "function": "reader_directive",
+        "rhetorical_move": [
+          "Methodology",
+          "Implications"
+        ],
+        "discipline_preference": "neutral",
+        "source": "Hyland2005"
+      },
+      "key": {
+        "pos": [
+          "VERB"
+        ],
+        "function": "reader_directive",
+        "rhetorical_move": [
+          "Methodology"
+        ],
+        "discipline_preference": "hard_science",
+        "note": "Computing context: 'key in the values'",
+        "source": "Hyland2005"
+      },
+      "mark": {
+        "pos": [
+          "VERB"
+        ],
+        "function": "reader_directive",
+        "rhetorical_move": [
+          "Methodology"
+        ],
+        "discipline_preference": "neutral",
+        "source": "Hyland2005"
+      },
+      "measure": {
+        "pos": [
+          "VERB"
+        ],
+        "function": "reader_directive",
+        "rhetorical_move": [
+          "Methodology"
+        ],
+        "discipline_preference": "hard_science",
+        "source": "Hyland2005"
+      },
+      "mount": {
+        "pos": [
+          "VERB"
+        ],
+        "function": "reader_directive",
+        "rhetorical_move": [
+          "Methodology"
+        ],
+        "discipline_preference": "hard_science",
+        "note": "Lab procedure context",
+        "source": "Hyland2005"
+      },
+      "order": {
+        "pos": [
+          "VERB"
+        ],
+        "function": "reader_directive",
+        "rhetorical_move": [
+          "Methodology"
+        ],
+        "discipline_preference": "neutral",
+        "source": "Hyland2005"
+      },
+      "prepare": {
+        "pos": [
+          "VERB"
+        ],
+        "function": "reader_directive",
+        "rhetorical_move": [
+          "Methodology"
+        ],
+        "discipline_preference": "hard_science",
+        "source": "Hyland2005"
+      },
+      "recover": {
+        "pos": [
+          "VERB"
+        ],
+        "function": "reader_directive",
+        "rhetorical_move": [
+          "Methodology"
+        ],
+        "discipline_preference": "hard_science",
+        "note": "Often in computing/data contexts",
+        "source": "Hyland2005"
+      },
+      "refer": {
+        "pos": [
+          "VERB"
+        ],
+        "function": "reader_directive",
+        "rhetorical_move": [
+          "neutral"
+        ],
+        "discipline_preference": "neutral",
+        "note": "Endophoric: 'refer to Section 3'",
+        "source": "Hyland2005"
+      },
+      "regard": {
+        "pos": [
+          "VERB"
+        ],
+        "function": "reader_directive",
+        "rhetorical_move": [
+          "neutral"
+        ],
+        "discipline_preference": "neutral",
+        "source": "Hyland2005"
+      },
+      "remove": {
+        "pos": [
+          "VERB"
+        ],
+        "function": "reader_directive",
+        "rhetorical_move": [
+          "Methodology"
+        ],
+        "discipline_preference": "hard_science",
+        "source": "Hyland2005"
+      },
+      "review": {
+        "pos": [
+          "VERB"
+        ],
+        "function": "reader_directive",
+        "rhetorical_move": [
+          "Background",
+          "Methodology"
+        ],
+        "discipline_preference": "neutral",
+        "source": "Hyland2005"
+      },
+      "select": {
+        "pos": [
+          "VERB"
+        ],
+        "function": "reader_directive",
+        "rhetorical_move": [
+          "Methodology"
+        ],
+        "discipline_preference": "neutral",
+        "source": "Hyland2005"
+      },
+      "set": {
+        "pos": [
+          "VERB"
+        ],
+        "function": "reader_directive",
+        "rhetorical_move": [
+          "Methodology"
+        ],
+        "discipline_preference": "hard_science",
+        "note": "Often in procedural instructions: 'set the value to X'",
+        "source": "Hyland2005"
+      },
+      "state": {
+        "pos": [
+          "VERB"
+        ],
+        "function": "reader_directive",
+        "rhetorical_move": [
+          "neutral"
+        ],
+        "discipline_preference": "neutral",
+        "source": "Hyland2005"
+      },
+      "take": {
+        "pos": [
+          "VERB"
+        ],
+        "function": "reader_directive",
+        "rhetorical_move": [
+          "neutral"
+        ],
+        "discipline_preference": "neutral",
+        "note": "Often in phrases: 'take a look', 'take as example'",
+        "source": "Hyland2005"
+      },
+      "turn": {
+        "pos": [
+          "VERB"
+        ],
+        "function": "reader_directive",
+        "rhetorical_move": [
+          "neutral"
+        ],
+        "discipline_preference": "neutral",
+        "note": "Topic shift: 'turn to the next section'",
+        "source": "Hyland2005"
+      },
+      "use": {
+        "pos": [
+          "VERB"
+        ],
+        "function": "reader_directive",
+        "rhetorical_move": [
+          "Methodology"
+        ],
+        "discipline_preference": "neutral",
+        "source": "Hyland2005"
+      }
+    },
+    "self_mention": {
+      "I": {
+        "pos": [
+          "PRON"
+        ],
+        "person": "first_singular",
+        "rhetorical_move": [
+          "neutral"
+        ],
+        "discipline_preference": "soft_science",
+        "source": "Hyland2005"
+      },
+      "we": {
+        "pos": [
+          "PRON"
+        ],
+        "person": "first_plural",
+        "rhetorical_move": [
+          "Purpose",
+          "Methodology",
+          "Results",
+          "Conclusion"
+        ],
+        "discipline_preference": "hard_science",
+        "note": "Dominant in scientific writing (Hyland & Jiang 2016)",
+        "source": "Hyland2005+Hyland&Jiang2016"
+      },
+      "my": {
+        "pos": [
+          "PRON"
+        ],
+        "person": "first_singular_possessive",
+        "rhetorical_move": [
+          "neutral"
+        ],
+        "discipline_preference": "soft_science",
+        "source": "Hyland2005"
+      },
+      "our": {
+        "pos": [
+          "PRON"
+        ],
+        "person": "first_plural_possessive",
+        "rhetorical_move": [
+          "Purpose",
+          "Methodology",
+          "Results"
+        ],
+        "discipline_preference": "hard_science",
+        "note": "Increasing over time (Hyland & Jiang 50% increase 1965-2015)",
+        "source": "Hyland2005+Hyland&Jiang2016"
+      },
+      "mine": {
+        "pos": [
+          "PRON"
+        ],
+        "person": "first_singular_possessive",
+        "rhetorical_move": [
+          "neutral"
+        ],
+        "discipline_preference": "soft_science",
+        "source": "Hyland2005"
+      },
+      "ours": {
+        "pos": [
+          "PRON"
+        ],
+        "person": "first_plural_possessive",
+        "rhetorical_move": [
+          "neutral"
+        ],
+        "discipline_preference": "hard_science",
+        "source": "Hyland2005"
+      },
+      "the author": {
+        "pos": [
+          "phrase"
+        ],
+        "person": "third_person_self",
+        "rhetorical_move": [
+          "neutral"
+        ],
+        "discipline_preference": "formal",
+        "source": "Hyland2005"
+      },
+      "the researcher": {
+        "pos": [
+          "phrase"
+        ],
+        "person": "third_person_self",
+        "rhetorical_move": [
+          "Methodology"
+        ],
+        "discipline_preference": "formal",
+        "source": "Hyland2005"
+      },
+      "the writer": {
+        "pos": [
+          "phrase"
+        ],
+        "person": "third_person_self",
+        "rhetorical_move": [
+          "neutral"
+        ],
+        "discipline_preference": "soft_science",
+        "source": "Hyland2005"
+      },
+      "our study": {
+        "pos": [
+          "phrase"
+        ],
+        "person": "first_plural_possessive",
+        "rhetorical_move": [
+          "Purpose",
+          "Methodology",
+          "Conclusion"
+        ],
+        "discipline_preference": "hard_science",
+        "source": "Hyland2005"
+      },
+      "our findings": {
+        "pos": [
+          "phrase"
+        ],
+        "person": "first_plural_possessive",
+        "rhetorical_move": [
+          "Results",
+          "Conclusion",
+          "Implications"
+        ],
+        "discipline_preference": "hard_science",
+        "source": "Hyland2005"
+      },
+      "our analysis": {
+        "pos": [
+          "phrase"
+        ],
+        "person": "first_plural_possessive",
+        "rhetorical_move": [
+          "Results"
+        ],
+        "discipline_preference": "hard_science",
+        "source": "Hyland2005"
+      },
+      "our results": {
+        "pos": [
+          "phrase"
+        ],
+        "person": "first_plural_possessive",
+        "rhetorical_move": [
+          "Results",
+          "Conclusion"
+        ],
+        "discipline_preference": "hard_science",
+        "source": "Hyland2005"
+      },
+      "our data": {
+        "pos": [
+          "phrase"
+        ],
+        "person": "first_plural_possessive",
+        "rhetorical_move": [
+          "Results"
+        ],
+        "discipline_preference": "hard_science",
+        "source": "Hyland2005"
+      },
+      "our approach": {
+        "pos": [
+          "phrase"
+        ],
+        "person": "first_plural_possessive",
+        "rhetorical_move": [
+          "Methodology"
+        ],
+        "discipline_preference": "hard_science",
+        "source": "Hyland2005"
+      },
+      "our method": {
+        "pos": [
+          "phrase"
+        ],
+        "person": "first_plural_possessive",
+        "rhetorical_move": [
+          "Methodology"
+        ],
+        "discipline_preference": "hard_science",
+        "source": "Hyland2005"
+      }
+    }
+  }
+}
