@@ -1,0 +1,130 @@
+# Configuration Template: Generic
+
+# Copy this file and customize for your dataset.
+
+
+# INPUT SETTINGS (required)
+
+input_path: "path/to/your/data.csv"
+text_column: "text"        # Column containing the text to analyze
+label_column: "is_ai"      # Binary label column (can be derived, see below)
+
+# Optional: column for deduplication
+id_column: null
+
+# label per classe
+positive_label: true
+
+
+# LABEL DERIVATION for RAID specific
+
+# In mancanza di explicit binary label column, derive it from another column. 
+# Rows matching positive_values -> True,
+# all others -> False.
+#
+# Example: derive is_ai from a 'model' column where AI models are listed
+#
+# label_derivation:
+#   source_column: "model"
+#   positive_values:
+#     - "gpt4"
+#     - "chatgpt"
+#     - "llama"
+
+label_derivation: null
+
+
+# EXCLUSIONS 
+
+# Exclude rows where a column matches certain values..
+#
+# Example:
+# exclusions:
+#   domain:
+#     - "german"
+#     - "czech"
+#   source:
+#     - "test"
+
+exclusions: null
+
+
+# PRE-SAMPLING (optional)
+
+# Randomly sample this many rows before processing to reduce memory usage.
+# Set to null to process the entire dataset.
+presample_size: null
+
+
+# TEXT PROCESSING
+
+strip_markup: true       # Remove URLs, HTML tags, code blocks, markdown tables
+normalize_unicode: true  # Apply NFKC normalization, remove hidden characters
+apply_text_gate: true    # Filter out rows that don't look like natural text
+
+# Text quality gate thresholds (only used if apply_text_gate is true)
+gate_thresholds:
+  min_chars: 30           # Minimum character count
+  min_tokens: 5           # Minimum word count
+  min_avg_word_length: 2.0
+  max_avg_word_length: 10.0
+  min_alpha_ratio: 0.55   # Minimum proportion of alphabetic characters
+  max_digit_ratio: 0.30   # Maximum proportion of digit characters
+  max_punct_ratio: 0.35   # Maximum proportion of punctuation
+  min_entropy_norm: 0.35  # Minimum normalized character entropy
+
+
+# LENGTH BINNING
+
+# Defines how texts are grouped by length for stratification.
+# Weights must sum to 1.0. Bins are assigned by cumulative percentile.
+length_bin_weights:
+  short: 0.25   # Bottom 25% by token count
+  medium: 0.25  # 25th to 50th percentile
+  long: 0.50    # Top 50%
+
+
+# STRATIFICATION DIMENSIONS (optional)
+
+# Additional columns to stratify on, applied hierarchically.
+# Each dimension can specify:
+#   column: name of the column
+#   weights: explicit weight dict (optional)
+#   even: if true, distribute evenly across values
+#   only_for_label: apply only when the label equals this value (optional)
+#
+# If neither weights nor even is specified, distribution is proportional
+# to availability in the source data.
+#
+# Example configurations:
+#
+# Even distribution across AI models (only for positive/AI class):
+#   - column: "model"
+#     even: true
+#     only_for_label: true
+#
+# Explicit weights for domains (applied to all):
+#   - column: "domain"
+#     weights:
+#       news: 0.3
+#       academic: 0.3
+#       social: 0.4
+#
+# Proportional to source distribution:
+#   - column: "source"
+
+stratification: [].
+
+
+
+# Output SAMPLES
+
+# Define one or more output samples with different sizes.
+samples:
+  - name: "stratified1"
+    size: 1000
+    output_path: "output/stratified1.csv"
+
+
+# REPRODUCIBILITY
+#random_seed: int
