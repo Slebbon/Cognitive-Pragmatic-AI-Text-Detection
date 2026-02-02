@@ -1,0 +1,94 @@
+# =============================================================================
+# Example Configuration: RAID Dataset
+# =============================================================================
+# This configuration replicates the original RAID sampling logic.
+
+# Input settings
+input_path: "data/raw/raid_train.csv"
+text_column: "generation"
+label_column: "is_ai"  # Will be derived from 'model' column
+id_column: "id"        # Used for deduplication
+
+# The positive_label indicates which value means "AI-generated"
+positive_label: true
+
+# Derive the is_ai label from the model column
+# Rows where model matches one of these values -> is_ai = True
+# All other rows -> is_ai = False (human)
+label_derivation:
+  source_column: "model"
+  positive_values:
+    - "chatgpt"
+    - "gpt4"
+    - "gpt3"
+    - "gpt2"
+    - "llama-chat"
+    - "mistral"
+    - "mistral-chat"
+    - "mpt"
+    - "mpt-chat"
+    - "cohere"
+    - "cohere-chat"
+
+# Exclude certain domains before processing
+exclusions:
+  domain:
+    - "czech"
+    - "german"
+
+# Pre-sampling to reduce memory usage (optional)
+presample_size: 3500000
+
+# Text processing options
+strip_markup: true       # Remove URLs, HTML, code blocks, markdown tables
+normalize_unicode: true  # NFKC normalization, remove hidden chars
+apply_text_gate: true    # Filter out non-text-like content
+
+# Text quality gate thresholds
+gate_thresholds:
+  min_chars: 30
+  min_tokens: 5
+  min_avg_word_length: 2.0
+  max_avg_word_length: 10.0
+  min_alpha_ratio: 0.55
+  max_digit_ratio: 0.30
+  max_punct_ratio: 0.35
+  min_entropy_norm: 0.35
+
+# Length bin configuration
+# Weights must sum to 1.0
+# Bins are assigned based on cumulative percentiles
+length_bin_weights:
+  short: 0.25   # <= 25th percentile
+  medium: 0.25  # (25th, 50th] percentile  
+  long: 0.50    # > 50th percentile
+
+# Stratification dimensions (applied hierarchically after label and length splits)
+# Each dimension can have:
+#   - column: the column name to stratify on
+#   - weights: explicit weights (optional, dict mapping value -> weight)
+#   - even: if true, distribute evenly across values (overrides proportional)
+#   - only_for_label: apply this dimension only for a specific label value
+stratification:
+  # For AI samples only: even distribution across models
+  - column: "model"
+    even: true
+    only_for_label: true  # Only apply for is_ai = True
+  
+  # For all samples: proportional distribution by domain
+  - column: "domain"
+    # weights: null means proportional to availability
+    # only_for_label: null means apply to both labels
+  
+  - column: "lenght_bin"
+
+  - column: "decoding"
+
+  # - column: "attack" conditional on need, requires larger samples, because they're very sparse.
+  # - column: "repetition" conditional on need
+
+# Output samples
+samples:
+  - name: "small"
+    size: 3000
+    output_path: "data/processed/raid_sample_small.csv"
