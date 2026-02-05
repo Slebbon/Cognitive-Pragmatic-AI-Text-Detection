@@ -1,4 +1,4 @@
-# Cognitively-Grounded AI Text Detection
+# Cognitively-Pragmatic Grounded AI Text Detection
 
 This repository accompanies a master’s thesis on **AI-generated text detection**, proposing a cognitively and pragmatically grounded approach to intrinsic detection.  
 The work operationalises linguistic, cognitive, and discourse-level theories into computational features.
