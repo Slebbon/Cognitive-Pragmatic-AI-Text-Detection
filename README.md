@@ -75,6 +75,8 @@ For these reasons, the stylometric pipeline should not be interpreted as a defin
 
 When reuse is required, it is recommended to restrict feature extraction to the **core stylometric backbone (7 features)** as a stable baseline, extending it with features from the **optimised baseline features (13 features)** described in the thesis based on the controlled linguistic experimentation wanted.
 
+---
+
 ### Model Dependencies
 
 Some feature families depend on pretrained models, which are provided for convenience:
