@@ -52,6 +52,25 @@ The implemented features are grouped into the following families:
 
 ------ 
 
+### Model Dependencies
+
+Some feature families depend on pretrained models, which are provided for convenience:
+
+#### Pairwise Temporal Classifier
+
+Temporal reasoning features rely on a pretrained pairwise temporal model.  
+A compatible binary checkpoint is included under: models/roberta-matres-binary/
+
+#### Detection Models
+
+Pretrained versions of the main detection models proposed in the thesis'conclusion are also included:
+
+- Mono Cognitive–Pragmatic Model  
+- Full Integrated Model  
+
+These models are provided to support qualitative inspection and approximate replication of the reported experiments. Minor numerical discrepancies with the thesis results may arise due to preprocessing choices, random seeds, or platform-dependent factors.
+
+---
 
 ## Reproducibility Notes and Limitations
 
@@ -75,24 +94,5 @@ For these reasons, the stylometric pipeline should not be interpreted as a defin
 
 When reuse is required, it is recommended to restrict feature extraction to the **core stylometric backbone (7 features)** as a stable baseline, extending it with features from the **optimised baseline features (13 features)** described in the thesis based on the controlled linguistic experimentation wanted.
 
----
-
-### Model Dependencies
-
-Some feature families depend on pretrained models, which are provided for convenience:
-
-#### Pairwise Temporal Classifier
-
-Temporal reasoning features rely on a pretrained pairwise temporal model.  
-A compatible binary checkpoint is included under: models/roberta-matres-binary/
-
-#### Detection Models
-
-Pretrained versions of the main detection models proposed in the thesis'conclusion are also included:
-
-- Mono Cognitive–Pragmatic Model  
-- Full Integrated Model  
-
-These models are provided to support qualitative inspection and approximate replication of the reported experiments. Minor numerical discrepancies with the thesis results may arise due to preprocessing choices, random seeds, or platform-dependent factors.
 
 
