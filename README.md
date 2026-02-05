@@ -52,13 +52,45 @@ The implemented features are grouped into the following families:
 
 ------ 
 
-## Provided Models
 
-This repository includes pre-trained models corresponding to the main
-experimental configurations analysed in the thesis:
+## Reproducibility Notes and Limitations
 
-- Pairwise Temporal Classifier
-- Mono-Cognitive Model
-- Integrated Model
+This repository is primarily intended as the **research artefact** accompanying the master’s thesis, with the goal of enabling inspection and reproduction of the proposed methodology.
 
-Each model is distributed together with its feature schema and metadata.
+The main reproducible contribution of this work concerns the **feature extraction pipeline** proposed in the thesis.  
+Feature computation can be reproduced starting from raw textual input by using:
+
+- `prototype-ready-to-use.ipynb`, in conjunction with the `feature_extraction/` directory.
+
+The notebook is designed as a reference implementation to demonstrate how the different feature families are computed and combined, and to allow independent inspection or re-use of individual components.
+
+The stylometric feature extraction pipeline is included in full for transparency and completeness. However, it should be considered **exploratory** in nature and treated as an artificially constructed benchmark for the specific scope described in the thesis. Specifically:
+
+- It reflects an initial baseline configuration developed at an early stage of the project.
+- It is known to be high-variance and sensitive to preprocessing choices and parameter settings.
+- It does not fully align with the refined and theoretically consolidated feature inventory adopted in later experimental stages of the thesis.
+- Its exact reproducibility may be affected by subsequent feature drift, database updates, and changes in data stratification over the course of the research.
+
+For these reasons, the stylometric pipeline should not be interpreted as a definitive or optimised implementation, nor as an exhaustive benchmark. Rather, it is provided as a **contextual and interpretive reference** to facilitate linguistic and computational analysis of the cognitive-pragmatic pipeline.
+
+When reuse is required, it is recommended to restrict feature extraction to the **core stylometric backbone (7 features)** as a stable baseline, extending it with features from the **optimised baseline features (13 features)** described in the thesis based on the controlled linguistic experimentation wanted.
+
+### Model Dependencies
+
+Some feature families depend on pretrained models, which are provided for convenience:
+
+#### Pairwise Temporal Classifier
+
+Temporal reasoning features rely on a pretrained pairwise temporal model.  
+A compatible binary checkpoint is included under: models/roberta-matres-binary/
+
+#### Detection Models
+
+Pretrained versions of the main detection models proposed in the thesis'conclusion are also included:
+
+- Mono Cognitive–Pragmatic Model  
+- Full Integrated Model  
+
+These models are provided to support qualitative inspection and approximate replication of the reported experiments. Minor numerical discrepancies with the thesis results may arise due to preprocessing choices, random seeds, or platform-dependent factors.
+
+

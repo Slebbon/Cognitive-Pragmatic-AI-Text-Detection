@@ -1,0 +1,132 @@
+# Hyperparameter Search Configuration Template
+
+logging:
+  level: INFO
+  console: true
+  file: null
+  format: "%(asctime)s - %(levelname)s - %(message)s"
+
+data:
+  test_size: 0.2
+  stratify: true
+  handle_missing: mean               # Options: mean, zero, null
+  search_subsample_ratio: null       
+
+cross_validation:
+  search_cv:
+    n_splits: 5
+    shuffle: true
+
+search:
+  strategy: random                   # Options: random, grid, sklearn_random
+  n_iter: 50
+  scoring: f1                        # Options: f1, accuracy, precision, recall, roc_auc
+
+model:
+  type: xgboost                      # Options: xgboost, random_forest
+  fixed_params: {}
+
+param_space:
+  xgboost:
+    n_estimators:
+      type: discrete
+      values: [] #Insert values
+    max_depth:
+      type: int_range
+      min: 3
+      max: 12
+    learning_rate:
+      type: log_uniform
+      min: 0.01
+      max: 0.3
+    subsample:
+      type: uniform
+      min: 0.6
+      max: 1.0
+    colsample_bytree:
+      type: uniform
+      min: 0.6
+      max: 1.0
+    min_child_weight:
+      type: int_range
+      min: 1
+      max: 10
+    gamma:
+      type: uniform
+      min: 0.0
+      max: 0.5
+    reg_alpha:
+      type: log_uniform
+      min: 0.0001
+      max: 1.0
+    reg_lambda:
+      type: log_uniform
+      min: 0.0001
+      max: 1.0
+
+  random_forest:
+    n_estimators:
+      type: discrete
+      values: [] #Insert values
+    max_depth:
+      type: discrete
+      values: [] #Insert values (suggerite da 6 a 20)
+    min_samples_split:
+      type: discrete
+      values: [2, 5, 10, 20]
+    min_samples_leaf:
+      type: discrete
+      values: [1, 2, 4, 8]
+    max_features:
+      type: discrete
+      values: [sqrt, log2, null]
+
+learning_curve:
+  enabled: false
+  cv_splits: 5
+  shuffle: true
+  scoring: [f1]
+  train_sizes:
+    type: linspace
+    start: 0.1
+    stop: 1.0
+    num: 10
+
+plateau:
+  method: gradient
+  gradient:
+    window_size: 3
+    min_improvement: 0.001
+    consecutive_checks: 2
+
+visualization:
+  enabled: true
+  style:
+    figure_dpi: 300
+    font_size: 10
+  plots:
+    search_history: true
+    confusion_matrices: true
+    roc_curves: true
+    feature_importance: true
+  learning_curve:
+    plot:
+      figsize: [12, 5]
+      show_std: true
+      alpha_fill: 0.2
+      save_format: png
+      dpi: 300
+
+global:
+  random_seed:                       # Required: set your seed here
+  output_dir: hp_results
+  n_jobs: -1
+  verbose: 1
+  checkpoint_enabled: true
+
+save:
+  enabled: true                      # Set to false to disable all saving
+  cv_results: true
+  best_params: true
+  best_model: false
+  test_metrics: false
