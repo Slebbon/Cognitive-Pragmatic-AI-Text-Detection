@@ -52,7 +52,7 @@ The implemented features are grouped into the following families:
 
 ------ 
 
-### Model Dependencies
+## Model Dependencies
 
 Some feature families depend on pretrained models, which are provided for convenience:
 
