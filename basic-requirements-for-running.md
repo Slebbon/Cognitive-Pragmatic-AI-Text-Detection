@@ -1,5 +1,12 @@
 Some feature families rely on external pretrained models or third-party tools. These dependencies are documented here for completeness.
 
+## SpaCy:
+
+- python -m spacy download en_core_web_lg     
+- python -m spacy download en_core_web_trf    
+
+Are both required for proper features extraction.
+
 ## Temporal Reasoning Features
 
 Temporal reasoning features require a pairwise binary classifier trained on temporal relation data.  
