@@ -85,7 +85,7 @@ The notebook is designed as a reference implementation to demonstrate how the di
 
 The stylometric feature extraction pipeline is included in full for transparency and completeness. However, it should be considered **exploratory** in nature and treated as an artificially constructed benchmark for the specific scope described in the thesis. Specifically:
 
-- It reflects an initial baseline configuration developed at an early stage of the project.
+- It reflects a baseline configuration corresponding to an early, exploratory consolidation of stylometric features, as discussed in the thesis.
 - It is known to be high-variance and sensitive to preprocessing choices and parameter settings.
 - It does not fully align with the refined and theoretically consolidated feature inventory adopted in later experimental stages of the thesis.
 - Its exact reproducibility may be affected by subsequent feature drift, database updates, and changes in data stratification over the course of the research.

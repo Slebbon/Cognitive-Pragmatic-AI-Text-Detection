@@ -1,6 +1,0 @@
-#README for provided External Models
-
-For temporal reasoning, it requires a pairwise binary classifier fine-tuned on temporal relation data; an example of such model is provided in the repository at 'Features-Extractions\External Models Training\TemporalReasoning_model.ipynb'.
-The code is dependent on THE version of the actual TempEval valutation, personal contact can provide the in-home made binary classifier model used in the experiments.
-
-For perplexity computations, it requires the installation of the 'transformers' library from Hugging Face, as well as a pre-trained language model; in the experiments, Pythia-160M was used, which can be easily loaded.
