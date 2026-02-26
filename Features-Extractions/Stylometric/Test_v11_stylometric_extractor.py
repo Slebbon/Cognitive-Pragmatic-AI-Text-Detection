@@ -1,17 +1,18 @@
 # stylometric_extractor.py
-# unified stylometric feature extraction -- New stylometric extractor for v. 1.1;
-# Focus on streamlining, reducing cardinality and maintaining linguistic insights; stronger preprocessing and auto-insert of imputation.
+# unified stylometric feature extraction
+# 27 features total
 #
-# output features (20):
-#   lexical:      type_token_ratio, yules_k, hapax_legomena_ratio, token_burstiness
-#   character:    char_trigram_entropy, compression_ratio, avg_word_length
-#   functional:   stopword_ratio, comma_ratio
-#   structural:   sentence_length_std
-#   readability:  flesch_reading_ease
-#   syntactic:    avg_tree_depth, avg_dependency_distance
-#   pos:          content_function_ratio, verbs_per_100, pos_ratio_CCONJ,
-#                 pos_transition_entropy, prop_sents_with_verb
-#   sentiment:    sentiment_subjectivity, sentiment_polarity_variance
+# lexical:      type_token_ratio, yules_k, hapax_legomena_ratio, token_burstiness,
+#               trigram_diversity, hapax_type_ratio
+# character:    char_trigram_entropy, compression_ratio, avg_word_length
+# functional:   stopword_ratio, comma_ratio
+# structural:   sentence_length_std, avg_sentence_length
+# readability:  flesch_reading_ease
+# syntactic:    avg_tree_depth, avg_dependency_distance, left_dependency_ratio
+# pos:          content_function_ratio, verbs_per_100, pos_ratio_CCONJ,
+#               pos_transition_entropy, prop_sents_with_verb,
+#               noun_verb_ratio, upos_entropy, mean_verbs_per_sent
+# sentiment:    sentiment_subjectivity, sentiment_polarity_variance
 #
 # metadata (not model features): id, n_tokens_doc, n_sentences_doc
 
@@ -45,43 +46,47 @@ OUTPUT_PATH.mkdir(exist_ok=True)
 CHECKPOINT_PATH.mkdir(exist_ok=True)
 
 BATCH_SIZE = 16
-#to-set
 RANDOM_SEED = 42
 np.random.seed(RANDOM_SEED)
 
-# minimum token thresholds for features that need sufficient text
-# lowered from 100 to 50: yules_k is stable at 50+ tokens with the
-# 500-token window cap, and flesch works acceptably at 50+ tokens
-# with 2+ sentences (original flesch required 100 words)
-MIN_TOKENS_LEXICAL = 50   # yules_k
-MIN_TOKENS_READABILITY = 50  # flesch_reading_ease
-MIN_SENTS_READABILITY = 2    # flesch_reading_ease
+# minimum token thresholds
+MIN_TOKENS_LEXICAL = 50
+MIN_TOKENS_READABILITY = 50
+MIN_SENTS_READABILITY = 2
+MIN_NGRAMS_TRIGRAM = 50
 
-
+# all 27 features extracted by this pipeline
 SELECTED_FEATURES = [
     "type_token_ratio",
     "yules_k",
     "hapax_legomena_ratio",
     "token_burstiness",
+    "trigram_diversity",
+    "hapax_type_ratio",
     "char_trigram_entropy",
     "compression_ratio",
     "avg_word_length",
     "stopword_ratio",
     "comma_ratio",
     "sentence_length_std",
+    "avg_sentence_length",
     "flesch_reading_ease",
     "avg_tree_depth",
     "avg_dependency_distance",
+    "left_dependency_ratio",
     "content_function_ratio",
     "verbs_per_100",
     "pos_ratio_CCONJ",
     "pos_transition_entropy",
     "prop_sents_with_verb",
+    "noun_verb_ratio",
+    "upos_entropy",
+    "mean_verbs_per_sent",
     "sentiment_subjectivity",
     "sentiment_polarity_variance",
 ]
 
-# metadata columns retained for imputation and downstream joins
+# metadata columns
 METADATA_COLS = ["id", "n_tokens_doc", "n_sentences_doc"]
 
 # pos tag sets
@@ -168,6 +173,12 @@ def shannon_entropy(counter: Counter) -> float:
     return float(ent)
 
 
+def extract_ngrams(tokens: List[str], n: int) -> List[Tuple[str, ...]]:
+    if len(tokens) < n:
+        return []
+    return [tuple(tokens[i:i + n]) for i in range(len(tokens) - n + 1)]
+
+
 # syllable counting (needed for flesch)
 
 
@@ -198,10 +209,13 @@ def syllables_hybrid(word: str, cmu: dict, g2p: G2p) -> int:
 
 
 # lexical diversity features
-# type_token_ratio, yules_k, hapax_legomena_ratio, token_burstiness
+# type_token_ratio, yules_k, hapax_legomena_ratio, token_burstiness,
+# trigram_diversity, hapax_type_ratio
 
 
-def compute_lexical_features(word_toks: list, n_tokens: int) -> Dict[str, float]:
+def compute_lexical_features(
+    word_toks: list, n_tokens: int
+) -> Dict[str, float]:
     feats = {}
 
     # type-token ratio
@@ -211,7 +225,7 @@ def compute_lexical_features(word_toks: list, n_tokens: int) -> Dict[str, float]
     else:
         feats["type_token_ratio"] = np.nan
 
-    # build lowered token list (capped at 500 for stability)
+    # lowered token window (capped at 500 for stability)
     tok_win = [t.text.lower() for t in word_toks if _word_like(t)][:500]
 
     # yules_k
@@ -225,13 +239,18 @@ def compute_lexical_features(word_toks: list, n_tokens: int) -> Dict[str, float]
     else:
         feats["yules_k"] = np.nan
 
-    # hapax legomena ratio
+    # hapax legomena ratio (hapax / tokens) + hapax type ratio (hapax / types)
     if tok_win:
         cnt = Counter(tok_win)
         hapax = sum(1 for c in cnt.values() if c == 1)
+        types = len(cnt)
         feats["hapax_legomena_ratio"] = hapax / float(len(tok_win))
+        feats["hapax_type_ratio"] = (
+            hapax / float(types) if types > 0 else np.nan
+        )
     else:
         feats["hapax_legomena_ratio"] = np.nan
+        feats["hapax_type_ratio"] = np.nan
 
     # token burstiness
     if len(tok_win) >= 2:
@@ -249,6 +268,16 @@ def compute_lexical_features(word_toks: list, n_tokens: int) -> Dict[str, float]
     else:
         feats["token_burstiness"] = np.nan
 
+    # ablation: trigram diversity
+    if len(tok_win) >= 3:
+        grams = extract_ngrams(tok_win, 3)
+        if len(grams) >= MIN_NGRAMS_TRIGRAM:
+            feats["trigram_diversity"] = len(set(grams)) / len(grams)
+        else:
+            feats["trigram_diversity"] = np.nan
+    else:
+        feats["trigram_diversity"] = np.nan
+
     return feats
 
 
@@ -256,7 +285,9 @@ def compute_lexical_features(word_toks: list, n_tokens: int) -> Dict[str, float]
 # char_trigram_entropy, compression_ratio, avg_word_length
 
 
-def compute_character_features(text: str, word_toks: list) -> Dict[str, float]:
+def compute_character_features(
+    text: str, word_toks: list
+) -> Dict[str, float]:
     feats = {}
 
     # char trigram entropy
@@ -320,17 +351,26 @@ def compute_functional_features(
 
 
 # structural features
-# sentence_length_std
+# sentence_length_std, avg_sentence_length
 
 
 def compute_structural_features(sents: list) -> Dict[str, float]:
     sent_word_counts = [sum(1 for t in s if _word_like(t)) for s in sents]
+    feats = {}
+
     if len(sent_word_counts) > 1:
-        return {
-            "sentence_length_std": float(np.std(sent_word_counts, ddof=0))
-        }
+        feats["sentence_length_std"] = float(
+            np.std(sent_word_counts, ddof=0)
+        )
     else:
-        return {"sentence_length_std": np.nan}
+        feats["sentence_length_std"] = np.nan
+
+    if sent_word_counts:
+        feats["avg_sentence_length"] = float(np.mean(sent_word_counts))
+    else:
+        feats["avg_sentence_length"] = np.nan
+
+    return feats
 
 
 # readability
@@ -348,12 +388,16 @@ def compute_readability_features(
     words = max(n_tokens, 1)
     sents = max(n_sents, 1)
 
-    fre = 206.835 - 1.015 * (words / sents) - 84.6 * (total_syllables / words)
+    fre = (
+        206.835
+        - 1.015 * (words / sents)
+        - 84.6 * (total_syllables / words)
+    )
     return {"flesch_reading_ease": fre}
 
 
 # syntactic features
-# avg_tree_depth, avg_dependency_distance
+# avg_tree_depth, avg_dependency_distance, left_dependency_ratio
 
 
 def _root_chain_depth(token: Token, max_steps: int) -> int:
@@ -375,6 +419,8 @@ def compute_syntactic_features(doc: Doc, sents: list) -> Dict[str, float]:
     max_steps = len(doc) + 5
     depths = []
     per_sent_distances = []
+    left_deps = 0
+    right_deps = 0
 
     for sent in sents:
         sent_depths = [_root_chain_depth(tok, max_steps) for tok in sent]
@@ -384,9 +430,16 @@ def compute_syntactic_features(doc: Doc, sents: list) -> Dict[str, float]:
         distances = []
         for token in sent:
             if token.head.i != token.i:
-                distances.append(abs(token.i - token.head.i))
+                d = abs(token.i - token.head.i)
+                distances.append(d)
+                if token.i < token.head.i:
+                    left_deps += 1
+                else:
+                    right_deps += 1
         if distances:
             per_sent_distances.append(np.mean(distances))
+
+    total_deps = left_deps + right_deps
 
     return {
         "avg_tree_depth": float(np.mean(depths)) if depths else 0.0,
@@ -395,12 +448,16 @@ def compute_syntactic_features(doc: Doc, sents: list) -> Dict[str, float]:
             if per_sent_distances
             else 0.0
         ),
+        "left_dependency_ratio": (
+            left_deps / total_deps if total_deps > 0 else 0.0
+        ),
     }
 
 
 # pos features
 # content_function_ratio, verbs_per_100, pos_ratio_CCONJ,
-# pos_transition_entropy, prop_sents_with_verb
+# pos_transition_entropy, prop_sents_with_verb,
+# noun_verb_ratio, upos_entropy, mean_verbs_per_sent
 
 
 def compute_pos_features(doc: Doc, sents: list) -> Dict[str, float]:
@@ -414,6 +471,9 @@ def compute_pos_features(doc: Doc, sents: list) -> Dict[str, float]:
             "pos_ratio_CCONJ": 0.0,
             "pos_transition_entropy": 0.0,
             "prop_sents_with_verb": 0.0,
+            "noun_verb_ratio": 0.0,
+            "upos_entropy": 0.0,
+            "mean_verbs_per_sent": 0.0,
         }
 
     pos_seq = [t.pos_ if t.pos_ in POS_SET else "X" for t in toks]
@@ -421,6 +481,7 @@ def compute_pos_features(doc: Doc, sents: list) -> Dict[str, float]:
 
     content_sum = sum(pos_counts.get(t, 0) for t in CONTENT_POS)
     function_sum = sum(pos_counts.get(t, 0) for t in FUNCTION_POS)
+    nouns = pos_counts.get("NOUN", 0)
     verbs = pos_counts.get("VERB", 0) + pos_counts.get("AUX", 0)
     cconj = pos_counts.get("CCONJ", 0)
 
@@ -428,13 +489,15 @@ def compute_pos_features(doc: Doc, sents: list) -> Dict[str, float]:
     transitions = list(zip(pos_seq, pos_seq[1:]))
     trans_counts = Counter(transitions)
 
-    # proportion of sentences with at least one verb
+    # per-sentence verb counts and presence
     verb_presence = []
+    verbs_per_sent = []
     for s in sents:
         s_toks = [t for t in s if not t.is_space]
         s_counts = Counter(t.pos_ for t in s_toks)
-        has_verb = (s_counts.get("VERB", 0) + s_counts.get("AUX", 0)) > 0
-        verb_presence.append(1 if has_verb else 0)
+        v_count = s_counts.get("VERB", 0) + s_counts.get("AUX", 0)
+        verb_presence.append(1 if v_count > 0 else 0)
+        verbs_per_sent.append(v_count)
 
     return {
         "content_function_ratio": safe_div(content_sum, function_sum),
@@ -443,6 +506,11 @@ def compute_pos_features(doc: Doc, sents: list) -> Dict[str, float]:
         "pos_transition_entropy": shannon_entropy(trans_counts),
         "prop_sents_with_verb": safe_div(
             sum(verb_presence), len(verb_presence)
+        ),
+        "noun_verb_ratio": safe_div(nouns, verbs),
+        "upos_entropy": shannon_entropy(pos_counts),
+        "mean_verbs_per_sent": (
+            float(np.mean(verbs_per_sent)) if verbs_per_sent else 0.0
         ),
     }
 
@@ -478,7 +546,7 @@ def compute_sentiment_features(
     }
 
 
-# main feature extraction -- assembles all 20 features
+# main feature extraction -- assembles all 27 features
 
 
 def extract_features(
@@ -518,8 +586,7 @@ def impute_missing_features(
 ) -> pd.DataFrame:
     """
     Stratified imputation by document length with global median fallback.
-    Default threshold 0.3: balances between conservative (0.2, drops too
-    aggressively on short-heavy corpora) and generous (0.4, imputes too much).
+    Threshold 0.3: feature survives if 70%+ of corpus has valid values.
     """
     df = df.copy()
     df.replace([np.inf, -np.inf], np.nan, inplace=True)
@@ -535,7 +602,7 @@ def impute_missing_features(
     if not num_feats:
         return df
 
-    # drop features with too much missing data
+    # drop features exceeding missing threshold
     missing_pct = df[num_feats].isna().mean()
     high_missing = missing_pct[missing_pct > max_missing_pct]
 
@@ -589,7 +656,7 @@ def extract_all_features(
     df: pd.DataFrame, text_col: str, impute: bool = True
 ) -> pd.DataFrame:
     print("\n" + "=" * 70)
-    print("STYLOMETRIC FEATURE EXTRACTION")
+    print("STYLOMETRIC FEATURE EXTRACTION (27 features)")
     print("=" * 70)
 
     nlp, cmu, g2p = load_nlp_resources()
@@ -622,7 +689,7 @@ def extract_all_features(
 
     features_df = pd.DataFrame(all_features)
 
-    # reorder: metadata first, then selected features
+    # reorder: metadata, features
     output_cols = METADATA_COLS + [
         f for f in SELECTED_FEATURES if f in features_df.columns
     ]
@@ -637,11 +704,12 @@ def extract_all_features(
         )
 
     # summary
+    n_features = sum(1 for f in SELECTED_FEATURES if f in features_df.columns)
     print("\n" + "=" * 70)
     print("EXTRACTION COMPLETE")
     print("=" * 70)
     print(f"documents processed: {len(features_df)}")
-    print(f"features extracted: {len(SELECTED_FEATURES)}")
+    print(f"features extracted: {n_features}/{len(SELECTED_FEATURES)}")
     print(f"total columns: {len(features_df.columns)} (incl. metadata)")
 
     nan_counts = features_df.isna().sum()
@@ -663,8 +731,10 @@ def extract_all_features(
 
 def create_mock_data(n_samples: int = 30) -> pd.DataFrame:
     """
-    Generate mock data from RAID.
-    A few short texts (< 50 tokens) test the nan/imputation paths.
+    Generate mock data with realistic lengths.
+    ~10% short (< 50 tokens): test nan/imputation paths.
+    ~20% medium (~60-90 tokens): boundary cases.
+    ~70% long (150-250+ tokens): full extraction.
     """
     np.random.seed(RANDOM_SEED)
 
@@ -737,16 +807,16 @@ def create_mock_data(n_samples: int = 30) -> pd.DataFrame:
     data = []
     for i in range(n_samples):
         if i % 10 == 0:
-            # short text (< 50 tokens): tests nan paths and imputation
+            # short (< 50 tokens): tests nan paths
             text = (
                 "A short test sentence for validation. "
                 "This checks edge cases in the pipeline."
             )
         elif i % 10 == 1:
-            # medium-short text (~60-80 tokens): above threshold but modest
+            # medium (~60-90 tokens): single paragraph
             text = paragraphs[i % len(paragraphs)]
         else:
-            # long text (150-250+ tokens): combines multiple paragraphs
+            # long (150-250+ tokens): multiple paragraphs
             base = paragraphs[i % len(paragraphs)]
             extra = paragraphs[(i + 1) % len(paragraphs)]
             text = base + " " + extra
@@ -764,16 +834,7 @@ def create_mock_data(n_samples: int = 30) -> pd.DataFrame:
 
 
 def run_test():
-    """
-    End-to-end test: create mock data, extract features, validate output.
-    Checks:
-    1. All selected features present after extraction (pre-imputation)
-    2. Metadata columns present
-    3. Short texts produce nans where expected
-    4. Imputation fills nans without dropping features
-    5. Feature value ranges are plausible
-    6. Row count preserved
-    """
+    """End-to-end test with validation checks for all 27 features."""
     import time
 
     print("\n" + "=" * 70)
@@ -800,16 +861,26 @@ def run_test():
     raw_df = extract_all_features(mock_df, "text", impute=False)
     elapsed_raw = time.time() - start_time
 
-    # check nan behavior in short docs
     short_mask = raw_df["n_tokens_doc"] < MIN_TOKENS_LEXICAL
     n_short_actual = short_mask.sum()
 
-    print(f"\nshort documents (< {MIN_TOKENS_LEXICAL} tokens): {n_short_actual}")
-    for feat in ["yules_k", "flesch_reading_ease", "sentence_length_std"]:
+    print(
+        f"\nshort documents (< {MIN_TOKENS_LEXICAL} tokens): "
+        f"{n_short_actual}"
+    )
+    nan_prone = [
+        "yules_k", "flesch_reading_ease", "sentence_length_std",
+        "trigram_diversity",
+    ]
+    for feat in nan_prone:
         if feat in raw_df.columns:
-            nan_count = raw_df.loc[short_mask, feat].isna().sum()
-            total_nan = raw_df[feat].isna().sum()
-            print(f"  {feat}: {nan_count} nan in short, {total_nan} total nan")
+            nan_short = raw_df.loc[short_mask, feat].isna().sum()
+            nan_total = raw_df[feat].isna().sum()
+            print(
+                f"  {feat}: {nan_short} nan in short, "
+                f"{nan_total} total nan "
+                f"({100 * nan_total / len(raw_df):.0f}%)"
+            )
 
     # -- phase 2: extraction with imputation --
     print("\n--- phase 2: extraction with imputation ---")
@@ -817,10 +888,10 @@ def run_test():
     features_df = extract_all_features(mock_df, "text", impute=True)
     elapsed = time.time() - start_time
 
-    test_output = OUTPUT_PATH / "test_stylometric_features_20.csv"
+    test_output = OUTPUT_PATH / "test_stylometric_features_27.csv"
     features_df.to_csv(test_output, index=False)
 
-    # -- validation checks --
+    # -- validation --
     print("\n" + "=" * 70)
     print("TEST VALIDATION")
     print("=" * 70)
@@ -828,16 +899,16 @@ def run_test():
     checks_passed = 0
     checks_total = 0
 
-    # check 1: all 20 features present pre-imputation
+    # check 1: all 27 features present pre-imputation
     checks_total += 1
     missing_pre = [f for f in SELECTED_FEATURES if f not in raw_df.columns]
     if not missing_pre:
-        print("[PASS] all 20 features present in raw extraction")
+        print("[PASS] all 27 features present in raw extraction")
         checks_passed += 1
     else:
         print(f"[FAIL] missing in raw extraction: {missing_pre}")
 
-    # check 2: metadata columns present
+    # check 2: metadata present
     checks_total += 1
     missing_meta = [c for c in METADATA_COLS if c not in features_df.columns]
     if not missing_meta:
@@ -846,38 +917,32 @@ def run_test():
     else:
         print(f"[FAIL] missing metadata: {missing_meta}")
 
-    # check 3: all 20 features survive imputation (none dropped)
+    # check 3: features survive imputation
     checks_total += 1
-    missing_post = [
-        f for f in SELECTED_FEATURES if f not in features_df.columns
-    ]
-    if not missing_post:
-        print("[PASS] all 20 features survived imputation")
+    present_feats_post = [f for f in SELECTED_FEATURES if f in features_df.columns]
+    dropped = [f for f in SELECTED_FEATURES if f not in features_df.columns]
+    if not dropped:
+        print(
+            f"[PASS] all 27 features survived imputation "
+            f"({len(present_feats_post)} total)"
+        )
         checks_passed += 1
     else:
-        print(
-            f"[WARN] {len(missing_post)} features dropped by imputation: "
-            f"{missing_post}"
-        )
-        # check what percentage was missing
-        for feat in missing_post:
+        print(f"[WARN] {len(dropped)} features dropped: {dropped}")
+        for feat in dropped:
             if feat in raw_df.columns:
                 pct = raw_df[feat].isna().mean() * 100
                 print(f"  {feat}: {pct:.1f}% missing (threshold: 30%)")
 
-    # check 4: no all-nan columns after imputation
+    # check 4: no all-nan columns
     checks_total += 1
-    present_feats = [
-        f for f in SELECTED_FEATURES if f in features_df.columns
-    ]
-    all_nan_cols = [
-        c for c in present_feats if features_df[c].isna().all()
-    ]
-    if not all_nan_cols:
-        print("[PASS] no all-nan feature columns after imputation")
+    present_feats = [f for f in SELECTED_FEATURES if f in features_df.columns]
+    all_nan = [c for c in present_feats if features_df[c].isna().all()]
+    if not all_nan:
+        print("[PASS] no all-nan feature columns")
         checks_passed += 1
     else:
-        print(f"[FAIL] all-nan columns: {all_nan_cols}")
+        print(f"[FAIL] all-nan columns: {all_nan}")
 
     # check 5: imputation completeness
     checks_total += 1
@@ -891,9 +956,9 @@ def run_test():
         print(f"[WARN] {remaining_nans} nan values remain:")
         for col, cnt in nan_detail.items():
             print(f"  {col}: {cnt}")
-        checks_passed += 1  # not a hard failure
+        checks_passed += 1
 
-    # check 6: plausible value ranges
+    # check 6: plausible ranges
     checks_total += 1
     range_issues = []
     range_checks = {
@@ -908,6 +973,14 @@ def run_test():
         "avg_word_length": (1.0, 20.0),
         "avg_tree_depth": (0.0, 50.0),
         "flesch_reading_ease": (-100.0, 150.0),
+        "left_dependency_ratio": (0.0, 1.0),
+        "trigram_diversity": (0.0, 1.0),
+        "hapax_type_ratio": (0.0, 1.0),
+        "hapax_legomena_ratio": (0.0, 1.0),
+        "noun_verb_ratio": (0.0, 50.0),
+        "upos_entropy": (0.0, 10.0),
+        "avg_sentence_length": (0.0, 500.0),
+        "mean_verbs_per_sent": (0.0, 50.0),
     }
     for feat, (lo, hi) in range_checks.items():
         if feat in features_df.columns:
@@ -918,7 +991,6 @@ def run_test():
                     f"{feat}: [{fmin:.4f}, {fmax:.4f}] "
                     f"outside [{lo}, {hi}]"
                 )
-
     if not range_issues:
         print("[PASS] all feature ranges plausible")
         checks_passed += 1
@@ -927,7 +999,7 @@ def run_test():
         for issue in range_issues:
             print(f"  {issue}")
 
-    # check 7: row count preserved
+    # check 7: row count
     checks_total += 1
     if len(features_df) == len(mock_df):
         print(f"[PASS] row count preserved: {len(features_df)}")
@@ -942,11 +1014,11 @@ def run_test():
     print(f"\n{'=' * 70}")
     print(f"CHECKS: {checks_passed}/{checks_total} passed")
     print(f"extraction time (raw): {elapsed_raw:.1f}s")
-    print(f"extraction time (with imputation): {elapsed:.1f}s")
+    print(f"extraction time (imputed): {elapsed:.1f}s")
     print(f"output saved to: {test_output}")
     print("=" * 70)
 
-    # feature ranges for manual inspection
+    # feature ranges
     print("\nfeature ranges:")
     for col in SELECTED_FEATURES:
         if col in features_df.columns:
@@ -970,7 +1042,7 @@ def run_test():
 
 def main():
     print("\n" + "=" * 70)
-    print("STYLOMETRIC FEATURE EXTRACTOR")
+    print("STYLOMETRIC FEATURE EXTRACTOR (27 features)")
     print("=" * 70)
 
     dataset_path = input(
@@ -1007,7 +1079,7 @@ def main():
     features_df = extract_all_features(df, text_col, impute=True)
     elapsed = time.time() - start_time
 
-    output_path = OUTPUT_PATH / "stylometric_features_20.csv"
+    output_path = OUTPUT_PATH / "stylometric_features_27.csv"
     features_df.to_csv(output_path, index=False)
     print(f"\nfeatures saved to: {output_path}")
     print(f"total time: {elapsed / 60:.1f} minutes")
